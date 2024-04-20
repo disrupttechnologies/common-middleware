@@ -1,0 +1,307 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type BTCIncomingTransaction {
+  amount: String!
+  binanceTxnId: String!
+  createdAt: DateTime!
+  failedRemarks: String
+  id: ID!
+  senderAddress: String!
+  settlementTxn: BTCSettlementTransaction
+  txnHash: String!
+  txnStatus: TxnStatus!
+  txnTime: DateTime!
+  updatedAt: DateTime!
+  user: UserBTCAddress!
+}
+
+input BTCIncomingTransactionListRelationFilter {
+  every: BTCIncomingTransactionWhereInput
+  none: BTCIncomingTransactionWhereInput
+  some: BTCIncomingTransactionWhereInput
+}
+
+input BTCIncomingTransactionRelationFilter {
+  is: BTCIncomingTransactionWhereInput
+  isNot: BTCIncomingTransactionWhereInput
+}
+
+input BTCIncomingTransactionWhereInput {
+  AND: [BTCIncomingTransactionWhereInput!]
+  NOT: [BTCIncomingTransactionWhereInput!]
+  OR: [BTCIncomingTransactionWhereInput!]
+  amount: StringFilter
+  binanceTxnId: StringFilter
+  createdAt: DateTimeFilter
+  failedRemarks: StringNullableFilter
+  id: StringFilter
+  senderAddress: StringFilter
+  settlementTxn: BTCSettlementTransactionNullableRelationFilter
+  txnHash: StringFilter
+  txnStatus: EnumTxnStatusFilter
+  txnTime: DateTimeFilter
+  updatedAt: DateTimeFilter
+  user: UserBTCAddressRelationFilter
+}
+
+type BTCSettlementTransaction {
+  amountReceivedInUSD: String
+  createdAt: DateTime!
+  failedRemarks: String
+  id: ID!
+  incomingTxn: BTCIncomingTransaction!
+  incomingTxnId: String!
+  orderId: String
+  orderplaceTime: DateTime
+  status: BTCTxnProcessStatus!
+  updatedAt: DateTime!
+}
+
+input BTCSettlementTransactionNullableRelationFilter {
+  is: BTCSettlementTransactionWhereInput
+  isNot: BTCSettlementTransactionWhereInput
+}
+
+input BTCSettlementTransactionWhereInput {
+  AND: [BTCSettlementTransactionWhereInput!]
+  NOT: [BTCSettlementTransactionWhereInput!]
+  OR: [BTCSettlementTransactionWhereInput!]
+  amountReceivedInUSD: StringNullableFilter
+  createdAt: DateTimeFilter
+  failedRemarks: StringNullableFilter
+  id: StringFilter
+  incomingTxn: BTCIncomingTransactionRelationFilter
+  incomingTxnId: StringFilter
+  orderId: StringNullableFilter
+  orderplaceTime: DateTimeNullableFilter
+  status: EnumBTCTxnProcessStatusFilter
+  updatedAt: DateTimeFilter
+}
+
+enum BTCTxnProcessStatus {
+  FAILED
+  NOT_INITIALIZED
+  PENDING
+  SUCCESS
+}
+
+input CreateUserBtcAddressInput {
+  """BTC Address"""
+  address: String!
+
+  """User Id"""
+  userId: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeFilter
+  notIn: [DateTime!]
+}
+
+input DateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeNullableFilter
+  notIn: [DateTime!]
+}
+
+input EnumBTCTxnProcessStatusFilter {
+  equals: BTCTxnProcessStatus
+  in: [BTCTxnProcessStatus!]
+  not: NestedEnumBTCTxnProcessStatusFilter
+  notIn: [BTCTxnProcessStatus!]
+}
+
+input EnumTxnStatusFilter {
+  equals: TxnStatus
+  in: [TxnStatus!]
+  not: NestedEnumTxnStatusFilter
+  notIn: [TxnStatus!]
+}
+
+input GetUserBTCAddressInput {
+  """User Id"""
+  userId: String!
+}
+
+"""
+A field whose value is a JSON Web Token (JWT): https://jwt.io/introduction.
+"""
+scalar JWT
+
+input LoginInput {
+  key: String!
+  whitelabelId: String!
+}
+
+type Mutation {
+  createUserBtcAddress(data: CreateUserBtcAddressInput!): OkResponse!
+  login(data: LoginInput!): Token!
+}
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeFilter
+  notIn: [DateTime!]
+}
+
+input NestedDateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: NestedDateTimeNullableFilter
+  notIn: [DateTime!]
+}
+
+input NestedEnumBTCTxnProcessStatusFilter {
+  equals: BTCTxnProcessStatus
+  in: [BTCTxnProcessStatus!]
+  not: NestedEnumBTCTxnProcessStatusFilter
+  notIn: [BTCTxnProcessStatus!]
+}
+
+input NestedEnumTxnStatusFilter {
+  equals: TxnStatus
+  in: [TxnStatus!]
+  not: NestedEnumTxnStatusFilter
+  notIn: [TxnStatus!]
+}
+
+input NestedStringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+type OkResponse {
+  message: String!
+}
+
+type Query {
+  getBTCTxns(where: BTCIncomingTransactionWhereInput! = {}): [BTCIncomingTransaction!]!
+  getUserAddresses(data: GetUserBTCAddressInput!): [UserBTCAddress!]!
+}
+
+enum QueryMode {
+  default
+  insensitive
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+type Token {
+  """JWT access token"""
+  accessToken: JWT!
+
+  """JWT refresh token"""
+  refreshToken: JWT!
+}
+
+enum TxnStatus {
+  ERROR
+  PENDING
+  SUCCESS
+}
+
+type UserBTCAddress {
+  address: String!
+  createdAt: DateTime!
+  id: ID!
+  txns: [BTCIncomingTransaction!]
+  updatedAt: DateTime!
+  userId: String!
+  whitelabelId: String!
+}
+
+input UserBTCAddressRelationFilter {
+  is: UserBTCAddressWhereInput
+  isNot: UserBTCAddressWhereInput
+}
+
+input UserBTCAddressWhereInput {
+  AND: [UserBTCAddressWhereInput!]
+  NOT: [UserBTCAddressWhereInput!]
+  OR: [UserBTCAddressWhereInput!]
+  address: StringFilter
+  createdAt: DateTimeFilter
+  id: StringFilter
+  txns: BTCIncomingTransactionListRelationFilter
+  updatedAt: DateTimeFilter
+  userId: StringFilter
+  whitelabelId: StringFilter
+}

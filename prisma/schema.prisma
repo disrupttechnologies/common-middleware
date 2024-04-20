@@ -1,0 +1,81 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  // previewFeatures = []
+}
+
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
+generator nestgraphql {
+  provider           = "node node_modules/prisma-nestjs-graphql"
+  output             = "../src/@generated"
+  omitModelsCount    = true
+  noAtomicOperations = true
+}
+
+model SyncDetails {
+  id           String   @id @default(cuid())
+  lastSyncedAt DateTime
+  actionName   String   @unique
+  metadata     String?
+}
+
+model UserBTCAddress {
+  id           String                   @id @default(cuid())
+  createdAt    DateTime                 @default(now())
+  updatedAt    DateTime                 @updatedAt
+  address      String                   @unique
+  userId       String
+  whitelabelId String
+  txns         BTCIncomingTransaction[]
+}
+
+model BTCSettlementTransaction {
+  id                  String                 @id @default(cuid())
+  createdAt           DateTime               @default(now())
+  updatedAt           DateTime               @updatedAt
+  incomingTxnId       String                 @unique
+  incomingTxn         BTCIncomingTransaction @relation(fields: [incomingTxnId], references: [id])
+  orderId             String?                @unique
+  orderplaceTime      DateTime?
+  amountReceivedInUSD String?
+  status              BTCTxnProcessStatus    @default(NOT_INITIALIZED)
+  failedRemarks       String?
+}
+
+model BTCIncomingTransaction {
+  id            String                    @id @default(cuid())
+  createdAt     DateTime                  @default(now())
+  updatedAt     DateTime                  @updatedAt
+  txnHash       String                    @unique
+  binanceTxnId  String                    @unique
+  txnTime       DateTime
+  amount        String
+  senderAddress String
+  settlementTxn BTCSettlementTransaction?
+  user          UserBTCAddress            @relation(fields: [senderAddress], references: [address])
+  txnStatus     TxnStatus
+  failedRemarks String?
+}
+
+
+enum TxnStatus {
+  PENDING
+  SUCCESS
+  ERROR
+}
+
+
+
+enum BTCTxnProcessStatus {
+  NOT_INITIALIZED
+  PENDING
+  SUCCESS
+  FAILED
+}
