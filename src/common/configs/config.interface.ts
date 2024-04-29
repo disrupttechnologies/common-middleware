@@ -4,10 +4,18 @@ export interface Config {
   graphql: GraphqlConfig;
   security: SecurityConfig;
   binance: BinanceConfig;
+  sumsub:SumSubConfig
 }
 
 export interface NestConfig {
   port: number;
+}
+
+export interface SumSubConfig{
+  apiURL: string,
+  secret: string
+  token: string
+  levelName:string
 }
 
 export interface CorsConfig {

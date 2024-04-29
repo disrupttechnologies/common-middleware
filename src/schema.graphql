@@ -87,6 +87,14 @@ enum BTCTxnProcessStatus {
   SUCCESS
 }
 
+input CreateTradeDataInput {
+  amount: String!
+  chainId: String!
+  from: String!
+  receiver: String!
+  src: String!
+}
+
 input CreateUserBtcAddressInput {
   """BTC Address"""
   address: String!
@@ -152,6 +160,7 @@ input LoginInput {
 }
 
 type Mutation {
+  createTradeData(data: CreateTradeDataInput! = {}): TokenTradeResp!
   createUserBtcAddress(data: CreateUserBtcAddressInput!): OkResponse!
   login(data: LoginInput!): Token!
 }
@@ -226,6 +235,7 @@ type OkResponse {
 
 type Query {
   getBTCTxns(where: BTCIncomingTransactionWhereInput! = {}): [BTCIncomingTransaction!]!
+  getCryptoPrice: TokenPriceResp!
   getUserAddresses(data: GetUserBTCAddressInput!): [UserBTCAddress!]!
 }
 
@@ -270,6 +280,14 @@ type Token {
 
   """JWT refresh token"""
   refreshToken: JWT!
+}
+
+type TokenPriceResp {
+  prices: String!
+}
+
+type TokenTradeResp {
+  data: String!
 }
 
 enum TxnStatus {

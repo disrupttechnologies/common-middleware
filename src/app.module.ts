@@ -10,6 +10,8 @@ import { GqlConfigService } from './gql-config.service';
 import { BtchandlerModule } from './btchandler/btchandler.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { UserBtcAddressModule } from './user-btc-address/user-btc-address.module';
+import { KycModule } from './kyc/kyc.module';
+import { DexModule } from './dex/dex.module';
 
 @Module({
   imports: [
@@ -38,6 +40,10 @@ import { UserBtcAddressModule } from './user-btc-address/user-btc-address.module
     BtchandlerModule,
 
     UserBtcAddressModule,
+
+    DexModule,
+
+    // KycModule,
 
 
  

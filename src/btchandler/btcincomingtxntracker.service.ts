@@ -120,7 +120,6 @@ export class BTCIncomingTxnTrackerService {
       includeSource: true,
     };
     const records = await binanceClient.depositHistory(options);
-    console.log({records})
     await this.saveRecords(records);
   }
   async handle(startTime: number, binanceClient: Spot) {

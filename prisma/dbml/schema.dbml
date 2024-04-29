@@ -2,6 +2,20 @@
 //// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 //// ------------------------------------------------------
 
+Table KYCDetail {
+  id String [pk]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  userId String [unique, not null]
+  kycStatus KycStatus [not null, default: 'NOT_INITIALIZED']
+  failedRemarks String
+  docsMetadata String [not null]
+  userMetadata String [not null]
+  whitelabelId String [not null]
+  kycApplicantId String [unique]
+  kycStage KYCStage [not null, default: 'NOT_INITIALIZED']
+}
+
 Table SyncDetails {
   id String [pk]
   lastSyncedAt DateTime [not null]
@@ -58,6 +72,20 @@ Enum BTCTxnProcessStatus {
   PENDING
   SUCCESS
   FAILED
+}
+
+Enum KycStatus {
+  NOT_INITIALIZED
+  PENDING
+  FAILED
+  RETRY
+  SUCCESS
+}
+
+Enum KYCStage {
+  NOT_INITIALIZED
+  ID_CREATED
+  DOCS_UPLOADED
 }
 
 Ref: BTCSettlementTransaction.incomingTxnId - BTCIncomingTransaction.id

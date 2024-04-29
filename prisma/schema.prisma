@@ -19,6 +19,20 @@ generator nestgraphql {
   noAtomicOperations = true
 }
 
+model KYCDetail {
+  id             String    @id @default(cuid())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  userId         String    @unique
+  kycStatus      KycStatus @default(NOT_INITIALIZED)
+  failedRemarks  String?
+  docsMetadata   String
+  userMetadata   String
+  whitelabelId   String
+  kycApplicantId String?   @unique
+  kycStage       KYCStage  @default(NOT_INITIALIZED)
+}
+
 model SyncDetails {
   id           String   @id @default(cuid())
   lastSyncedAt DateTime
@@ -64,18 +78,29 @@ model BTCIncomingTransaction {
   failedRemarks String?
 }
 
-
 enum TxnStatus {
   PENDING
   SUCCESS
   ERROR
 }
 
-
-
 enum BTCTxnProcessStatus {
   NOT_INITIALIZED
   PENDING
   SUCCESS
   FAILED
+}
+
+enum KycStatus {
+  NOT_INITIALIZED
+  PENDING
+  FAILED
+  RETRY
+  SUCCESS
+}
+
+enum KYCStage {
+  NOT_INITIALIZED
+  ID_CREATED
+  DOCS_UPLOADED
 }

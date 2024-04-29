@@ -1,4 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
+import ip  from "ip";
 
 @Controller()
 export class AppController {
@@ -6,8 +7,8 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    return "hello"
-    // return this.appService.getHello();
+    const _ip = ip.address()
+    return _ip
   }
 
   

@@ -121,7 +121,7 @@ export class BtchandlerResolver {
         );
         await this.markSynced(SYNC_ACTION_NAME.CEX);
       } catch (err) {
-        console.error('errrr', err);
+        console.error('binanceIncoming', err);
       }
     }
   }

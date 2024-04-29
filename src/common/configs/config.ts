@@ -5,6 +5,13 @@ const config: Config = {
     port: 3000,
   },
  
+  sumsub: {
+    apiURL: process.env.SUMSUB_BASE_URL,
+    secret: process.env.SUMSUM_APP_SECRET,
+    token: process.env.SUMSUB_APP_TOKEN,
+    levelName:process.env.SUMSUB_LEVEL_NAME,
+  },
+
   cors: {
     enabled: true,
   },
