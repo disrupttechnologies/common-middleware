@@ -87,6 +87,18 @@ enum BTCTxnProcessStatus {
   SUCCESS
 }
 
+input CreateKYCInput {
+  """User Id"""
+  userId: String!
+
+  """User Metadata"""
+  userMetadata: String!
+}
+
+input CreateKYCsInput {
+  data: [CreateKYCInput!]!
+}
+
 input CreateTradeDataInput {
   amount: String!
   chainId: String!
@@ -137,11 +149,41 @@ input EnumBTCTxnProcessStatusFilter {
   notIn: [BTCTxnProcessStatus!]
 }
 
+input EnumKYCStageFilter {
+  equals: KYCStage
+  in: [KYCStage!]
+  not: NestedEnumKYCStageFilter
+  notIn: [KYCStage!]
+}
+
+input EnumKycStatusFilter {
+  equals: KycStatus
+  in: [KycStatus!]
+  not: NestedEnumKycStatusFilter
+  notIn: [KycStatus!]
+}
+
 input EnumTxnStatusFilter {
   equals: TxnStatus
   in: [TxnStatus!]
   not: NestedEnumTxnStatusFilter
   notIn: [TxnStatus!]
+}
+
+input GetKYCAccessTokenInput {
+  userId: String!
+}
+
+type GetKYCAccessTokenInputResponse {
+  token: String!
+}
+
+input GetKYCResponseInput {
+  ids: [String!]!
+}
+
+type GetKYCResponses {
+  data: [KYCResponse!]!
 }
 
 input GetUserBTCAddressInput {
@@ -154,12 +196,63 @@ A field whose value is a JSON Web Token (JWT): https://jwt.io/introduction.
 """
 scalar JWT
 
+type KYCDetail {
+  createdAt: DateTime!
+  failedRemarks: String
+  id: ID!
+  kycApplicantId: String
+  kycStage: KYCStage!
+  kycStatus: KycStatus!
+  updatedAt: DateTime!
+  userId: String!
+  userMetadata: String!
+  whitelabelId: String!
+}
+
+input KYCDetailWhereInput {
+  AND: [KYCDetailWhereInput!]
+  NOT: [KYCDetailWhereInput!]
+  OR: [KYCDetailWhereInput!]
+  createdAt: DateTimeFilter
+  failedRemarks: StringNullableFilter
+  id: StringFilter
+  kycApplicantId: StringNullableFilter
+  kycStage: EnumKYCStageFilter
+  kycStatus: EnumKycStatusFilter
+  updatedAt: DateTimeFilter
+  userId: StringFilter
+  userMetadata: StringFilter
+  whitelabelId: StringFilter
+}
+
+type KYCResponse {
+  kycStatus: KycStatus!
+  userId: ID!
+}
+
+enum KYCStage {
+  ID_CREATED
+  NOT_INITIALIZED
+  PASSPORT_UPLOADED
+  REQUEST_CHECKED
+  SELFIE_UPLOADED
+}
+
+enum KycStatus {
+  FAILED
+  NOT_INITIALIZED
+  PENDING
+  RETRY
+  SUCCESS
+}
+
 input LoginInput {
   key: String!
   whitelabelId: String!
 }
 
 type Mutation {
+  createKYC(data: CreateKYCsInput!): OkResponse!
   createTradeData(data: CreateTradeDataInput! = {}): TokenTradeResp!
   createUserBtcAddress(data: CreateUserBtcAddressInput!): OkResponse!
   login(data: LoginInput!): Token!
@@ -192,6 +285,20 @@ input NestedEnumBTCTxnProcessStatusFilter {
   in: [BTCTxnProcessStatus!]
   not: NestedEnumBTCTxnProcessStatusFilter
   notIn: [BTCTxnProcessStatus!]
+}
+
+input NestedEnumKYCStageFilter {
+  equals: KYCStage
+  in: [KYCStage!]
+  not: NestedEnumKYCStageFilter
+  notIn: [KYCStage!]
+}
+
+input NestedEnumKycStatusFilter {
+  equals: KycStatus
+  in: [KycStatus!]
+  not: NestedEnumKycStatusFilter
+  notIn: [KycStatus!]
 }
 
 input NestedEnumTxnStatusFilter {
@@ -236,6 +343,9 @@ type OkResponse {
 type Query {
   getBTCTxns(where: BTCIncomingTransactionWhereInput! = {}): [BTCIncomingTransaction!]!
   getCryptoPrice: TokenPriceResp!
+  getKYCAccessToken(data: GetKYCAccessTokenInput! = {}): GetKYCAccessTokenInputResponse!
+  getKYCDetails(where: KYCDetailWhereInput! = {}): [KYCDetail!]!
+  getKYCResponses(data: GetKYCResponseInput! = {}): GetKYCResponses!
   getUserAddresses(data: GetUserBTCAddressInput!): [UserBTCAddress!]!
 }
 

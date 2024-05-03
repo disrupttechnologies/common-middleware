@@ -4,7 +4,26 @@ export interface Config {
   graphql: GraphqlConfig;
   security: SecurityConfig;
   binance: BinanceConfig;
-  sumsub:SumSubConfig
+  sumsub: SumSubConfig
+  s3Config: S3Config
+  whitelabelConfig:WhitelabelConfig
+}
+
+export interface S3Config {
+  accessKey: string;
+  secret: string;
+  region: string;
+  // buckets: {
+  //   [key : string]:string
+  // }
+}
+
+export interface WhitelabelConfig {
+  [key: string]: {
+    s3Bucket: string,
+    backendUri:string
+  },
+  
 }
 
 export interface NestConfig {

@@ -25,9 +25,6 @@ export class KYCDetailCreateInput {
     failedRemarks?: string;
 
     @Field(() => String, {nullable:false})
-    docsMetadata!: string;
-
-    @Field(() => String, {nullable:false})
     userMetadata!: string;
 
     @Field(() => String, {nullable:false})

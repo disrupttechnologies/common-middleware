@@ -24,9 +24,6 @@ export class KYCDetailCountAggregate {
     failedRemarks!: number;
 
     @Field(() => Int, {nullable:false})
-    docsMetadata!: number;
-
-    @Field(() => Int, {nullable:false})
     userMetadata!: number;
 
     @Field(() => Int, {nullable:false})

@@ -37,9 +37,6 @@ export class KYCDetailWhereInput {
     failedRemarks?: StringNullableFilter;
 
     @Field(() => StringFilter, {nullable:true})
-    docsMetadata?: StringFilter;
-
-    @Field(() => StringFilter, {nullable:true})
     userMetadata?: StringFilter;
 
     @Field(() => StringFilter, {nullable:true})

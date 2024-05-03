@@ -4,7 +4,27 @@ const config: Config = {
   nest: {
     port: 3000,
   },
+  s3Config: {
+    secret: process.env.S3_SECRET,
+    accessKey:process.env.S3_ACCESS_KEY,
+    region: process.env.S3_REGION,
+    // buckets: {
+    //   "Agape4me": "agape-docs",
+    //   "PRVDT":"agape-docs"
+    // }
+  },
+  whitelabelConfig: {
+    "Agape4me": {
+      s3Bucket: "agape-docs",
+      backendUri:"http://localhost:3000",
+    },
+    "PRVDT": {
+      s3Bucket:"agape-docs",
+      backendUri:"http://localhost:3000",
+    }
+  },
  
+  
   sumsub: {
     apiURL: process.env.SUMSUB_BASE_URL,
     secret: process.env.SUMSUM_APP_SECRET,

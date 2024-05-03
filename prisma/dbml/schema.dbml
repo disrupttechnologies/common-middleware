@@ -9,7 +9,6 @@ Table KYCDetail {
   userId String [unique, not null]
   kycStatus KycStatus [not null, default: 'NOT_INITIALIZED']
   failedRemarks String
-  docsMetadata String [not null]
   userMetadata String [not null]
   whitelabelId String [not null]
   kycApplicantId String [unique]
@@ -85,7 +84,9 @@ Enum KycStatus {
 Enum KYCStage {
   NOT_INITIALIZED
   ID_CREATED
-  DOCS_UPLOADED
+  PASSPORT_UPLOADED
+  SELFIE_UPLOADED
+  REQUEST_CHECKED
 }
 
 Ref: BTCSettlementTransaction.incomingTxnId - BTCIncomingTransaction.id

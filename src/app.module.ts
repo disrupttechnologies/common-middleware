@@ -12,6 +12,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { UserBtcAddressModule } from './user-btc-address/user-btc-address.module';
 import { KycModule } from './kyc/kyc.module';
 import { DexModule } from './dex/dex.module';
+import { KycwebhookModule } from './kycwebhook/kycwebhook.module';
 
 @Module({
   imports: [
@@ -43,7 +44,9 @@ import { DexModule } from './dex/dex.module';
 
     DexModule,
 
-    // KycModule,
+    KycModule,
+
+    KycwebhookModule,
 
 
  

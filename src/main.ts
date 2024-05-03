@@ -9,7 +9,9 @@ import type {
 } from './common/configs/config.interface';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    rawBody:true
+  });
 
   // Validation
   app.useGlobalPipes(new ValidationPipe());

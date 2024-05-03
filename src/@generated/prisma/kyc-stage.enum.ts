@@ -3,7 +3,9 @@ import { registerEnumType } from '@nestjs/graphql';
 export enum KYCStage {
     NOT_INITIALIZED = "NOT_INITIALIZED",
     ID_CREATED = "ID_CREATED",
-    DOCS_UPLOADED = "DOCS_UPLOADED"
+    PASSPORT_UPLOADED = "PASSPORT_UPLOADED",
+    SELFIE_UPLOADED = "SELFIE_UPLOADED",
+    REQUEST_CHECKED = "REQUEST_CHECKED"
 }
 
 

@@ -37,9 +37,6 @@ export class KYCDetailScalarWhereWithAggregatesInput {
     failedRemarks?: StringNullableWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})
-    docsMetadata?: StringWithAggregatesFilter;
-
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
     userMetadata?: StringWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})

@@ -7,7 +7,6 @@ export enum KYCDetailScalarFieldEnum {
     userId = "userId",
     kycStatus = "kycStatus",
     failedRemarks = "failedRemarks",
-    docsMetadata = "docsMetadata",
     userMetadata = "userMetadata",
     whitelabelId = "whitelabelId",
     kycApplicantId = "kycApplicantId",

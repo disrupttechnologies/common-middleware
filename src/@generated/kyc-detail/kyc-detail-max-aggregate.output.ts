@@ -25,9 +25,6 @@ export class KYCDetailMaxAggregate {
     failedRemarks?: string;
 
     @Field(() => String, {nullable:true})
-    docsMetadata?: string;
-
-    @Field(() => String, {nullable:true})
     userMetadata?: string;
 
     @Field(() => String, {nullable:true})

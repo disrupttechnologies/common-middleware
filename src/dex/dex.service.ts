@@ -54,7 +54,11 @@ export class DexService {
       const data = await this.httpService.axiosRef.get(url, config);
       return data.data;
     } catch (err) {
-      console.error('fetchPriceFrom1Inch', err);
+      if (axios.isAxiosError(err)) {
+        console.error('fetchPriceFrom1Inch', err.response.data.description);
+      } else {
+        console.error('fetchPriceFrom1Inch', err.message);
+      }
     }
   }
 

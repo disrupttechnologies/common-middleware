@@ -26,7 +26,6 @@ model KYCDetail {
   userId         String    @unique
   kycStatus      KycStatus @default(NOT_INITIALIZED)
   failedRemarks  String?
-  docsMetadata   String
   userMetadata   String
   whitelabelId   String
   kycApplicantId String?   @unique
@@ -102,5 +101,7 @@ enum KycStatus {
 enum KYCStage {
   NOT_INITIALIZED
   ID_CREATED
-  DOCS_UPLOADED
+  PASSPORT_UPLOADED
+  SELFIE_UPLOADED
+  REQUEST_CHECKED
 }

@@ -26,9 +26,6 @@ export class KYCDetail {
     failedRemarks!: string | null;
 
     @Field(() => String, {nullable:false})
-    docsMetadata!: string;
-
-    @Field(() => String, {nullable:false})
     userMetadata!: string;
 
     @Field(() => String, {nullable:false})

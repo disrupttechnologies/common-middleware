@@ -23,9 +23,6 @@ export class KYCDetailMaxAggregateInput {
     failedRemarks?: true;
 
     @Field(() => Boolean, {nullable:true})
-    docsMetadata?: true;
-
-    @Field(() => Boolean, {nullable:true})
     userMetadata?: true;
 
     @Field(() => Boolean, {nullable:true})

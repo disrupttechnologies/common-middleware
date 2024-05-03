@@ -24,9 +24,6 @@ export class KYCDetailCountOrderByAggregateInput {
     failedRemarks?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    docsMetadata?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     userMetadata?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
