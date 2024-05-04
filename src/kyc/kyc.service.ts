@@ -38,7 +38,7 @@ export class KycService {
   async handleUploadPassport() {
     const records = await this.prisma.kYCDetail.findMany({
       where: {
-        kycStage: 'ID_CREATED',
+        kycStage: 'SELFIE_UPLOADED',
       },
     });
 
@@ -67,7 +67,7 @@ export class KycService {
   async handleRequestCheck() {
     const records = await this.prisma.kYCDetail.findMany({
       where: {
-        kycStage: 'SELFIE_UPLOADED',
+        kycStage: 'PASSPORT_UPLOADED',
       },
       select: {
         id: true,
@@ -101,7 +101,7 @@ export class KycService {
   async handleUploadSelfie() {
     const records = await this.prisma.kYCDetail.findMany({
       where: {
-        kycStage: 'PASSPORT_UPLOADED',
+        kycStage: 'ID_CREATED',
       },
     });
 
