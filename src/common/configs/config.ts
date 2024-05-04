@@ -14,13 +14,13 @@ const config: Config = {
     // }
   },
   whitelabelConfig: {
-    "Agape4me": {
+    "Agape4Me": {
       s3Bucket: "agape-docs",
-      backendUri:"http://localhost:3000",
+      backendUri:"https://agape-server.fly.dev",
     },
-    "PRVDT": {
-      s3Bucket:"agape-docs",
-      backendUri:"http://localhost:3000",
+    "CryptoPrime": {
+      s3Bucket:"cryptoprime-docs",
+      backendUri:"https://cryptoprice-server.fly.dev",
     }
   },
  

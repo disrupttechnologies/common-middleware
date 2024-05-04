@@ -79,7 +79,6 @@ export class SumSubService {
       Key: fileName,
     };
 
-    console.log("ssaasas",s3Params)
     const s3File = await this.s3Client.getObject(s3Params);
     const base64Data = Buffer.from(
       await s3File.Body.transformToByteArray(),
