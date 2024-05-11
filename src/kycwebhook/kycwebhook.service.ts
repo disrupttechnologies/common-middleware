@@ -86,6 +86,7 @@ export class KycwebhookService {
 
   async handleApplicantPending(data: any) {
     const kycApplicantId = data['applicantId'];
+    const inspectionId = data['inspectionId'];
 
     const record = await this.prisma.kYCUser.update({
       where: {
@@ -93,6 +94,7 @@ export class KycwebhookService {
       },
       data: {
         kycStatus: 'PENDING',
+        inspectionId
       },
       select: {
         userId: true,
@@ -104,6 +106,7 @@ export class KycwebhookService {
     await this.invokeWhitelabel(record.whitelabelId, {
       userId: record.userId,
       kycStatus: record.kycStatus,
+      inspectionId,
       type:data['type']
     });
   }
