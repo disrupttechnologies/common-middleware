@@ -77,7 +77,50 @@ model BTCIncomingTransaction {
   failedRemarks String?
 }
 
+model KYCUser {
+  id             String    @id @default(cuid())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  userId         String    @unique
+  whitelabelId   String
+  kycApplicantId String?   @unique
+  kycStatus      KycStatus @default(NOT_INITIALIZED)
+  inspectionId   String?   @unique
+  kycData        String?
+  metadata       String?
+}
+
+// model SolSettlementTransaction {
+//   id                  String                 @id @default(cuid())
+//   createdAt           DateTime               @default(now())
+//   updatedAt           DateTime               @updatedAt
+//   incomingTxnId       String                 @unique
+//   incomingTxn         SolIncomingTransaction @relation(fields: [incomingTxnId], references: [id])
+//   orderId             String?                @unique
+//   orderplaceTime      DateTime?
+//   amountReceivedInUSD String?
+//   status              BTCTxnProcessStatus    @default(NOT_INITIALIZED)
+//   failedRemarks       String?
+// }
+
+// model SolIncomingTransaction {
+//   id            String                    @id @default(cuid())
+//   createdAt     DateTime                  @default(now())
+//   updatedAt     DateTime                  @updatedAt
+//   txnHash       String?                    @unique
+//   provisionTxnHash       String                    @unique
+//   binanceTxnId  String?                    @unique
+//   txnTime       DateTime?
+//   amountRequestedInUSDC        String
+//   amountReceivedInUSDC        String?
+//   senderAddress String
+//   failedRemarks String?
+//   txnStatus     TxnStatus @default(NOT_INITIALIZED)
+//   settlementTxn SolSettlementTransaction?
+// }
+
 enum TxnStatus {
+  // NOT_INITIALIZED
   PENDING
   SUCCESS
   ERROR

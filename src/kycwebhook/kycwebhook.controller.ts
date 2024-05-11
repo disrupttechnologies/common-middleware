@@ -16,7 +16,7 @@ export class KycwebhookController {
   constructor(private readonly kycwebhookService: KycwebhookService) {}
 
   @Post()
-  create(
+  handleSubsubWebHook(
     @Body() createKycwebhookDto: any,
     @Req() req: RawBodyRequest<Request>,
   ) {
@@ -42,7 +42,7 @@ export class KycwebhookController {
     if (!isValid) {
       throw new BadRequestException('Unauthorized');
     }
-    return this.kycwebhookService.create(createKycwebhookDto);
+    return this.kycwebhookService.handleSubsubWebHook(createKycwebhookDto);
   }
 
 

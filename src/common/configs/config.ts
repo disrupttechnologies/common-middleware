@@ -21,7 +21,11 @@ const config: Config = {
     "CryptoPrime": {
       s3Bucket:"cryptoprime-docs",
       backendUri:"https://cryptoprice-server.fly.dev",
-    }
+    },
+    // "PRVDT": {
+    //   s3Bucket:"cryptoprime-docs",
+    //   backendUri:"http://localhost:3001",
+    // }
   },
  
   

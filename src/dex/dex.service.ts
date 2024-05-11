@@ -55,9 +55,9 @@ export class DexService {
       return data.data;
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.error('fetchPriceFrom1Inch', err.response.data.description);
+        console.error('error fetchPriceFrom1Inch', err.response.data.description);
       } else {
-        console.error('fetchPriceFrom1Inch', err.message);
+        console.error('error fetchPriceFrom1Inch', err.message);
       }
     }
   }

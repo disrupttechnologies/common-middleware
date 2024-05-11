@@ -19,8 +19,9 @@ export class KycwebhookService {
     this.whitelabelConfig = config.get<WhitelabelConfig>('whitelabelConfig');
   }
 
-  async create(data: any) {
+  async handleApplicantReviewed(data: any) {
     const applicantId = data['applicantId'];
+
     const isCompleted = data['reviewStatus'] === 'completed';
     const reviewAnswer = data['reviewResult']['reviewAnswer'];
 
@@ -36,12 +37,13 @@ export class KycwebhookService {
         status = 'SUCCESS';
       }
       if (status) {
-        const record = await this.prisma.kYCDetail.update({
+        const record = await this.prisma.kYCUser.update({
           where: {
             kycApplicantId: applicantId,
           },
           data: {
             kycStatus: status,
+            kycData:null
           },
           select: {
             userId: true,
@@ -50,9 +52,79 @@ export class KycwebhookService {
           },
         });
 
-        this.invokeWhitelabel(record);
+       await this.invokeWhitelabel(record.whitelabelId, {
+          userId: record.userId,
+          kycStatus: record.kycStatus,
+          type:data['type']
+        });
       }
     }
+  }
+
+  async handleApplicantCreated(data: any) {
+    const kycApplicantId = data['applicantId'];
+    const rawExternalUserId = data['externalUserId'];
+    const idParts = rawExternalUserId.split('-');
+    const userId = idParts[0];
+    const whitelabelId = idParts[1];
+    const inspectionId = data['inspectionId'];
+
+
+    await this.prisma.kYCUser.create({
+      data: {
+        userId,
+        whitelabelId,
+        kycApplicantId,
+        inspectionId
+      },
+      select: {
+        userId: true,
+      },
+    });
+
+  }
+
+  async handleApplicantPending(data: any) {
+    const kycApplicantId = data['applicantId'];
+
+    const record = await this.prisma.kYCUser.update({
+      where: {
+        kycApplicantId,
+      },
+      data: {
+        kycStatus: 'PENDING',
+      },
+      select: {
+        userId: true,
+        whitelabelId: true,
+        kycStatus: true,
+      },
+    });
+
+    await this.invokeWhitelabel(record.whitelabelId, {
+      userId: record.userId,
+      kycStatus: record.kycStatus,
+      type:data['type']
+    });
+  }
+
+  async handleSubsubWebHook(data: any) {
+    try {
+
+      const actionType = data['type'];
+      switch (actionType) {
+        case 'applicantReviewed':
+          await this.handleApplicantReviewed(data);
+          break;
+        case 'applicantCreated':
+          await this.handleApplicantCreated(data);
+          break;
+        case 'applicantPending':
+          await this.handleApplicantPending(data);
+
+          break;
+      }
+    } catch (err) {}
 
     return 'success';
   }
@@ -73,22 +145,21 @@ export class KycwebhookService {
     };
   }
 
-  async invokeWhitelabel(record: {
-    userId: string;
-    whitelabelId: string;
-    kycStatus: import('.prisma/client').KycStatus;
-  }) {
-    const url = `${
-      this.whitelabelConfig[record.whitelabelId].backendUri
-    }/kycwebhook`;
-    const headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      ...this.createSignature(JSON.stringify(record)),
-    };
-
+  async invokeWhitelabel(whitelabelId:string,payload: any) {
     try {
-      await this.http.axiosRef.post(url, record, {
+      const whitelabelConfig = this.whitelabelConfig[whitelabelId]
+      if (!whitelabelConfig) {
+        return
+      }
+      const url = `${
+        whitelabelConfig.backendUri
+      }/kycwebhook`;
+      const headers = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        ...this.createSignature(JSON.stringify(payload)),
+      };
+      await this.http.axiosRef.post(url, payload, {
         headers,
       });
     } catch (err) {

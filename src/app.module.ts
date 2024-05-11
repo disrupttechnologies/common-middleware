@@ -13,6 +13,7 @@ import { UserBtcAddressModule } from './user-btc-address/user-btc-address.module
 import { KycModule } from './kyc/kyc.module';
 import { DexModule } from './dex/dex.module';
 import { KycwebhookModule } from './kycwebhook/kycwebhook.module';
+import { DocsModule } from './docs/docs.module';
 
 @Module({
   imports: [
@@ -47,6 +48,8 @@ import { KycwebhookModule } from './kycwebhook/kycwebhook.module';
     KycModule,
 
     KycwebhookModule,
+
+    DocsModule,
 
 
  

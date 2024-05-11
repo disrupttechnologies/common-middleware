@@ -5,17 +5,31 @@ import { OkResponse } from 'src/common/models/okresponse.model';
 import { KYCDetailWhereInput } from 'src/@generated/kyc-detail/kyc-detail-where.input';
 import { SumSubService } from './sumsub.service';
 import { GetKYCAccessTokenInput, GetKYCResponseInput } from './dto/getKYCresponse';
+import { WhitelabelConfig } from 'src/common/configs/config.interface';
+import { ConfigService } from '@nestjs/config';
+import { HttpService } from '@nestjs/axios';
+import crypto from 'crypto';
+import iFormData from 'form-data';
 
 @Injectable()
 export class KycService {
- 
+  private whitelabelConfig: WhitelabelConfig;
+
   constructor(
     private readonly prisma: PrismaService,
     private readonly sumsub: SumSubService,
-  ) {}
+    private readonly config: ConfigService,
+    private readonly http: HttpService,
+
+  ) {
+    this.handleKYC();
+    this.whitelabelConfig = config.get<WhitelabelConfig>('whitelabelConfig');
+  }
+
 
   async createMany(
     whitelabelId: string,
+  
     input:CreateKYCsInput,
   ): Promise<OkResponse> {
 
@@ -35,129 +49,44 @@ export class KycService {
     return this.prisma.kYCDetail.findMany({ where });
   }
 
-  async handleUploadPassport() {
-    const records = await this.prisma.kYCDetail.findMany({
-      where: {
-        kycStage: 'SELFIE_UPLOADED',
-      },
-    });
 
-    for (const record of records) {
-      try {
-        const isSuccessful = await this.sumsub.handlePassportUpload(record);
-        if (isSuccessful) {
-          await this.prisma.kYCDetail.update({
-            where: {
-              id: record.id,
-            },
-            data: {
-              kycStage: 'PASSPORT_UPLOADED',
-            },
-            select: {
-              id: true,
-            },
-          });
-        }
-      } catch (err) {
-        console.log('handleUploadPassport', err);
-      }
-    }
-  }
 
-  async handleRequestCheck() {
-    const records = await this.prisma.kYCDetail.findMany({
+
+  async handleFetchApplicantsData() {
+    const applicants = await this.prisma.kYCUser.findMany({
       where: {
-        kycStage: 'PASSPORT_UPLOADED',
+        kycData: null,
+        kycStatus:"SUCCESS",
       },
       select: {
-        id: true,
-        kycApplicantId: true,
-      },
-    });
-
-    for (const record of records) {
+        kycApplicantId:true
+      }
+    })
+    for (const applicant of applicants) {
       try {
-        const isSuccessful = await this.sumsub.handleRequestCheck(
-          record.kycApplicantId,
-        );
-        if (isSuccessful) {
-          await this.prisma.kYCDetail.update({
+        const data = await this.sumsub.getApplicantData(applicant.kycApplicantId);
+        const record =  await this.prisma.kYCUser.update({
             where: {
-              id: record.id,
+              kycApplicantId: applicant.kycApplicantId
             },
             data: {
-              kycStage: 'REQUEST_CHECKED',
+              kycData: JSON.stringify(data),
             },
             select: {
               id: true,
-            },
-          });
-        }
+              whitelabelId: true,
+              userId:true
+            }
+        })
+          await this.invokeWhitelabel(record.whitelabelId, {
+            type: "applicantDataReceived",
+            data:JSON.stringify({userId:record.userId ,data})
+          })
       } catch (err) {
-        console.log('handleUploadSelfie', err);
+        console.error("handleFetchApplicantsDataError",err)
       }
-    }
+    } 
   }
-  async handleUploadSelfie() {
-    const records = await this.prisma.kYCDetail.findMany({
-      where: {
-        kycStage: 'ID_CREATED',
-      },
-    });
-
-    for (const record of records) {
-      try {
-        const isSuccessful = await this.sumsub.handleSelfieUpload(record);
-        if (isSuccessful) {
-          await this.prisma.kYCDetail.update({
-            where: {
-              id: record.id,
-            },
-            data: {
-              kycStage: 'SELFIE_UPLOADED',
-            },
-            select: {
-              id: true,
-            },
-          });
-        }
-      } catch (err) {
-        console.log('handleUploadSelfie', err);
-      }
-    }
-  }
-  async handleNotInitialized() {
-    const records = await this.prisma.kYCDetail.findMany({
-      where: {
-        kycStatus: 'NOT_INITIALIZED',
-        kycApplicantId: null,
-      },
-    });
-
-    for (const record of records) {
-      try {
-        const applicantId = await this.sumsub.initKYC(record);
-        await this.prisma.kYCDetail.update({
-          where: {
-            id: record.id,
-          },
-          data: {
-            kycApplicantId: applicantId,
-            kycStage: 'ID_CREATED',
-            kycStatus: 'PENDING',
-          },
-          select: {
-            id: true,
-          },
-        });
-      } catch (err) {
-        console.log('handleNotInitialized', err);
-      }
-    }
-  }
-
-
-
 
   getKYCResponses(where: GetKYCResponseInput) {
     return this.prisma.kYCDetail.findMany({
@@ -173,17 +102,52 @@ export class KycService {
     })
   }
   async handleKYC() {
-    await this.handleNotInitialized();
-    await this.handleUploadPassport();
-    await this.handleUploadSelfie();
-    await this.handleRequestCheck();
+    await this.handleFetchApplicantsData();
+  }
+
+  getKYCAccessToken(where: GetKYCAccessTokenInput) {
+    return this.sumsub.getKYCAccessToken(where.userId);
   }
 
 
 
 
-  getKYCAccessToken(where: GetKYCAccessTokenInput) {
-    return this.sumsub.getKYCAccessToken(where.userId);
+  createApiConfigSignature(data: any) {
+    const signature = crypto.createHmac(
+      'sha256',
+      process.env.WHITE_LABEL_WEBHOOK_SECRET,
+    );
+    if (data instanceof iFormData) {
+      //@ts-ignore
+      signature.update(data.getBuffer());
+    } else if (data) {
+      signature.update(data);
+    }
+    return {
+      'X-App-Access-Sig': signature.digest('hex'),
+    };
+  }
+
+  async invokeWhitelabel(whitelabelId:string,payload: any) {
+    try {
+      const whitelabelConfig = this.whitelabelConfig[whitelabelId]
+      if (!whitelabelConfig) {
+        return
+      }
+      const url = `${
+        whitelabelConfig.backendUri
+      }/kycwebhook`;
+      const headers = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        ...this.createApiConfigSignature(JSON.stringify(payload)),
+      };
+      await this.http.axiosRef.post(url, payload, {
+        headers,
+      });
+    } catch (err) {
+      // console.error('Err', err);
+    }
   }
   
 }
