@@ -67,13 +67,19 @@ export class BinanceIncomingTxnTrackerService {
         };
 
         if (txnStatus === "SUCCESS" && record.coin === "USDT") {
-          //@ts-ignore
-          data.settlementTransaction = {
-            create: {
+        
+          
+
+         const settlementRecord =  await this.prisma.settlementTransaction.create({
+            data: {
+              orderId: record.id,
+              orderplaceTime: new Date(),
               amountReceived: record.amount,
               status:"SUCCESS"
             }
-          }
+         })
+            //@ts-ignore
+         data.settlementTransactionId = settlementRecord.id
           //@ts-ignore
           data.status = IncomingTxnStatus.COMPLETED
         }
