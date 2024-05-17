@@ -72,7 +72,7 @@ export class BinanceIncomingTxnTrackerService {
 
          const settlementRecord =  await this.prisma.settlementTransaction.create({
             data: {
-              orderId: record.id,
+              orderId:(new Date().getTime()+Math.random()).toString(),
               orderplaceTime: new Date(),
               amountReceived: record.amount,
               status:"SUCCESS"
