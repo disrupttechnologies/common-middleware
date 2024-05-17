@@ -136,7 +136,7 @@ export class KycService {
       }
       const url = `${
         whitelabelConfig.backendUri
-      }/kycwebhook`;
+      }/middlewarehooks/kyc`;
       const headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json',

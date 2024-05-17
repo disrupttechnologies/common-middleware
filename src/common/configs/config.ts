@@ -22,10 +22,10 @@ const config: Config = {
       s3Bucket:"cryptoprime-docs",
       backendUri:"https://cryptoprice-server.fly.dev",
     },
-    // "PRVDT": {
-    //   s3Bucket:"cryptoprime-docs",
-    //   backendUri:"http://localhost:3001",
-    // }
+    "PRVDT": {
+      s3Bucket:"cryptoprime-docs",
+      backendUri:"http://localhost:3001",
+    }
   },
  
   
@@ -42,7 +42,12 @@ const config: Config = {
   binance: {
     API_KEY:  process.env.BINANCE_API_KEY,
     API_SECRET: process.env.BINANCE_API_SECRET,
-    BASE_URL: process.env.BINANCE_BASE_URL
+    BASE_URL: process.env.BINANCE_BASE_URL,
+    SUPPORTED_COINS: [
+      "BNB", "USDC", "LTC", "SOL", "DOT", "MATIC", "LINK", "ADA", "CAKE",
+      "TWT", "1INCH", "DAI", "PEPE", "ETH", "BTC",
+      "SHIB","FTM","NEAR","MKR","UNI",
+    ]
   },
 
   graphql: {
@@ -60,6 +65,8 @@ const config: Config = {
 
 export enum SYNC_ACTION_NAME {
   BTC_INCOMING = 'BTC_INCOMING',
+  BINANCE_INCOMING = "BINANCE_INCOMING",
+  BINANCE_ORDER_MANAGER="BINANCE_ORDER_MANAGER",
   CEX = 'CEX',
 
 }

@@ -7,17 +7,20 @@ import { AuthModule } from './auth/auth.module';
 import config from './common/configs/config';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GqlConfigService } from './gql-config.service';
-import { BtchandlerModule } from './btchandler/btchandler.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { UserBtcAddressModule } from './user-btc-address/user-btc-address.module';
 import { KycModule } from './kyc/kyc.module';
-import { DexModule } from './dex/dex.module';
 import { KycwebhookModule } from './kycwebhook/kycwebhook.module';
 import { DocsModule } from './docs/docs.module';
+import { FundsmanagerModule } from './fundsmanager/fundsmanager.module';
+import { EventManagerModule } from './event-manager/event-manager.module';
+import { EventEmitterModule } from '@nestjs/event-emitter';
+import { DexModule } from './dex/dex.module';
 
 @Module({
   imports: [
     ScheduleModule.forRoot(),
+    EventEmitterModule.forRoot(),
     ConfigModule.forRoot({ isGlobal: true, load: [config] }),
     PrismaModule.forRoot({
       isGlobal: true,
@@ -39,7 +42,7 @@ import { DocsModule } from './docs/docs.module';
 
     AuthModule,
 
-    BtchandlerModule,
+    // BtchandlerModule,
 
     UserBtcAddressModule,
 
@@ -50,6 +53,10 @@ import { DocsModule } from './docs/docs.module';
     KycwebhookModule,
 
     DocsModule,
+
+    FundsmanagerModule,
+
+    EventManagerModule,
 
 
  

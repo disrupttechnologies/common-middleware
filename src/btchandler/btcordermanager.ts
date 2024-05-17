@@ -40,7 +40,6 @@ export class BTCOrderManagerService {
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly config: ConfigService,
   ) {}
 
   async initSellOrder(record: BTCIncomingTransaction, binanceClient: Spot) {

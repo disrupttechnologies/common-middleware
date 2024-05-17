@@ -17,35 +17,6 @@ type BTCIncomingTransaction {
   user: UserBTCAddress!
 }
 
-input BTCIncomingTransactionListRelationFilter {
-  every: BTCIncomingTransactionWhereInput
-  none: BTCIncomingTransactionWhereInput
-  some: BTCIncomingTransactionWhereInput
-}
-
-input BTCIncomingTransactionRelationFilter {
-  is: BTCIncomingTransactionWhereInput
-  isNot: BTCIncomingTransactionWhereInput
-}
-
-input BTCIncomingTransactionWhereInput {
-  AND: [BTCIncomingTransactionWhereInput!]
-  NOT: [BTCIncomingTransactionWhereInput!]
-  OR: [BTCIncomingTransactionWhereInput!]
-  amount: StringFilter
-  binanceTxnId: StringFilter
-  createdAt: DateTimeFilter
-  failedRemarks: StringNullableFilter
-  id: StringFilter
-  senderAddress: StringFilter
-  settlementTxn: BTCSettlementTransactionNullableRelationFilter
-  txnHash: StringFilter
-  txnStatus: EnumTxnStatusFilter
-  txnTime: DateTimeFilter
-  updatedAt: DateTimeFilter
-  user: UserBTCAddressRelationFilter
-}
-
 type BTCSettlementTransaction {
   amountReceivedInUSD: String
   createdAt: DateTime!
@@ -59,32 +30,57 @@ type BTCSettlementTransaction {
   updatedAt: DateTime!
 }
 
-input BTCSettlementTransactionNullableRelationFilter {
-  is: BTCSettlementTransactionWhereInput
-  isNot: BTCSettlementTransactionWhereInput
-}
-
-input BTCSettlementTransactionWhereInput {
-  AND: [BTCSettlementTransactionWhereInput!]
-  NOT: [BTCSettlementTransactionWhereInput!]
-  OR: [BTCSettlementTransactionWhereInput!]
-  amountReceivedInUSD: StringNullableFilter
-  createdAt: DateTimeFilter
-  failedRemarks: StringNullableFilter
-  id: StringFilter
-  incomingTxn: BTCIncomingTransactionRelationFilter
-  incomingTxnId: StringFilter
-  orderId: StringNullableFilter
-  orderplaceTime: DateTimeNullableFilter
-  status: EnumBTCTxnProcessStatusFilter
-  updatedAt: DateTimeFilter
-}
-
 enum BTCTxnProcessStatus {
   FAILED
   NOT_INITIALIZED
   PENDING
   SUCCESS
+}
+
+type BinanceIncomingTxn {
+  amountInPaidCurrency: String!
+  binanceTxnId: String!
+  createdAt: DateTime!
+  failedRemarks: String
+  id: ID!
+  network: String!
+  paidCurrency: String!
+  senderAddress: String!
+  settlementTransaction: SettlementTransaction
+  settlementTransactionId: String
+  status: IncomingTxnStatus
+  txnHash: String!
+  updatedAt: DateTime!
+  whitelabelIncomingTransaction: WhitelabelIncomingTransaction
+}
+
+input BinanceIncomingTxnNullableRelationFilter {
+  is: BinanceIncomingTxnWhereInput
+  isNot: BinanceIncomingTxnWhereInput
+}
+
+input BinanceIncomingTxnWhereInput {
+  AND: [BinanceIncomingTxnWhereInput!]
+  NOT: [BinanceIncomingTxnWhereInput!]
+  OR: [BinanceIncomingTxnWhereInput!]
+  amountInPaidCurrency: StringFilter
+  binanceTxnId: StringFilter
+  createdAt: DateTimeFilter
+  failedRemarks: StringNullableFilter
+  id: StringFilter
+  network: StringFilter
+  paidCurrency: StringFilter
+  senderAddress: StringFilter
+  settlementTransaction: SettlementTransactionNullableRelationFilter
+  settlementTransactionId: StringNullableFilter
+  status: EnumIncomingTxnStatusNullableFilter
+  txnHash: StringFilter
+  updatedAt: DateTimeFilter
+  whitelabelIncomingTransaction: WhitelabelIncomingTransactionNullableRelationFilter
+}
+
+input CreateIncomingTxnsInput {
+  data: [IncomingTxnCreateInput!]!
 }
 
 input CreateKYCInput {
@@ -142,11 +138,11 @@ input DateTimeNullableFilter {
   notIn: [DateTime!]
 }
 
-input EnumBTCTxnProcessStatusFilter {
-  equals: BTCTxnProcessStatus
-  in: [BTCTxnProcessStatus!]
-  not: NestedEnumBTCTxnProcessStatusFilter
-  notIn: [BTCTxnProcessStatus!]
+input EnumIncomingTxnStatusNullableFilter {
+  equals: IncomingTxnStatus
+  in: [IncomingTxnStatus!]
+  not: NestedEnumIncomingTxnStatusNullableFilter
+  notIn: [IncomingTxnStatus!]
 }
 
 input EnumKYCStageFilter {
@@ -163,11 +159,11 @@ input EnumKycStatusFilter {
   notIn: [KycStatus!]
 }
 
-input EnumTxnStatusFilter {
-  equals: TxnStatus
-  in: [TxnStatus!]
-  not: NestedEnumTxnStatusFilter
-  notIn: [TxnStatus!]
+input EnumSettlementTransactionProcessStatusFilter {
+  equals: SettlementTransactionProcessStatus
+  in: [SettlementTransactionProcessStatus!]
+  not: NestedEnumSettlementTransactionProcessStatusFilter
+  notIn: [SettlementTransactionProcessStatus!]
 }
 
 input GetKYCAccessTokenInput {
@@ -189,6 +185,18 @@ type GetKYCResponses {
 input GetUserBTCAddressInput {
   """User Id"""
   userId: String!
+}
+
+input IncomingTxnCreateInput {
+  provisionTxnHash: String!
+  userId: String
+}
+
+enum IncomingTxnStatus {
+  COMPLETED
+  FAILED
+  PAYMENT_RECEIVED
+  SETTLEMENT_INITIALZED
 }
 
 """
@@ -252,6 +260,7 @@ input LoginInput {
 }
 
 type Mutation {
+  createIncomingTxns(data: CreateIncomingTxnsInput!): OkResponse!
   createKYC(data: CreateKYCsInput!): OkResponse!
   createTradeData(data: CreateTradeDataInput! = {}): TokenTradeResp!
   createUserBtcAddress(data: CreateUserBtcAddressInput!): OkResponse!
@@ -280,11 +289,11 @@ input NestedDateTimeNullableFilter {
   notIn: [DateTime!]
 }
 
-input NestedEnumBTCTxnProcessStatusFilter {
-  equals: BTCTxnProcessStatus
-  in: [BTCTxnProcessStatus!]
-  not: NestedEnumBTCTxnProcessStatusFilter
-  notIn: [BTCTxnProcessStatus!]
+input NestedEnumIncomingTxnStatusNullableFilter {
+  equals: IncomingTxnStatus
+  in: [IncomingTxnStatus!]
+  not: NestedEnumIncomingTxnStatusNullableFilter
+  notIn: [IncomingTxnStatus!]
 }
 
 input NestedEnumKYCStageFilter {
@@ -301,11 +310,11 @@ input NestedEnumKycStatusFilter {
   notIn: [KycStatus!]
 }
 
-input NestedEnumTxnStatusFilter {
-  equals: TxnStatus
-  in: [TxnStatus!]
-  not: NestedEnumTxnStatusFilter
-  notIn: [TxnStatus!]
+input NestedEnumSettlementTransactionProcessStatusFilter {
+  equals: SettlementTransactionProcessStatus
+  in: [SettlementTransactionProcessStatus!]
+  not: NestedEnumSettlementTransactionProcessStatusFilter
+  notIn: [SettlementTransactionProcessStatus!]
 }
 
 input NestedStringFilter {
@@ -341,8 +350,8 @@ type OkResponse {
 }
 
 type Query {
-  getBTCTxns(where: BTCIncomingTransactionWhereInput! = {}): [BTCIncomingTransaction!]!
   getCryptoPrice: TokenPriceResp!
+  getIncomingTxns(where: WhitelabelIncomingTransactionWhereInput!): [WhitelabelIncomingTransaction!]!
   getKYCAccessToken(data: GetKYCAccessTokenInput! = {}): GetKYCAccessTokenInputResponse!
   getKYCDetails(where: KYCDetailWhereInput! = {}): [KYCDetail!]!
   getKYCResponses(data: GetKYCResponseInput! = {}): GetKYCResponses!
@@ -352,6 +361,43 @@ type Query {
 enum QueryMode {
   default
   insensitive
+}
+
+type SettlementTransaction {
+  amountReceived: String
+  createdAt: DateTime!
+  id: ID!
+  incomingTxn: BinanceIncomingTxn
+  orderId: String
+  orderplaceTime: DateTime
+  status: SettlementTransactionProcessStatus!
+  updatedAt: DateTime!
+}
+
+input SettlementTransactionNullableRelationFilter {
+  is: SettlementTransactionWhereInput
+  isNot: SettlementTransactionWhereInput
+}
+
+enum SettlementTransactionProcessStatus {
+  FAILED
+  NOT_INITIALIZED
+  PENDING
+  SUCCESS
+}
+
+input SettlementTransactionWhereInput {
+  AND: [SettlementTransactionWhereInput!]
+  NOT: [SettlementTransactionWhereInput!]
+  OR: [SettlementTransactionWhereInput!]
+  amountReceived: StringNullableFilter
+  createdAt: DateTimeFilter
+  id: StringFilter
+  incomingTxn: BinanceIncomingTxnNullableRelationFilter
+  orderId: StringNullableFilter
+  orderplaceTime: DateTimeNullableFilter
+  status: EnumSettlementTransactionProcessStatusFilter
+  updatedAt: DateTimeFilter
 }
 
 input StringFilter {
@@ -416,19 +462,31 @@ type UserBTCAddress {
   whitelabelId: String!
 }
 
-input UserBTCAddressRelationFilter {
-  is: UserBTCAddressWhereInput
-  isNot: UserBTCAddressWhereInput
+type WhitelabelIncomingTransaction {
+  createdAt: DateTime!
+  id: ID!
+  provisionTxnHash: String!
+  settlementTransaction: BinanceIncomingTxn
+  settlementTransactionId: String
+  updatedAt: DateTime!
+  userId: String!
+  whitelabelId: String!
 }
 
-input UserBTCAddressWhereInput {
-  AND: [UserBTCAddressWhereInput!]
-  NOT: [UserBTCAddressWhereInput!]
-  OR: [UserBTCAddressWhereInput!]
-  address: StringFilter
+input WhitelabelIncomingTransactionNullableRelationFilter {
+  is: WhitelabelIncomingTransactionWhereInput
+  isNot: WhitelabelIncomingTransactionWhereInput
+}
+
+input WhitelabelIncomingTransactionWhereInput {
+  AND: [WhitelabelIncomingTransactionWhereInput!]
+  NOT: [WhitelabelIncomingTransactionWhereInput!]
+  OR: [WhitelabelIncomingTransactionWhereInput!]
   createdAt: DateTimeFilter
   id: StringFilter
-  txns: BTCIncomingTransactionListRelationFilter
+  provisionTxnHash: StringFilter
+  settlementTransaction: BinanceIncomingTxnNullableRelationFilter
+  settlementTransactionId: StringNullableFilter
   updatedAt: DateTimeFilter
   userId: StringFilter
   whitelabelId: StringFilter

@@ -45,6 +45,7 @@ export interface BinanceConfig {
   API_KEY: string;
   API_SECRET: string;
   BASE_URL: string;
+  SUPPORTED_COINS:string[]
 }
 
 export interface GraphqlConfig {

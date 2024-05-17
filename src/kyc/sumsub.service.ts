@@ -269,11 +269,16 @@ export class SumSubService {
       headers,
     });
     const data = response.data['fixedInfo'];
+
+
     const address = response.data['fixedInfo']['addresses'][0];
 
     const passportData = response.data['info']['idDocs'].find((item) => {
       return item.idDocType === 'PASSPORT';
     });
+
+
+    console.log("Sasasas",passportData)
 
     const information = {
       personalDetails: {
@@ -310,7 +315,7 @@ export class SumSubService {
           value: passportData['validUntil'],
         },
         'Passport Issue Date': {
-          value: passportData['dob'],
+          value: ""
         },
       },
       residentialAddress: {
@@ -372,6 +377,7 @@ export class SumSubService {
 
   async getDocument(inspectionId: string, docId: string) {
     const url = `https://api.sumsub.com/resources/inspections/${inspectionId}/resources/${docId}`;
+  
     const headers = {
       Accept: 'application/json',
       'X-App-Token': this.sumSubConfig.token,

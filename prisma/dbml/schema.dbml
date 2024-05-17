@@ -73,6 +73,75 @@ Table KYCUser {
   metadata String
 }
 
+Table WhitelabelIncomingTransaction {
+  id String [pk]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  userId String [not null]
+  whitelabelId String [not null]
+  provisionTxnHash String [unique, not null]
+  settlementTransactionId String [unique]
+  settlementTransaction BinanceIncomingTxn
+}
+
+Table BinanceIncomingTxn {
+  id String [pk]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  paidCurrency String [not null]
+  amountInPaidCurrency String [not null]
+  network String [not null]
+  txnHash String [unique, not null]
+  senderAddress String [not null]
+  binanceTxnId String [unique, not null]
+  status IncomingTxnStatus [default: 'PAYMENT_RECEIVED']
+  settlementTransactionId String [unique]
+  settlementTransaction SettlementTransaction
+  whitelabelIncomingTransaction WhitelabelIncomingTransaction
+  failedRemarks String
+}
+
+Table SettlementTransaction {
+  id String [pk]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  orderId String [unique]
+  orderplaceTime DateTime
+  amountReceived String
+  status SettlementTransactionProcessStatus [not null, default: 'NOT_INITIALIZED']
+  incomingTxn BinanceIncomingTxn
+}
+
+Enum SettlementTransactionProcessStatus {
+  NOT_INITIALIZED
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+Enum IncomingTxnStatus {
+  PAYMENT_RECEIVED
+  SETTLEMENT_INITIALZED
+  COMPLETED
+  FAILED
+}
+
+Enum SolIncomingTxnStatus {
+  NOT_INITIALIZED
+  RECEIVED
+  CONVERSION_PROCESSING
+  FAILED
+  SUCCESS
+}
+
+Enum Network {
+  BTC
+  SOL
+  BSC
+  ETH
+  TRC
+}
+
 Enum TxnStatus {
   PENDING
   SUCCESS
@@ -105,3 +174,7 @@ Enum KYCStage {
 Ref: BTCSettlementTransaction.incomingTxnId - BTCIncomingTransaction.id
 
 Ref: BTCIncomingTransaction.senderAddress > UserBTCAddress.address
+
+Ref: WhitelabelIncomingTransaction.settlementTransactionId - BinanceIncomingTxn.id
+
+Ref: BinanceIncomingTxn.settlementTransactionId - SettlementTransaction.id

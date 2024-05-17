@@ -90,34 +90,80 @@ model KYCUser {
   metadata       String?
 }
 
-// model SolSettlementTransaction {
-//   id                  String                 @id @default(cuid())
-//   createdAt           DateTime               @default(now())
-//   updatedAt           DateTime               @updatedAt
-//   incomingTxnId       String                 @unique
-//   incomingTxn         SolIncomingTransaction @relation(fields: [incomingTxnId], references: [id])
-//   orderId             String?                @unique
-//   orderplaceTime      DateTime?
-//   amountReceivedInUSD String?
-//   status              BTCTxnProcessStatus    @default(NOT_INITIALIZED)
-//   failedRemarks       String?
-// }
 
-// model SolIncomingTransaction {
-//   id            String                    @id @default(cuid())
-//   createdAt     DateTime                  @default(now())
-//   updatedAt     DateTime                  @updatedAt
-//   txnHash       String?                    @unique
-//   provisionTxnHash       String                    @unique
-//   binanceTxnId  String?                    @unique
-//   txnTime       DateTime?
-//   amountRequestedInUSDC        String
-//   amountReceivedInUSDC        String?
-//   senderAddress String
-//   failedRemarks String?
-//   txnStatus     TxnStatus @default(NOT_INITIALIZED)
-//   settlementTxn SolSettlementTransaction?
-// }
+
+model WhitelabelIncomingTransaction {
+  id                    String              @id @default(cuid())
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt
+  userId                String
+  whitelabelId          String
+  provisionTxnHash      String              @unique
+  settlementTransactionId String? @unique
+  settlementTransaction BinanceIncomingTxn? @relation(fields: [settlementTransactionId], references: [id])
+}
+
+
+model BinanceIncomingTxn {
+  id                            String                         @id @default(cuid())
+  createdAt                     DateTime                       @default(now())
+  updatedAt                     DateTime                       @updatedAt
+  paidCurrency                  String
+  amountInPaidCurrency          String
+  network                       String
+  txnHash                       String                         @unique
+  senderAddress                 String
+  binanceTxnId                  String                         @unique
+  status                        IncomingTxnStatus?             @default(PAYMENT_RECEIVED)
+  settlementTransactionId       String?                        @unique
+  settlementTransaction         SettlementTransaction?         @relation(fields: [settlementTransactionId], references: [id])
+  whitelabelIncomingTransaction WhitelabelIncomingTransaction?
+  failedRemarks  String?
+
+}
+
+
+
+model SettlementTransaction {
+  id             String                             @id @default(cuid())
+  createdAt      DateTime                           @default(now())
+  updatedAt      DateTime                           @updatedAt
+  orderId        String?                            @unique
+  orderplaceTime DateTime?
+  amountReceived String?
+  status         SettlementTransactionProcessStatus @default(NOT_INITIALIZED)
+  incomingTxn    BinanceIncomingTxn?
+}
+
+enum SettlementTransactionProcessStatus {
+  NOT_INITIALIZED
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+enum IncomingTxnStatus {
+  PAYMENT_RECEIVED
+  SETTLEMENT_INITIALZED
+  COMPLETED
+  FAILED
+}
+
+enum SolIncomingTxnStatus {
+  NOT_INITIALIZED
+  RECEIVED
+  CONVERSION_PROCESSING
+  FAILED
+  SUCCESS
+}
+
+enum Network {
+  BTC
+  SOL
+  BSC
+  ETH
+  TRC
+}
 
 enum TxnStatus {
   // NOT_INITIALIZED
