@@ -25,6 +25,10 @@ const config: Config = {
     "PRVDT": {
       s3Bucket:"cryptoprime-docs",
       backendUri:"http://localhost:3001",
+    },
+    "XSwipe": {
+      s3Bucket:"xswipe-docs",
+      backendUri:"https://xswipe-server.fly.dev",
     }
   },
  
