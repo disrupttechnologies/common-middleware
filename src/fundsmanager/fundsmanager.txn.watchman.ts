@@ -38,12 +38,7 @@ export class FundManagerTxnWatchman {
     this.init();
   }
 
-  async init() {
-
-
-    await this.binanceClient.depositAddress("BTC", {
-      network:"BSC"
-    });
+  async init() {   
     let incomingSyncRec = await this.prisma.syncDetails.findFirst({
       where: {
         actionName: SYNC_ACTION_NAME.BINANCE_INCOMING,
@@ -79,9 +74,12 @@ export class FundManagerTxnWatchman {
 
     this.isInitialized = true;
 
+
     await this.listenForNewTxns()
     await this.settleOrders()
-    await this.updateCryptoPrice()
+    await this.updateCryptoPrice();
+
+
   }
 
   async markSynced(action: SYNC_ACTION_NAME) {

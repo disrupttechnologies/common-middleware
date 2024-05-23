@@ -195,6 +195,7 @@ export class BinanceIncomingTxnTrackerService {
   }
   async handle(startTime: number, binanceClient: Spot) {
     await this.linkTxns();
+
     await this.fetchNewTxns(startTime, binanceClient);
     
   }

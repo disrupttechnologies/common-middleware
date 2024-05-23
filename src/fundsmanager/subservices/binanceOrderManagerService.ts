@@ -69,7 +69,7 @@ export class BinanceOrderManagerService {
         },
       });
     } catch (err) {
-      console.error("initSellOrder",err)
+      console.error("initSellOrder",err,record.id)
     }
   }
 
