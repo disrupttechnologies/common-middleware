@@ -41,7 +41,7 @@ export class BinanceOrderManagerService {
   async initSellOrder(record: BinanceIncomingTxn, binanceClient: Spot) {
     try {
       const options: RestTradeTypes.newOrderOptions = {
-        quantity: Number(record.amountInPaidCurrency),
+        quoteOrderQty: Number(record.amountInPaidCurrency),
         newClientOrderId: record.id,
       };
   
