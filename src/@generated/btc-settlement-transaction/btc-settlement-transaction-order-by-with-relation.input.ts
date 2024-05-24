@@ -6,34 +6,35 @@ import { BTCIncomingTransactionOrderByWithRelationInput } from '../btc-incoming-
 
 @InputType()
 export class BTCSettlementTransactionOrderByWithRelationInput {
+  @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  createdAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  updatedAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  incomingTxnId?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    incomingTxnId?: keyof typeof SortOrder;
+  @Field(() => SortOrderInput, { nullable: true })
+  orderId?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    orderId?: SortOrderInput;
+  @Field(() => SortOrderInput, { nullable: true })
+  orderplaceTime?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    orderplaceTime?: SortOrderInput;
+  @Field(() => SortOrderInput, { nullable: true })
+  amountReceivedInUSD?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    amountReceivedInUSD?: SortOrderInput;
+  @Field(() => SortOrder, { nullable: true })
+  status?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    status?: keyof typeof SortOrder;
+  @Field(() => SortOrderInput, { nullable: true })
+  failedRemarks?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    failedRemarks?: SortOrderInput;
-
-    @Field(() => BTCIncomingTransactionOrderByWithRelationInput, {nullable:true})
-    incomingTxn?: BTCIncomingTransactionOrderByWithRelationInput;
+  @Field(() => BTCIncomingTransactionOrderByWithRelationInput, {
+    nullable: true,
+  })
+  incomingTxn?: BTCIncomingTransactionOrderByWithRelationInput;
 }

@@ -7,16 +7,19 @@ import { BinanceIncomingTxnWhereInput } from './binance-incoming-txn-where.input
 
 @InputType()
 export class BinanceIncomingTxnUpsertWithoutSettlementTransactionInput {
+  @Field(() => BinanceIncomingTxnUpdateWithoutSettlementTransactionInput, {
+    nullable: false,
+  })
+  @Type(() => BinanceIncomingTxnUpdateWithoutSettlementTransactionInput)
+  update!: BinanceIncomingTxnUpdateWithoutSettlementTransactionInput;
 
-    @Field(() => BinanceIncomingTxnUpdateWithoutSettlementTransactionInput, {nullable:false})
-    @Type(() => BinanceIncomingTxnUpdateWithoutSettlementTransactionInput)
-    update!: BinanceIncomingTxnUpdateWithoutSettlementTransactionInput;
+  @Field(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput, {
+    nullable: false,
+  })
+  @Type(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput)
+  create!: BinanceIncomingTxnCreateWithoutSettlementTransactionInput;
 
-    @Field(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput, {nullable:false})
-    @Type(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput)
-    create!: BinanceIncomingTxnCreateWithoutSettlementTransactionInput;
-
-    @Field(() => BinanceIncomingTxnWhereInput, {nullable:true})
-    @Type(() => BinanceIncomingTxnWhereInput)
-    where?: BinanceIncomingTxnWhereInput;
+  @Field(() => BinanceIncomingTxnWhereInput, { nullable: true })
+  @Type(() => BinanceIncomingTxnWhereInput)
+  where?: BinanceIncomingTxnWhereInput;
 }

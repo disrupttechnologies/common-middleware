@@ -7,16 +7,15 @@ import { BTCIncomingTransactionUpdateInput } from '../btc-incoming-transaction/b
 
 @ArgsType()
 export class UpsertOneBtcIncomingTransactionArgs {
+  @Field(() => BTCIncomingTransactionWhereUniqueInput, { nullable: false })
+  @Type(() => BTCIncomingTransactionWhereUniqueInput)
+  where!: BTCIncomingTransactionWhereUniqueInput;
 
-    @Field(() => BTCIncomingTransactionWhereUniqueInput, {nullable:false})
-    @Type(() => BTCIncomingTransactionWhereUniqueInput)
-    where!: BTCIncomingTransactionWhereUniqueInput;
+  @Field(() => BTCIncomingTransactionCreateInput, { nullable: false })
+  @Type(() => BTCIncomingTransactionCreateInput)
+  create!: BTCIncomingTransactionCreateInput;
 
-    @Field(() => BTCIncomingTransactionCreateInput, {nullable:false})
-    @Type(() => BTCIncomingTransactionCreateInput)
-    create!: BTCIncomingTransactionCreateInput;
-
-    @Field(() => BTCIncomingTransactionUpdateInput, {nullable:false})
-    @Type(() => BTCIncomingTransactionUpdateInput)
-    update!: BTCIncomingTransactionUpdateInput;
+  @Field(() => BTCIncomingTransactionUpdateInput, { nullable: false })
+  @Type(() => BTCIncomingTransactionUpdateInput)
+  update!: BTCIncomingTransactionUpdateInput;
 }

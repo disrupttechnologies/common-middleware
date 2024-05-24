@@ -8,34 +8,39 @@ import { WhitelabelIncomingTransactionMinOrderByAggregateInput } from './whitela
 
 @InputType()
 export class WhitelabelIncomingTransactionOrderByWithAggregationInput {
+  @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  createdAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  updatedAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  userId?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    userId?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  whitelabelId?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    whitelabelId?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  provisionTxnHash?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    provisionTxnHash?: keyof typeof SortOrder;
+  @Field(() => SortOrderInput, { nullable: true })
+  settlementTransactionId?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    settlementTransactionId?: SortOrderInput;
+  @Field(() => WhitelabelIncomingTransactionCountOrderByAggregateInput, {
+    nullable: true,
+  })
+  _count?: WhitelabelIncomingTransactionCountOrderByAggregateInput;
 
-    @Field(() => WhitelabelIncomingTransactionCountOrderByAggregateInput, {nullable:true})
-    _count?: WhitelabelIncomingTransactionCountOrderByAggregateInput;
+  @Field(() => WhitelabelIncomingTransactionMaxOrderByAggregateInput, {
+    nullable: true,
+  })
+  _max?: WhitelabelIncomingTransactionMaxOrderByAggregateInput;
 
-    @Field(() => WhitelabelIncomingTransactionMaxOrderByAggregateInput, {nullable:true})
-    _max?: WhitelabelIncomingTransactionMaxOrderByAggregateInput;
-
-    @Field(() => WhitelabelIncomingTransactionMinOrderByAggregateInput, {nullable:true})
-    _min?: WhitelabelIncomingTransactionMinOrderByAggregateInput;
+  @Field(() => WhitelabelIncomingTransactionMinOrderByAggregateInput, {
+    nullable: true,
+  })
+  _min?: WhitelabelIncomingTransactionMinOrderByAggregateInput;
 }

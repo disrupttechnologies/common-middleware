@@ -12,32 +12,35 @@ import { SettlementTransactionMaxAggregateInput } from './settlement-transaction
 
 @ArgsType()
 export class SettlementTransactionGroupByArgs {
+  @Field(() => SettlementTransactionWhereInput, { nullable: true })
+  @Type(() => SettlementTransactionWhereInput)
+  where?: SettlementTransactionWhereInput;
 
-    @Field(() => SettlementTransactionWhereInput, {nullable:true})
-    @Type(() => SettlementTransactionWhereInput)
-    where?: SettlementTransactionWhereInput;
+  @Field(() => [SettlementTransactionOrderByWithAggregationInput], {
+    nullable: true,
+  })
+  orderBy?: Array<SettlementTransactionOrderByWithAggregationInput>;
 
-    @Field(() => [SettlementTransactionOrderByWithAggregationInput], {nullable:true})
-    orderBy?: Array<SettlementTransactionOrderByWithAggregationInput>;
+  @Field(() => [SettlementTransactionScalarFieldEnum], { nullable: false })
+  by!: Array<keyof typeof SettlementTransactionScalarFieldEnum>;
 
-    @Field(() => [SettlementTransactionScalarFieldEnum], {nullable:false})
-    by!: Array<keyof typeof SettlementTransactionScalarFieldEnum>;
+  @Field(() => SettlementTransactionScalarWhereWithAggregatesInput, {
+    nullable: true,
+  })
+  having?: SettlementTransactionScalarWhereWithAggregatesInput;
 
-    @Field(() => SettlementTransactionScalarWhereWithAggregatesInput, {nullable:true})
-    having?: SettlementTransactionScalarWhereWithAggregatesInput;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
+  @Field(() => SettlementTransactionCountAggregateInput, { nullable: true })
+  _count?: SettlementTransactionCountAggregateInput;
 
-    @Field(() => SettlementTransactionCountAggregateInput, {nullable:true})
-    _count?: SettlementTransactionCountAggregateInput;
+  @Field(() => SettlementTransactionMinAggregateInput, { nullable: true })
+  _min?: SettlementTransactionMinAggregateInput;
 
-    @Field(() => SettlementTransactionMinAggregateInput, {nullable:true})
-    _min?: SettlementTransactionMinAggregateInput;
-
-    @Field(() => SettlementTransactionMaxAggregateInput, {nullable:true})
-    _max?: SettlementTransactionMaxAggregateInput;
+  @Field(() => SettlementTransactionMaxAggregateInput, { nullable: true })
+  _max?: SettlementTransactionMaxAggregateInput;
 }

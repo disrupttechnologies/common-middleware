@@ -6,12 +6,11 @@ import { BinanceIncomingTxnWhereInput } from './binance-incoming-txn-where.input
 
 @ArgsType()
 export class UpdateManyBinanceIncomingTxnArgs {
+  @Field(() => BinanceIncomingTxnUpdateManyMutationInput, { nullable: false })
+  @Type(() => BinanceIncomingTxnUpdateManyMutationInput)
+  data!: BinanceIncomingTxnUpdateManyMutationInput;
 
-    @Field(() => BinanceIncomingTxnUpdateManyMutationInput, {nullable:false})
-    @Type(() => BinanceIncomingTxnUpdateManyMutationInput)
-    data!: BinanceIncomingTxnUpdateManyMutationInput;
-
-    @Field(() => BinanceIncomingTxnWhereInput, {nullable:true})
-    @Type(() => BinanceIncomingTxnWhereInput)
-    where?: BinanceIncomingTxnWhereInput;
+  @Field(() => BinanceIncomingTxnWhereInput, { nullable: true })
+  @Type(() => BinanceIncomingTxnWhereInput)
+  where?: BinanceIncomingTxnWhereInput;
 }

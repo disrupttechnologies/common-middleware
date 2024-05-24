@@ -5,8 +5,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class DeleteManyWhitelabelIncomingTransactionArgs {
-
-    @Field(() => WhitelabelIncomingTransactionWhereInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionWhereInput)
-    where?: WhitelabelIncomingTransactionWhereInput;
+  @Field(() => WhitelabelIncomingTransactionWhereInput, { nullable: true })
+  @Type(() => WhitelabelIncomingTransactionWhereInput)
+  where?: WhitelabelIncomingTransactionWhereInput;
 }

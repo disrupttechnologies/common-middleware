@@ -7,12 +7,16 @@ import { BinanceIncomingTxnCreateWithoutSettlementTransactionInput } from './bin
 
 @InputType()
 export class BinanceIncomingTxnCreateOrConnectWithoutSettlementTransactionInput {
+  @Field(() => BinanceIncomingTxnWhereUniqueInput, { nullable: false })
+  @Type(() => BinanceIncomingTxnWhereUniqueInput)
+  where!: Prisma.AtLeast<
+    BinanceIncomingTxnWhereUniqueInput,
+    'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'
+  >;
 
-    @Field(() => BinanceIncomingTxnWhereUniqueInput, {nullable:false})
-    @Type(() => BinanceIncomingTxnWhereUniqueInput)
-    where!: Prisma.AtLeast<BinanceIncomingTxnWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'>;
-
-    @Field(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput, {nullable:false})
-    @Type(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput)
-    create!: BinanceIncomingTxnCreateWithoutSettlementTransactionInput;
+  @Field(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput, {
+    nullable: false,
+  })
+  @Type(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput)
+  create!: BinanceIncomingTxnCreateWithoutSettlementTransactionInput;
 }

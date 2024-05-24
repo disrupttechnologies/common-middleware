@@ -8,16 +8,22 @@ import { BTCIncomingTransactionCreateWithoutUserInput } from './btc-incoming-tra
 
 @InputType()
 export class BTCIncomingTransactionUpsertWithWhereUniqueWithoutUserInput {
+  @Field(() => BTCIncomingTransactionWhereUniqueInput, { nullable: false })
+  @Type(() => BTCIncomingTransactionWhereUniqueInput)
+  where!: Prisma.AtLeast<
+    BTCIncomingTransactionWhereUniqueInput,
+    'id' | 'txnHash' | 'binanceTxnId'
+  >;
 
-    @Field(() => BTCIncomingTransactionWhereUniqueInput, {nullable:false})
-    @Type(() => BTCIncomingTransactionWhereUniqueInput)
-    where!: Prisma.AtLeast<BTCIncomingTransactionWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId'>;
+  @Field(() => BTCIncomingTransactionUpdateWithoutUserInput, {
+    nullable: false,
+  })
+  @Type(() => BTCIncomingTransactionUpdateWithoutUserInput)
+  update!: BTCIncomingTransactionUpdateWithoutUserInput;
 
-    @Field(() => BTCIncomingTransactionUpdateWithoutUserInput, {nullable:false})
-    @Type(() => BTCIncomingTransactionUpdateWithoutUserInput)
-    update!: BTCIncomingTransactionUpdateWithoutUserInput;
-
-    @Field(() => BTCIncomingTransactionCreateWithoutUserInput, {nullable:false})
-    @Type(() => BTCIncomingTransactionCreateWithoutUserInput)
-    create!: BTCIncomingTransactionCreateWithoutUserInput;
+  @Field(() => BTCIncomingTransactionCreateWithoutUserInput, {
+    nullable: false,
+  })
+  @Type(() => BTCIncomingTransactionCreateWithoutUserInput)
+  create!: BTCIncomingTransactionCreateWithoutUserInput;
 }

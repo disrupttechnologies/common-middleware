@@ -7,12 +7,14 @@ import { BinanceIncomingTxnWhereUniqueInput } from './binance-incoming-txn-where
 
 @ArgsType()
 export class UpdateOneBinanceIncomingTxnArgs {
+  @Field(() => BinanceIncomingTxnUpdateInput, { nullable: false })
+  @Type(() => BinanceIncomingTxnUpdateInput)
+  data!: BinanceIncomingTxnUpdateInput;
 
-    @Field(() => BinanceIncomingTxnUpdateInput, {nullable:false})
-    @Type(() => BinanceIncomingTxnUpdateInput)
-    data!: BinanceIncomingTxnUpdateInput;
-
-    @Field(() => BinanceIncomingTxnWhereUniqueInput, {nullable:false})
-    @Type(() => BinanceIncomingTxnWhereUniqueInput)
-    where!: Prisma.AtLeast<BinanceIncomingTxnWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'>;
+  @Field(() => BinanceIncomingTxnWhereUniqueInput, { nullable: false })
+  @Type(() => BinanceIncomingTxnWhereUniqueInput)
+  where!: Prisma.AtLeast<
+    BinanceIncomingTxnWhereUniqueInput,
+    'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'
+  >;
 }

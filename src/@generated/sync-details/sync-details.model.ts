@@ -4,16 +4,15 @@ import { ID } from '@nestjs/graphql';
 
 @ObjectType()
 export class SyncDetails {
+  @Field(() => ID, { nullable: false })
+  id!: string;
 
-    @Field(() => ID, {nullable:false})
-    id!: string;
+  @Field(() => Date, { nullable: false })
+  lastSyncedAt!: Date;
 
-    @Field(() => Date, {nullable:false})
-    lastSyncedAt!: Date;
+  @Field(() => String, { nullable: false })
+  actionName!: string;
 
-    @Field(() => String, {nullable:false})
-    actionName!: string;
-
-    @Field(() => String, {nullable:true})
-    metadata!: string | null;
+  @Field(() => String, { nullable: true })
+  metadata!: string | null;
 }

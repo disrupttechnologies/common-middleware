@@ -6,8 +6,12 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class FindUniqueWhitelabelIncomingTransactionOrThrowArgs {
-
-    @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {nullable:false})
-    @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
-    where!: Prisma.AtLeast<WhitelabelIncomingTransactionWhereUniqueInput, 'id' | 'provisionTxnHash' | 'settlementTransactionId'>;
+  @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {
+    nullable: false,
+  })
+  @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
+  where!: Prisma.AtLeast<
+    WhitelabelIncomingTransactionWhereUniqueInput,
+    'id' | 'provisionTxnHash' | 'settlementTransactionId'
+  >;
 }

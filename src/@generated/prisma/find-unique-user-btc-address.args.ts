@@ -5,8 +5,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class FindUniqueUserBtcAddressArgs {
-
-    @Field(() => UserBTCAddressWhereUniqueInput, {nullable:false})
-    @Type(() => UserBTCAddressWhereUniqueInput)
-    where!: UserBTCAddressWhereUniqueInput;
+  @Field(() => UserBTCAddressWhereUniqueInput, { nullable: false })
+  @Type(() => UserBTCAddressWhereUniqueInput)
+  where!: UserBTCAddressWhereUniqueInput;
 }

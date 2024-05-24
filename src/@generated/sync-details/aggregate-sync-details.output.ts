@@ -6,13 +6,12 @@ import { SyncDetailsMaxAggregate } from './sync-details-max-aggregate.output';
 
 @ObjectType()
 export class AggregateSyncDetails {
+  @Field(() => SyncDetailsCountAggregate, { nullable: true })
+  _count?: SyncDetailsCountAggregate;
 
-    @Field(() => SyncDetailsCountAggregate, {nullable:true})
-    _count?: SyncDetailsCountAggregate;
+  @Field(() => SyncDetailsMinAggregate, { nullable: true })
+  _min?: SyncDetailsMinAggregate;
 
-    @Field(() => SyncDetailsMinAggregate, {nullable:true})
-    _min?: SyncDetailsMinAggregate;
-
-    @Field(() => SyncDetailsMaxAggregate, {nullable:true})
-    _max?: SyncDetailsMaxAggregate;
+  @Field(() => SyncDetailsMaxAggregate, { nullable: true })
+  _max?: SyncDetailsMaxAggregate;
 }

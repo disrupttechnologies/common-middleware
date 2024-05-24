@@ -71,9 +71,8 @@ export class BinanceOrderManagerService {
       });
     } catch (err) {
       console.error('initSellOrder', err, record.id);
-      const sentryMsg = `initSellOrder ${err} ${record.id}`
-      Sentry.captureMessage(sentryMsg,);
-
+      const sentryMsg = `initSellOrder ${err} ${record.id}`;
+      Sentry.captureMessage(sentryMsg);
     }
   }
 

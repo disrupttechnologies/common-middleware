@@ -7,43 +7,42 @@ import { BTCIncomingTransactionMaxAggregate } from './btc-incoming-transaction-m
 
 @ObjectType()
 export class BTCIncomingTransactionGroupBy {
+  @Field(() => String, { nullable: false })
+  id!: string;
 
-    @Field(() => String, {nullable:false})
-    id!: string;
+  @Field(() => Date, { nullable: false })
+  createdAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    createdAt!: Date | string;
+  @Field(() => Date, { nullable: false })
+  updatedAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    updatedAt!: Date | string;
+  @Field(() => String, { nullable: false })
+  txnHash!: string;
 
-    @Field(() => String, {nullable:false})
-    txnHash!: string;
+  @Field(() => String, { nullable: false })
+  binanceTxnId!: string;
 
-    @Field(() => String, {nullable:false})
-    binanceTxnId!: string;
+  @Field(() => Date, { nullable: false })
+  txnTime!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    txnTime!: Date | string;
+  @Field(() => String, { nullable: false })
+  amount!: string;
 
-    @Field(() => String, {nullable:false})
-    amount!: string;
+  @Field(() => String, { nullable: false })
+  senderAddress!: string;
 
-    @Field(() => String, {nullable:false})
-    senderAddress!: string;
+  @Field(() => TxnStatus, { nullable: false })
+  txnStatus!: keyof typeof TxnStatus;
 
-    @Field(() => TxnStatus, {nullable:false})
-    txnStatus!: keyof typeof TxnStatus;
+  @Field(() => String, { nullable: true })
+  failedRemarks?: string;
 
-    @Field(() => String, {nullable:true})
-    failedRemarks?: string;
+  @Field(() => BTCIncomingTransactionCountAggregate, { nullable: true })
+  _count?: BTCIncomingTransactionCountAggregate;
 
-    @Field(() => BTCIncomingTransactionCountAggregate, {nullable:true})
-    _count?: BTCIncomingTransactionCountAggregate;
+  @Field(() => BTCIncomingTransactionMinAggregate, { nullable: true })
+  _min?: BTCIncomingTransactionMinAggregate;
 
-    @Field(() => BTCIncomingTransactionMinAggregate, {nullable:true})
-    _min?: BTCIncomingTransactionMinAggregate;
-
-    @Field(() => BTCIncomingTransactionMaxAggregate, {nullable:true})
-    _max?: BTCIncomingTransactionMaxAggregate;
+  @Field(() => BTCIncomingTransactionMaxAggregate, { nullable: true })
+  _max?: BTCIncomingTransactionMaxAggregate;
 }

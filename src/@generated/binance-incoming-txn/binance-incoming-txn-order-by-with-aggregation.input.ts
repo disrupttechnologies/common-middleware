@@ -8,49 +8,48 @@ import { BinanceIncomingTxnMinOrderByAggregateInput } from './binance-incoming-t
 
 @InputType()
 export class BinanceIncomingTxnOrderByWithAggregationInput {
+  @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  createdAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  updatedAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  paidCurrency?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    paidCurrency?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  amountInPaidCurrency?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    amountInPaidCurrency?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  network?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    network?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  txnHash?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    txnHash?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  senderAddress?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    senderAddress?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  binanceTxnId?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    binanceTxnId?: keyof typeof SortOrder;
+  @Field(() => SortOrderInput, { nullable: true })
+  status?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    status?: SortOrderInput;
+  @Field(() => SortOrderInput, { nullable: true })
+  settlementTransactionId?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    settlementTransactionId?: SortOrderInput;
+  @Field(() => SortOrderInput, { nullable: true })
+  failedRemarks?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    failedRemarks?: SortOrderInput;
+  @Field(() => BinanceIncomingTxnCountOrderByAggregateInput, { nullable: true })
+  _count?: BinanceIncomingTxnCountOrderByAggregateInput;
 
-    @Field(() => BinanceIncomingTxnCountOrderByAggregateInput, {nullable:true})
-    _count?: BinanceIncomingTxnCountOrderByAggregateInput;
+  @Field(() => BinanceIncomingTxnMaxOrderByAggregateInput, { nullable: true })
+  _max?: BinanceIncomingTxnMaxOrderByAggregateInput;
 
-    @Field(() => BinanceIncomingTxnMaxOrderByAggregateInput, {nullable:true})
-    _max?: BinanceIncomingTxnMaxOrderByAggregateInput;
-
-    @Field(() => BinanceIncomingTxnMinOrderByAggregateInput, {nullable:true})
-    _min?: BinanceIncomingTxnMinOrderByAggregateInput;
+  @Field(() => BinanceIncomingTxnMinOrderByAggregateInput, { nullable: true })
+  _min?: BinanceIncomingTxnMinOrderByAggregateInput;
 }

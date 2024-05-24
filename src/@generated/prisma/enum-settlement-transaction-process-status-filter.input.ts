@@ -5,16 +5,17 @@ import { NestedEnumSettlementTransactionProcessStatusFilter } from './nested-enu
 
 @InputType()
 export class EnumSettlementTransactionProcessStatusFilter {
+  @Field(() => SettlementTransactionProcessStatus, { nullable: true })
+  equals?: keyof typeof SettlementTransactionProcessStatus;
 
-    @Field(() => SettlementTransactionProcessStatus, {nullable:true})
-    equals?: keyof typeof SettlementTransactionProcessStatus;
+  @Field(() => [SettlementTransactionProcessStatus], { nullable: true })
+  in?: Array<keyof typeof SettlementTransactionProcessStatus>;
 
-    @Field(() => [SettlementTransactionProcessStatus], {nullable:true})
-    in?: Array<keyof typeof SettlementTransactionProcessStatus>;
+  @Field(() => [SettlementTransactionProcessStatus], { nullable: true })
+  notIn?: Array<keyof typeof SettlementTransactionProcessStatus>;
 
-    @Field(() => [SettlementTransactionProcessStatus], {nullable:true})
-    notIn?: Array<keyof typeof SettlementTransactionProcessStatus>;
-
-    @Field(() => NestedEnumSettlementTransactionProcessStatusFilter, {nullable:true})
-    not?: NestedEnumSettlementTransactionProcessStatusFilter;
+  @Field(() => NestedEnumSettlementTransactionProcessStatusFilter, {
+    nullable: true,
+  })
+  not?: NestedEnumSettlementTransactionProcessStatusFilter;
 }

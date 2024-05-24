@@ -7,12 +7,16 @@ import { SettlementTransactionCreateWithoutIncomingTxnInput } from './settlement
 
 @InputType()
 export class SettlementTransactionCreateOrConnectWithoutIncomingTxnInput {
+  @Field(() => SettlementTransactionWhereUniqueInput, { nullable: false })
+  @Type(() => SettlementTransactionWhereUniqueInput)
+  where!: Prisma.AtLeast<
+    SettlementTransactionWhereUniqueInput,
+    'id' | 'orderId'
+  >;
 
-    @Field(() => SettlementTransactionWhereUniqueInput, {nullable:false})
-    @Type(() => SettlementTransactionWhereUniqueInput)
-    where!: Prisma.AtLeast<SettlementTransactionWhereUniqueInput, 'id' | 'orderId'>;
-
-    @Field(() => SettlementTransactionCreateWithoutIncomingTxnInput, {nullable:false})
-    @Type(() => SettlementTransactionCreateWithoutIncomingTxnInput)
-    create!: SettlementTransactionCreateWithoutIncomingTxnInput;
+  @Field(() => SettlementTransactionCreateWithoutIncomingTxnInput, {
+    nullable: false,
+  })
+  @Type(() => SettlementTransactionCreateWithoutIncomingTxnInput)
+  create!: SettlementTransactionCreateWithoutIncomingTxnInput;
 }

@@ -7,16 +7,15 @@ import { UserBTCAddressWhereInput } from './user-btc-address-where.input';
 
 @InputType()
 export class UserBTCAddressUpsertWithoutTxnsInput {
+  @Field(() => UserBTCAddressUpdateWithoutTxnsInput, { nullable: false })
+  @Type(() => UserBTCAddressUpdateWithoutTxnsInput)
+  update!: UserBTCAddressUpdateWithoutTxnsInput;
 
-    @Field(() => UserBTCAddressUpdateWithoutTxnsInput, {nullable:false})
-    @Type(() => UserBTCAddressUpdateWithoutTxnsInput)
-    update!: UserBTCAddressUpdateWithoutTxnsInput;
+  @Field(() => UserBTCAddressCreateWithoutTxnsInput, { nullable: false })
+  @Type(() => UserBTCAddressCreateWithoutTxnsInput)
+  create!: UserBTCAddressCreateWithoutTxnsInput;
 
-    @Field(() => UserBTCAddressCreateWithoutTxnsInput, {nullable:false})
-    @Type(() => UserBTCAddressCreateWithoutTxnsInput)
-    create!: UserBTCAddressCreateWithoutTxnsInput;
-
-    @Field(() => UserBTCAddressWhereInput, {nullable:true})
-    @Type(() => UserBTCAddressWhereInput)
-    where?: UserBTCAddressWhereInput;
+  @Field(() => UserBTCAddressWhereInput, { nullable: true })
+  @Type(() => UserBTCAddressWhereInput)
+  where?: UserBTCAddressWhereInput;
 }

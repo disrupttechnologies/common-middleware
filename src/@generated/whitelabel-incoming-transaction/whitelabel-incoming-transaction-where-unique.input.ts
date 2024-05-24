@@ -7,37 +7,36 @@ import { BinanceIncomingTxnNullableRelationFilter } from '../binance-incoming-tx
 
 @InputType()
 export class WhitelabelIncomingTransactionWhereUniqueInput {
+  @Field(() => String, { nullable: true })
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
+  @Field(() => String, { nullable: true })
+  provisionTxnHash?: string;
 
-    @Field(() => String, {nullable:true})
-    provisionTxnHash?: string;
+  @Field(() => String, { nullable: true })
+  settlementTransactionId?: string;
 
-    @Field(() => String, {nullable:true})
-    settlementTransactionId?: string;
+  @Field(() => [WhitelabelIncomingTransactionWhereInput], { nullable: true })
+  AND?: Array<WhitelabelIncomingTransactionWhereInput>;
 
-    @Field(() => [WhitelabelIncomingTransactionWhereInput], {nullable:true})
-    AND?: Array<WhitelabelIncomingTransactionWhereInput>;
+  @Field(() => [WhitelabelIncomingTransactionWhereInput], { nullable: true })
+  OR?: Array<WhitelabelIncomingTransactionWhereInput>;
 
-    @Field(() => [WhitelabelIncomingTransactionWhereInput], {nullable:true})
-    OR?: Array<WhitelabelIncomingTransactionWhereInput>;
+  @Field(() => [WhitelabelIncomingTransactionWhereInput], { nullable: true })
+  NOT?: Array<WhitelabelIncomingTransactionWhereInput>;
 
-    @Field(() => [WhitelabelIncomingTransactionWhereInput], {nullable:true})
-    NOT?: Array<WhitelabelIncomingTransactionWhereInput>;
+  @Field(() => DateTimeFilter, { nullable: true })
+  createdAt?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    createdAt?: DateTimeFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  updatedAt?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    updatedAt?: DateTimeFilter;
+  @Field(() => StringFilter, { nullable: true })
+  userId?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    userId?: StringFilter;
+  @Field(() => StringFilter, { nullable: true })
+  whitelabelId?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    whitelabelId?: StringFilter;
-
-    @Field(() => BinanceIncomingTxnNullableRelationFilter, {nullable:true})
-    settlementTransaction?: BinanceIncomingTxnNullableRelationFilter;
+  @Field(() => BinanceIncomingTxnNullableRelationFilter, { nullable: true })
+  settlementTransaction?: BinanceIncomingTxnNullableRelationFilter;
 }

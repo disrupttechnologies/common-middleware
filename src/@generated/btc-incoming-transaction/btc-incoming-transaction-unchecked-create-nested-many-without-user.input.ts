@@ -9,20 +9,30 @@ import { BTCIncomingTransactionWhereUniqueInput } from './btc-incoming-transacti
 
 @InputType()
 export class BTCIncomingTransactionUncheckedCreateNestedManyWithoutUserInput {
+  @Field(() => [BTCIncomingTransactionCreateWithoutUserInput], {
+    nullable: true,
+  })
+  @Type(() => BTCIncomingTransactionCreateWithoutUserInput)
+  create?: Array<BTCIncomingTransactionCreateWithoutUserInput>;
 
-    @Field(() => [BTCIncomingTransactionCreateWithoutUserInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionCreateWithoutUserInput)
-    create?: Array<BTCIncomingTransactionCreateWithoutUserInput>;
+  @Field(() => [BTCIncomingTransactionCreateOrConnectWithoutUserInput], {
+    nullable: true,
+  })
+  @Type(() => BTCIncomingTransactionCreateOrConnectWithoutUserInput)
+  connectOrCreate?: Array<BTCIncomingTransactionCreateOrConnectWithoutUserInput>;
 
-    @Field(() => [BTCIncomingTransactionCreateOrConnectWithoutUserInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionCreateOrConnectWithoutUserInput)
-    connectOrCreate?: Array<BTCIncomingTransactionCreateOrConnectWithoutUserInput>;
+  @Field(() => BTCIncomingTransactionCreateManyUserInputEnvelope, {
+    nullable: true,
+  })
+  @Type(() => BTCIncomingTransactionCreateManyUserInputEnvelope)
+  createMany?: BTCIncomingTransactionCreateManyUserInputEnvelope;
 
-    @Field(() => BTCIncomingTransactionCreateManyUserInputEnvelope, {nullable:true})
-    @Type(() => BTCIncomingTransactionCreateManyUserInputEnvelope)
-    createMany?: BTCIncomingTransactionCreateManyUserInputEnvelope;
-
-    @Field(() => [BTCIncomingTransactionWhereUniqueInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionWhereUniqueInput)
-    connect?: Array<Prisma.AtLeast<BTCIncomingTransactionWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId'>>;
+  @Field(() => [BTCIncomingTransactionWhereUniqueInput], { nullable: true })
+  @Type(() => BTCIncomingTransactionWhereUniqueInput)
+  connect?: Array<
+    Prisma.AtLeast<
+      BTCIncomingTransactionWhereUniqueInput,
+      'id' | 'txnHash' | 'binanceTxnId'
+    >
+  >;
 }

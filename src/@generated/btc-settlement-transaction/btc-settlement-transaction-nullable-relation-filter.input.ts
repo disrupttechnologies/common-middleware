@@ -4,10 +4,9 @@ import { BTCSettlementTransactionWhereInput } from './btc-settlement-transaction
 
 @InputType()
 export class BTCSettlementTransactionNullableRelationFilter {
+  @Field(() => BTCSettlementTransactionWhereInput, { nullable: true })
+  is?: BTCSettlementTransactionWhereInput;
 
-    @Field(() => BTCSettlementTransactionWhereInput, {nullable:true})
-    is?: BTCSettlementTransactionWhereInput;
-
-    @Field(() => BTCSettlementTransactionWhereInput, {nullable:true})
-    isNot?: BTCSettlementTransactionWhereInput;
+  @Field(() => BTCSettlementTransactionWhereInput, { nullable: true })
+  isNot?: BTCSettlementTransactionWhereInput;
 }

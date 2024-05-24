@@ -3,16 +3,15 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class SyncDetailsUncheckedCreateInput {
+  @Field(() => String, { nullable: true })
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
+  @Field(() => Date, { nullable: false })
+  lastSyncedAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    lastSyncedAt!: Date | string;
+  @Field(() => String, { nullable: false })
+  actionName!: string;
 
-    @Field(() => String, {nullable:false})
-    actionName!: string;
-
-    @Field(() => String, {nullable:true})
-    metadata?: string;
+  @Field(() => String, { nullable: true })
+  metadata?: string;
 }

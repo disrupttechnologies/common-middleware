@@ -8,16 +8,28 @@ import { BinanceIncomingTxnWhereUniqueInput } from './binance-incoming-txn-where
 
 @InputType()
 export class BinanceIncomingTxnCreateNestedOneWithoutWhitelabelIncomingTransactionInput {
+  @Field(
+    () => BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput,
+    { nullable: true },
+  )
+  @Type(() => BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput)
+  create?: BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput;
 
-    @Field(() => BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput, {nullable:true})
-    @Type(() => BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput)
-    create?: BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput;
+  @Field(
+    () =>
+      BinanceIncomingTxnCreateOrConnectWithoutWhitelabelIncomingTransactionInput,
+    { nullable: true },
+  )
+  @Type(
+    () =>
+      BinanceIncomingTxnCreateOrConnectWithoutWhitelabelIncomingTransactionInput,
+  )
+  connectOrCreate?: BinanceIncomingTxnCreateOrConnectWithoutWhitelabelIncomingTransactionInput;
 
-    @Field(() => BinanceIncomingTxnCreateOrConnectWithoutWhitelabelIncomingTransactionInput, {nullable:true})
-    @Type(() => BinanceIncomingTxnCreateOrConnectWithoutWhitelabelIncomingTransactionInput)
-    connectOrCreate?: BinanceIncomingTxnCreateOrConnectWithoutWhitelabelIncomingTransactionInput;
-
-    @Field(() => BinanceIncomingTxnWhereUniqueInput, {nullable:true})
-    @Type(() => BinanceIncomingTxnWhereUniqueInput)
-    connect?: Prisma.AtLeast<BinanceIncomingTxnWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'>;
+  @Field(() => BinanceIncomingTxnWhereUniqueInput, { nullable: true })
+  @Type(() => BinanceIncomingTxnWhereUniqueInput)
+  connect?: Prisma.AtLeast<
+    BinanceIncomingTxnWhereUniqueInput,
+    'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'
+  >;
 }

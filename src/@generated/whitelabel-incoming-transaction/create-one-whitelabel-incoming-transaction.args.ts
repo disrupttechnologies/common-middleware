@@ -5,8 +5,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateOneWhitelabelIncomingTransactionArgs {
-
-    @Field(() => WhitelabelIncomingTransactionCreateInput, {nullable:false})
-    @Type(() => WhitelabelIncomingTransactionCreateInput)
-    data!: WhitelabelIncomingTransactionCreateInput;
+  @Field(() => WhitelabelIncomingTransactionCreateInput, { nullable: false })
+  @Type(() => WhitelabelIncomingTransactionCreateInput)
+  data!: WhitelabelIncomingTransactionCreateInput;
 }

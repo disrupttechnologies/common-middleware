@@ -6,12 +6,13 @@ import { BTCIncomingTransactionUpdateWithoutSettlementTxnInput } from './btc-inc
 
 @InputType()
 export class BTCIncomingTransactionUpdateToOneWithWhereWithoutSettlementTxnInput {
+  @Field(() => BTCIncomingTransactionWhereInput, { nullable: true })
+  @Type(() => BTCIncomingTransactionWhereInput)
+  where?: BTCIncomingTransactionWhereInput;
 
-    @Field(() => BTCIncomingTransactionWhereInput, {nullable:true})
-    @Type(() => BTCIncomingTransactionWhereInput)
-    where?: BTCIncomingTransactionWhereInput;
-
-    @Field(() => BTCIncomingTransactionUpdateWithoutSettlementTxnInput, {nullable:false})
-    @Type(() => BTCIncomingTransactionUpdateWithoutSettlementTxnInput)
-    data!: BTCIncomingTransactionUpdateWithoutSettlementTxnInput;
+  @Field(() => BTCIncomingTransactionUpdateWithoutSettlementTxnInput, {
+    nullable: false,
+  })
+  @Type(() => BTCIncomingTransactionUpdateWithoutSettlementTxnInput)
+  data!: BTCIncomingTransactionUpdateWithoutSettlementTxnInput;
 }

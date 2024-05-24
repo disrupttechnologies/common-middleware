@@ -37,6 +37,5 @@ async function bootstrap() {
 
   Sentry.setupNestErrorHandler(app, new BaseExceptionFilter(httpAdapter));
   await app.listen(process.env.PORT || nestConfig.port || 3000);
-
 }
 bootstrap();

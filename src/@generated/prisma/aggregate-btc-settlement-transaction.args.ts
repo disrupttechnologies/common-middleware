@@ -8,20 +8,21 @@ import { Int } from '@nestjs/graphql';
 
 @ArgsType()
 export class AggregateBtcSettlementTransactionArgs {
+  @Field(() => BTCSettlementTransactionWhereInput, { nullable: true })
+  @Type(() => BTCSettlementTransactionWhereInput)
+  where?: BTCSettlementTransactionWhereInput;
 
-    @Field(() => BTCSettlementTransactionWhereInput, {nullable:true})
-    @Type(() => BTCSettlementTransactionWhereInput)
-    where?: BTCSettlementTransactionWhereInput;
+  @Field(() => [BTCSettlementTransactionOrderByWithRelationInput], {
+    nullable: true,
+  })
+  orderBy?: Array<BTCSettlementTransactionOrderByWithRelationInput>;
 
-    @Field(() => [BTCSettlementTransactionOrderByWithRelationInput], {nullable:true})
-    orderBy?: Array<BTCSettlementTransactionOrderByWithRelationInput>;
+  @Field(() => BTCSettlementTransactionWhereUniqueInput, { nullable: true })
+  cursor?: BTCSettlementTransactionWhereUniqueInput;
 
-    @Field(() => BTCSettlementTransactionWhereUniqueInput, {nullable:true})
-    cursor?: BTCSettlementTransactionWhereUniqueInput;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
-
-    @Field(() => Int, {nullable:true})
-    skip?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 }

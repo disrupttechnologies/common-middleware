@@ -5,11 +5,10 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateManySyncDetailsArgs {
+  @Field(() => [SyncDetailsCreateManyInput], { nullable: false })
+  @Type(() => SyncDetailsCreateManyInput)
+  data!: Array<SyncDetailsCreateManyInput>;
 
-    @Field(() => [SyncDetailsCreateManyInput], {nullable:false})
-    @Type(() => SyncDetailsCreateManyInput)
-    data!: Array<SyncDetailsCreateManyInput>;
-
-    @Field(() => Boolean, {nullable:true})
-    skipDuplicates?: boolean;
+  @Field(() => Boolean, { nullable: true })
+  skipDuplicates?: boolean;
 }

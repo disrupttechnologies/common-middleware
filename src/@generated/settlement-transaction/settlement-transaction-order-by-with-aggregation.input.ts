@@ -8,34 +8,39 @@ import { SettlementTransactionMinOrderByAggregateInput } from './settlement-tran
 
 @InputType()
 export class SettlementTransactionOrderByWithAggregationInput {
+  @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  createdAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  updatedAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+  @Field(() => SortOrderInput, { nullable: true })
+  orderId?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    orderId?: SortOrderInput;
+  @Field(() => SortOrderInput, { nullable: true })
+  orderplaceTime?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    orderplaceTime?: SortOrderInput;
+  @Field(() => SortOrderInput, { nullable: true })
+  amountReceived?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    amountReceived?: SortOrderInput;
+  @Field(() => SortOrder, { nullable: true })
+  status?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    status?: keyof typeof SortOrder;
+  @Field(() => SettlementTransactionCountOrderByAggregateInput, {
+    nullable: true,
+  })
+  _count?: SettlementTransactionCountOrderByAggregateInput;
 
-    @Field(() => SettlementTransactionCountOrderByAggregateInput, {nullable:true})
-    _count?: SettlementTransactionCountOrderByAggregateInput;
+  @Field(() => SettlementTransactionMaxOrderByAggregateInput, {
+    nullable: true,
+  })
+  _max?: SettlementTransactionMaxOrderByAggregateInput;
 
-    @Field(() => SettlementTransactionMaxOrderByAggregateInput, {nullable:true})
-    _max?: SettlementTransactionMaxOrderByAggregateInput;
-
-    @Field(() => SettlementTransactionMinOrderByAggregateInput, {nullable:true})
-    _min?: SettlementTransactionMinOrderByAggregateInput;
+  @Field(() => SettlementTransactionMinOrderByAggregateInput, {
+    nullable: true,
+  })
+  _min?: SettlementTransactionMinOrderByAggregateInput;
 }
