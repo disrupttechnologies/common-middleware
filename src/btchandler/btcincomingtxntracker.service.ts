@@ -1,4 +1,4 @@
-import { RestWalletTypes, Spot } from '@binance/connector-typescript';
+import { Spot } from '@binance/connector-typescript';
 import { Injectable } from '@nestjs/common';
 import moment from 'moment';
 import { PrismaService } from 'nestjs-prisma';
@@ -21,8 +21,7 @@ export class BTCIncomingTxnTrackerService {
     for (const record of records) {
       const btcAddress = await this.prisma.userBTCAddress.findFirst({
         where: {
-          //@ts-ignore
-          address: record.sourceAddress.toLowerCase(),
+          address: record['sourceAddress'].toLowerCase(),
         },
         select: {
           id: true,
@@ -32,18 +31,16 @@ export class BTCIncomingTxnTrackerService {
         let txnStatus: string;
         let error: string;
         switch (record.status) {
-          //@ts-ignore
           case 0:
-          //@ts-ignore
+
           case 6:
             txnStatus = 'PENDING';
             break;
-          //@ts-ignore
+
           case 1:
             txnStatus = 'SUCCESS';
             break;
 
-          //@ts-ignore
           case 7:
             txnStatus = 'ERROR';
             error = 'Wrong Deposit';
@@ -52,8 +49,8 @@ export class BTCIncomingTxnTrackerService {
 
         data.push({
           txnHash: record.txId.toLowerCase(),
-          //@ts-ignore
-          senderAddress: record.sourceAddress.toLowerCase(),
+
+          senderAddress: record['sourceAddress'].toLowerCase(),
           txnStatus: txnStatus,
           failedRemarks: error,
           binanceTxnId: record.id,
@@ -84,10 +81,9 @@ export class BTCIncomingTxnTrackerService {
 
     for (const txn of txns) {
       try {
-        const options: RestWalletTypes.depositHistoryOptions = {
+        const options = {
           coin: 'BTC',
           txId: txn.txnHash,
-          //@ts-ignore
           includeSource: true,
         };
         const records = await binanceClient.depositHistory(options);
@@ -113,10 +109,10 @@ export class BTCIncomingTxnTrackerService {
       .toDate()
       .getTime();
 
-    const options: RestWalletTypes.depositHistoryOptions = {
+    const options = {
       coin: 'BTC',
       startTime: finaStartTime,
-      //@ts-ignore
+
       includeSource: true,
     };
     const records = await binanceClient.depositHistory(options);

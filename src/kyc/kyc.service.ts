@@ -1,10 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'nestjs-prisma';
-import {  CreateKYCsInput } from './dto/createkyc.dto';
+import { CreateKYCsInput } from './dto/createkyc.dto';
 import { OkResponse } from 'src/common/models/okresponse.model';
 import { KYCDetailWhereInput } from 'src/@generated/kyc-detail/kyc-detail-where.input';
 import { SumSubService } from './sumsub.service';
-import { GetKYCAccessTokenInput, GetKYCResponseInput } from './dto/getKYCresponse';
+import {
+  GetKYCAccessTokenInput,
+  GetKYCResponseInput,
+} from './dto/getKYCresponse';
 import { WhitelabelConfig } from 'src/common/configs/config.interface';
 import { ConfigService } from '@nestjs/config';
 import { HttpService } from '@nestjs/axios';
@@ -20,22 +23,19 @@ export class KycService {
     private readonly sumsub: SumSubService,
     private readonly config: ConfigService,
     private readonly http: HttpService,
-
   ) {
     this.handleKYC();
     this.whitelabelConfig = config.get<WhitelabelConfig>('whitelabelConfig');
   }
 
-
   async createMany(
     whitelabelId: string,
-  
-    input:CreateKYCsInput,
-  ): Promise<OkResponse> {
 
+    input: CreateKYCsInput,
+  ): Promise<OkResponse> {
     const items = input.data.map((item) => {
-      return {...item,whitelabelId}
-    })
+      return { ...item, whitelabelId };
+    });
     await this.prisma.kYCDetail.createMany({
       data: items,
     });
@@ -49,57 +49,56 @@ export class KycService {
     return this.prisma.kYCDetail.findMany({ where });
   }
 
-
-
-
   async handleFetchApplicantsData() {
     const applicants = await this.prisma.kYCUser.findMany({
       where: {
         kycData: null,
-        kycStatus:"SUCCESS",
+        kycStatus: 'SUCCESS',
       },
       select: {
-        kycApplicantId:true
-      }
-    })
+        kycApplicantId: true,
+      },
+    });
     for (const applicant of applicants) {
       try {
-        const data = await this.sumsub.getApplicantData(applicant.kycApplicantId);
-        const record =  await this.prisma.kYCUser.update({
-            where: {
-              kycApplicantId: applicant.kycApplicantId
-            },
-            data: {
-              kycData: JSON.stringify(data),
-            },
-            select: {
-              id: true,
-              whitelabelId: true,
-              userId:true
-            }
-        })
-          await this.invokeWhitelabel(record.whitelabelId, {
-            type: "applicantDataReceived",
-            data:JSON.stringify({userId:record.userId ,data})
-          })
+        const data = await this.sumsub.getApplicantData(
+          applicant.kycApplicantId,
+        );
+        const record = await this.prisma.kYCUser.update({
+          where: {
+            kycApplicantId: applicant.kycApplicantId,
+          },
+          data: {
+            kycData: JSON.stringify(data),
+          },
+          select: {
+            id: true,
+            whitelabelId: true,
+            userId: true,
+          },
+        });
+        await this.invokeWhitelabel(record.whitelabelId, {
+          type: 'applicantDataReceived',
+          data: JSON.stringify({ userId: record.userId, data }),
+        });
       } catch (err) {
-        console.error("handleFetchApplicantsDataError",err)
+        console.error('handleFetchApplicantsDataError', err);
       }
-    } 
+    }
   }
 
   getKYCResponses(where: GetKYCResponseInput) {
     return this.prisma.kYCDetail.findMany({
       where: {
         userId: {
-         in:where.ids
-       }
+          in: where.ids,
+        },
       },
       select: {
         userId: true,
-        kycStatus:true,
-      }
-    })
+        kycStatus: true,
+      },
+    });
   }
   async handleKYC() {
     await this.handleFetchApplicantsData();
@@ -109,16 +108,12 @@ export class KycService {
     return this.sumsub.getKYCAccessToken(where.userId);
   }
 
-
-
-
   createApiConfigSignature(data: any) {
     const signature = crypto.createHmac(
       'sha256',
       process.env.WHITE_LABEL_WEBHOOK_SECRET,
     );
     if (data instanceof iFormData) {
-      //@ts-ignore
       signature.update(data.getBuffer());
     } else if (data) {
       signature.update(data);
@@ -128,15 +123,13 @@ export class KycService {
     };
   }
 
-  async invokeWhitelabel(whitelabelId:string,payload: any) {
+  async invokeWhitelabel(whitelabelId: string, payload: any) {
     try {
-      const whitelabelConfig = this.whitelabelConfig[whitelabelId]
+      const whitelabelConfig = this.whitelabelConfig[whitelabelId];
       if (!whitelabelConfig) {
-        return
+        return;
       }
-      const url = `${
-        whitelabelConfig.backendUri
-      }/middlewarehooks/kyc`;
+      const url = `${whitelabelConfig.backendUri}/middlewarehooks/kyc`;
       const headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -149,5 +142,4 @@ export class KycService {
       // console.error('Err', err);
     }
   }
-  
 }

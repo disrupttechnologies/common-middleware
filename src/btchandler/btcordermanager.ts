@@ -7,7 +7,6 @@ import {
   TimeInForce,
 } from '@binance/connector-typescript';
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import moment from 'moment';
 import { PrismaService } from 'nestjs-prisma';
 import { BTCIncomingTransaction } from 'src/@generated/btc-incoming-transaction/btc-incoming-transaction.model';
@@ -36,11 +35,9 @@ interface OrdersResponse {
 
 @Injectable()
 export class BTCOrderManagerService {
-  private PAIRNAME: string = 'BTCUSDT';
+  private PAIRNAME = 'BTCUSDT';
 
-  constructor(
-    private readonly prisma: PrismaService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   async initSellOrder(record: BTCIncomingTransaction, binanceClient: Spot) {
     const options: RestTradeTypes.newOrderOptions = {
@@ -56,7 +53,7 @@ export class BTCOrderManagerService {
       options,
     );
 
-    const { orderId, status, price, cummulativeQuoteQty, transactTime } = resp;
+    const { orderId, status, cummulativeQuoteQty, transactTime } = resp;
     let finalAmount = 0;
     if (status === OrderStatus.FILLED) {
       const amountReceived = Number(cummulativeQuoteQty);
@@ -79,7 +76,7 @@ export class BTCOrderManagerService {
         settlementTxn: {
           is: null,
         },
-        txnStatus:"SUCCESS"
+        txnStatus: 'SUCCESS',
       },
     });
 

@@ -30,19 +30,13 @@ export const tokensConfig = {
   ],
 };
 
-
-
-
-
 export const stableToken = {
-  "1": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-  "56":"0x55d398326f99059ff775485246999027b3197955"
-}
-
-
+  '1': '0xdac17f958d2ee523a2206206994597c13d831ec7',
+  '56': '0x55d398326f99059ff775485246999027b3197955',
+};
 
 export interface TokenBalanceResponse {
-    [chainId : string]: {
-         [address:string]:string
-     }
- }
+  [chainId: string]: {
+    [address: string]: string;
+  };
+}

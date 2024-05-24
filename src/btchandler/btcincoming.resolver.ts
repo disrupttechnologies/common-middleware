@@ -9,7 +9,7 @@ import { ConfigService } from '@nestjs/config';
 import { BinanceConfig } from 'src/common/configs/config.interface';
 import { BTCIncomingTransaction } from 'src/@generated/btc-incoming-transaction/btc-incoming-transaction.model';
 import { BTCDataService } from './btcdata.service';
-import {  UseGuards } from '@nestjs/common';
+import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from 'src/auth/gql-auth.guard';
 import { BTCIncomingTransactionWhereInput } from 'src/@generated/btc-incoming-transaction/btc-incoming-transaction-where.input';
 import { UserEntity } from 'src/common/decorators/user.decorator';
@@ -71,17 +71,14 @@ export class BtchandlerResolver {
       });
     }
 
-    this.syncDetails[SYNC_ACTION_NAME.CEX] =
-      cexSyncRec.lastSyncedAt.getTime();
+    this.syncDetails[SYNC_ACTION_NAME.CEX] = cexSyncRec.lastSyncedAt.getTime();
     this.syncDetails[SYNC_ACTION_NAME.BTC_INCOMING] =
       incomingSyncRec.lastSyncedAt.getTime();
 
     this.isInitialized = true;
 
-
-    await this.listenForNewTxns()
-    await this.settleOrders()
-
+    await this.listenForNewTxns();
+    await this.settleOrders();
   }
 
   async markSynced(action: SYNC_ACTION_NAME) {
@@ -126,18 +123,15 @@ export class BtchandlerResolver {
     }
   }
 
-
-
   @Query(() => [BTCIncomingTransaction])
   async getBTCTxns(
     @UserEntity() user,
     @Args({ name: 'where', defaultValue: {} })
     where: BTCIncomingTransactionWhereInput,
   ) {
-    return this.dataService.getTransactionsByAddresses(user.whitelabelId,where);
+    return this.dataService.getTransactionsByAddresses(
+      user.whitelabelId,
+      where,
+    );
   }
-
-
-
-
 }

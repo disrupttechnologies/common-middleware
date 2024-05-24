@@ -34,11 +34,10 @@ export class FundManagerTxnWatchman {
       { baseURL: binanceConfig.BASE_URL },
     );
 
-
     this.init();
   }
 
-  async init() {   
+  async init() {
     let incomingSyncRec = await this.prisma.syncDetails.findFirst({
       where: {
         actionName: SYNC_ACTION_NAME.BINANCE_INCOMING,
@@ -68,18 +67,15 @@ export class FundManagerTxnWatchman {
     }
 
     this.syncDetails[SYNC_ACTION_NAME.BINANCE_ORDER_MANAGER] =
-    orderManagerSyncRec.lastSyncedAt.getTime();
+      orderManagerSyncRec.lastSyncedAt.getTime();
     this.syncDetails[SYNC_ACTION_NAME.BINANCE_INCOMING] =
       incomingSyncRec.lastSyncedAt.getTime();
 
     this.isInitialized = true;
 
-
-    await this.listenForNewTxns()
-    await this.settleOrders()
+    await this.listenForNewTxns();
+    await this.settleOrders();
     await this.updateCryptoPrice();
-
-
   }
 
   async markSynced(action: SYNC_ACTION_NAME) {
@@ -124,20 +120,12 @@ export class FundManagerTxnWatchman {
     }
   }
 
-
-  
   @Cron('*/1 * * * *')
   async updateCryptoPrice() {
     try {
-      await this.binancePricingService.updateCryptoPrice(
-        this.binanceClient,
-      );
+      await this.binancePricingService.updateCryptoPrice(this.binanceClient);
     } catch (err) {
       console.error('updateCryptoPrice', err);
     }
   }
-
-
-  
-    
 }

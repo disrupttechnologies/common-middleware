@@ -7,18 +7,13 @@ import { GqlAuthGuard } from 'src/auth/gql-auth.guard';
 
 @UseGuards(GqlAuthGuard)
 @Resolver()
-
 export class DexResolver {
-
-  
-  constructor(private readonly dexService: DexService) { }
-  
+  constructor(private readonly dexService: DexService) {}
 
   @Query(() => TokenPriceResp)
   getCryptoPrice() {
     return this.dexService.getPrices();
   }
-
 
   @Mutation(() => TokenTradeResp)
   createTradeData(
@@ -27,5 +22,4 @@ export class DexResolver {
   ) {
     return this.dexService.getTradeData(data);
   }
-
 }

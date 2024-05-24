@@ -3,8 +3,8 @@ import { EventManagerService } from './event-manager.service';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports:[HttpModule],
+  imports: [HttpModule],
   controllers: [],
-  providers: [EventManagerService]
+  providers: [EventManagerService],
 })
 export class EventManagerModule {}

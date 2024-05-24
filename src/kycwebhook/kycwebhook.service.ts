@@ -1,7 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { KYCDetail } from '@prisma/client';
 import { PrismaService } from 'nestjs-prisma';
 import { WhitelabelConfig } from 'src/common/configs/config.interface';
 import crypto from 'crypto';
@@ -43,7 +42,7 @@ export class KycwebhookService {
           },
           data: {
             kycStatus: status,
-            kycData:null
+            kycData: null,
           },
           select: {
             userId: true,
@@ -52,10 +51,10 @@ export class KycwebhookService {
           },
         });
 
-       await this.invokeWhitelabel(record.whitelabelId, {
+        await this.invokeWhitelabel(record.whitelabelId, {
           userId: record.userId,
           kycStatus: record.kycStatus,
-          type:data['type']
+          type: data['type'],
         });
       }
     }
@@ -69,19 +68,17 @@ export class KycwebhookService {
     const whitelabelId = idParts[1];
     const inspectionId = data['inspectionId'];
 
-
     await this.prisma.kYCUser.create({
       data: {
         userId,
         whitelabelId,
         kycApplicantId,
-        inspectionId
+        inspectionId,
       },
       select: {
         userId: true,
       },
     });
-
   }
 
   async handleApplicantPending(data: any) {
@@ -94,7 +91,7 @@ export class KycwebhookService {
       },
       data: {
         kycStatus: 'PENDING',
-        inspectionId
+        inspectionId,
       },
       select: {
         userId: true,
@@ -107,13 +104,12 @@ export class KycwebhookService {
       userId: record.userId,
       kycStatus: record.kycStatus,
       inspectionId,
-      type:data['type']
+      type: data['type'],
     });
   }
 
   async handleSubsubWebHook(data: any) {
     try {
-
       const actionType = data['type'];
       switch (actionType) {
         case 'applicantReviewed':
@@ -138,7 +134,6 @@ export class KycwebhookService {
       process.env.WHITE_LABEL_WEBHOOK_SECRET,
     );
     if (data instanceof iFormData) {
-      //@ts-ignore
       signature.update(data.getBuffer());
     } else if (data) {
       signature.update(data);
@@ -148,15 +143,13 @@ export class KycwebhookService {
     };
   }
 
-  async invokeWhitelabel(whitelabelId:string,payload: any) {
+  async invokeWhitelabel(whitelabelId: string, payload: any) {
     try {
-      const whitelabelConfig = this.whitelabelConfig[whitelabelId]
+      const whitelabelConfig = this.whitelabelConfig[whitelabelId];
       if (!whitelabelConfig) {
-        return
+        return;
       }
-      const url = `${
-        whitelabelConfig.backendUri
-      }/middlewarehooks/kyc`;
+      const url = `${whitelabelConfig.backendUri}/middlewarehooks/kyc`;
       const headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json',

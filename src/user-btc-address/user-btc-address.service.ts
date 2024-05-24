@@ -4,7 +4,6 @@ import {
   Injectable,
 } from '@nestjs/common';
 import { CreateUserBtcAddressInput } from './dto/create-user-btc-address.input';
-import { UpdateUserBtcAddressInput } from './dto/update-user-btc-address.input';
 import { validate as validateBTCAddress } from 'bitcoin-address-validation';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from 'nestjs-prisma';
@@ -43,30 +42,15 @@ export class UserBtcAddressService {
     };
   }
 
-  getUserAddresses(userId: string,whitelabelId:string) {
+  getUserAddresses(userId: string, whitelabelId: string) {
     return this.prisma.userBTCAddress.findMany({
       where: {
         userId,
-        whitelabelId
+        whitelabelId,
       },
       select: {
-        address:true,
-      }
+        address: true,
+      },
     });
-  }
-  findAll() {
-    return `This action returns all userBtcAddress`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} userBtcAddress`;
-  }
-
-  update(id: number, updateUserBtcAddressInput: UpdateUserBtcAddressInput) {
-    return `This action updates a #${id} userBtcAddress`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} userBtcAddress`;
   }
 }

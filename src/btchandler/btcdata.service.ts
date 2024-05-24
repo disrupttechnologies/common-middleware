@@ -18,7 +18,7 @@ export class BTCDataService {
           isNot: null,
         },
         txnStatus: {
-          not:"PENDING"
+          not: 'PENDING',
         },
         user: {
           whitelabelId: {
@@ -28,7 +28,7 @@ export class BTCDataService {
       },
       include: {
         settlementTxn: true,
-        user:true
+        user: true,
       },
     });
     return records;

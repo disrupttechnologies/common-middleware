@@ -5,8 +5,8 @@ import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [HttpModule],
-  
+
   controllers: [KycwebhookController],
-  providers: [KycwebhookService]
+  providers: [KycwebhookService],
 })
 export class KycwebhookModule {}

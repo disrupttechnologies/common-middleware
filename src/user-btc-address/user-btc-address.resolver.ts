@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { UserBtcAddressService } from './user-btc-address.service';
 import {
   CreateUserBtcAddressInput,
@@ -27,8 +27,13 @@ export class UserBtcAddressResolver {
   }
 
   @Query(() => [UserBTCAddress])
-  getUserAddresses( @UserEntity() user: any,
-    @Args('data') where: GetUserBTCAddressInput) {
-    return this.userBtcAddressService.getUserAddresses(where.userId,user.whitelabelId,);
+  getUserAddresses(
+    @UserEntity() user: any,
+    @Args('data') where: GetUserBTCAddressInput,
+  ) {
+    return this.userBtcAddressService.getUserAddresses(
+      where.userId,
+      user.whitelabelId,
+    );
   }
 }

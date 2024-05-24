@@ -57,9 +57,6 @@ import { DexModule } from './dex/dex.module';
     FundsmanagerModule,
 
     EventManagerModule,
-
-
- 
   ],
   controllers: [AppController],
   providers: [],

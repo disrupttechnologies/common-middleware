@@ -32,7 +32,7 @@ export class EventManagerService {
     private readonly config: ConfigService,
     private readonly http: HttpService,
   ) {
-      this.whitelabelConfig = config.get<WhitelabelConfig>('whitelabelConfig');
+    this.whitelabelConfig = config.get<WhitelabelConfig>('whitelabelConfig');
   }
 
   @OnEvent('order.finalized')
@@ -60,7 +60,6 @@ export class EventManagerService {
       process.env.WHITE_LABEL_WEBHOOK_SECRET,
     );
     if (data instanceof iFormData) {
-      //@ts-ignore
       signature.update(data.getBuffer());
     } else if (data) {
       signature.update(data);

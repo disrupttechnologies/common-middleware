@@ -1,15 +1,11 @@
-import { Controller, Get, Param } from '@nestjs/common';
-import ip  from "ip";
+import { Controller, Get } from '@nestjs/common';
+import ip from 'ip';
 
 @Controller()
 export class AppController {
-  constructor() {}
-
   @Get()
   getHello(): string {
-    const _ip = ip.address()
-    return _ip
+    const _ip = ip.address();
+    return _ip;
   }
-
-  
 }

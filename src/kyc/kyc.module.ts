@@ -5,7 +5,7 @@ import { SumSubService } from './sumsub.service';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports:[HttpModule],
-  providers: [KycResolver, KycService,SumSubService]
+  imports: [HttpModule],
+  providers: [KycResolver, KycService, SumSubService],
 })
 export class KycModule {}

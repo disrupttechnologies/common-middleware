@@ -8,14 +8,14 @@ import { BinanceCryptoPriceService } from './subservices/binanceCryptoPriceServi
 import { PriceApiController } from './price.api.controller';
 
 @Module({
-  providers: [FundsmanagerResolver, FundsmanagerService,
+  providers: [
+    FundsmanagerResolver,
+    FundsmanagerService,
     FundManagerTxnWatchman,
     BinanceIncomingTxnTrackerService,
     BinanceOrderManagerService,
     BinanceCryptoPriceService,
-    
   ],
   controllers: [PriceApiController],
-
 })
 export class FundsmanagerModule {}

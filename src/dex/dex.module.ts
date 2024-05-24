@@ -4,7 +4,7 @@ import { DexResolver } from './dex.resolver';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports:[HttpModule],
-  providers: [DexResolver, DexService]
+  imports: [HttpModule],
+  providers: [DexResolver, DexService],
 })
 export class DexModule {}

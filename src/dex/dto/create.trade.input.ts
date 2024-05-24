@@ -1,8 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 
-    
-    
 @InputType()
 export class CreateTradeDataInput {
   @Field(() => String)
@@ -10,18 +8,13 @@ export class CreateTradeDataInput {
 
   @Field(() => String)
   amount: string;
-    
+
   @Field(() => String)
   from: string;
 
- 
   @Field(() => String)
-  receiver: string
-  
-    
+  receiver: string;
 
   @Field(() => String)
   chainId: string;
-    
-  
 }

@@ -22,7 +22,9 @@ export class FundsmanagerResolver {
   }
 
   @Query(() => [WhitelabelIncomingTransaction])
-  async getIncomingTxns(@Args('where') where: WhitelabelIncomingTransactionWhereInput) {
+  async getIncomingTxns(
+    @Args('where') where: WhitelabelIncomingTransactionWhereInput,
+  ) {
     return this.fundsManagerService.getIncomingTxns(where);
   }
 }

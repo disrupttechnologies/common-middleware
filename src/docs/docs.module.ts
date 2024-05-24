@@ -4,8 +4,8 @@ import { SumSubService } from 'src/kyc/sumsub.service';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports:[HttpModule],
+  imports: [HttpModule],
   controllers: [DocsController],
-  providers: [SumSubService]
+  providers: [SumSubService],
 })
 export class DocsModule {}

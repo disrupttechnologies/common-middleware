@@ -1,6 +1,5 @@
 import { Resolver, Mutation, Args } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
-import { Auth } from './models/auth.model';
 import { Token } from './models/token.model';
 import { LoginInput } from './dto/login.input';
 import { UnauthorizedException } from '@nestjs/common';

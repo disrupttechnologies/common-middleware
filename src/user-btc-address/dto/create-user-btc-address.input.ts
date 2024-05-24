@@ -1,4 +1,4 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
+import { InputType, Field } from '@nestjs/graphql';
 
 @InputType()
 export class CreateUserBtcAddressInput {
@@ -8,10 +8,8 @@ export class CreateUserBtcAddressInput {
   userId: string;
 }
 
-
 @InputType()
 export class GetUserBTCAddressInput {
- 
   @Field(() => String, { description: 'User Id' })
   userId: string;
 }

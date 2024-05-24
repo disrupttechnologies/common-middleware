@@ -11,6 +11,7 @@ import { SettlementTransactionProcessStatus } from '@prisma/client';
 import moment from 'moment';
 import { PrismaService } from 'nestjs-prisma';
 import { BinanceIncomingTxn } from 'src/@generated/binance-incoming-txn/binance-incoming-txn.model';
+import * as Sentry from '@sentry/node';
 
 interface OrdersResponse {
   symbol: string;
@@ -44,16 +45,16 @@ export class BinanceOrderManagerService {
         quoteOrderQty: Number(record.amountInPaidCurrency),
         newClientOrderId: record.id,
       };
-  
+
       const resp = await binanceClient.newOrder(
         `${record.paidCurrency}USDT`,
         Side.SELL,
         OrderType.MARKET,
         options,
       );
-  
+
       const { orderId, transactTime } = resp;
-  
+
       await this.prisma.binanceIncomingTxn.update({
         data: {
           status: 'SETTLEMENT_INITIALZED',
@@ -69,7 +70,10 @@ export class BinanceOrderManagerService {
         },
       });
     } catch (err) {
-      console.error("initSellOrder",err,record.id)
+      console.error('initSellOrder', err, record.id);
+      const sentryMsg = `initSellOrder ${err} ${record.id}`
+      Sentry.captureMessage(sentryMsg,);
+
     }
   }
 

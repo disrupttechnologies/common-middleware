@@ -1,10 +1,14 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { TokenBalanceResponse, stableToken, tokensConfig } from './config/tokens';
+import {
+  TokenBalanceResponse,
+  stableToken,
+  tokensConfig,
+} from './config/tokens';
 import { TokenPriceResp, TokenTradeResp } from './dto/tokenprice.input';
 import { Cron } from '@nestjs/schedule';
 import { HttpService } from '@nestjs/axios';
 import { CreateTradeDataInput } from './dto/create.trade.input';
-import axios,{AxiosError} from "axios"
+import axios from 'axios';
 @Injectable()
 export class DexService {
   private oneInchApiKey: string;
@@ -55,7 +59,10 @@ export class DexService {
       return data.data;
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.error('error fetchPriceFrom1Inch', err.response.data.description);
+        console.error(
+          'error fetchPriceFrom1Inch',
+          err.response.data.description,
+        );
       } else {
         console.error('error fetchPriceFrom1Inch', err.message);
       }
@@ -66,7 +73,7 @@ export class DexService {
     return { prices: JSON.stringify(this.data) };
   }
 
-  async getTradeData(data: CreateTradeDataInput) :Promise<TokenTradeResp>{
+  async getTradeData(data: CreateTradeDataInput): Promise<TokenTradeResp> {
     const url = `https://api.1inch.dev/swap/v6.0/${data.chainId}/swap`;
 
     const config = {
@@ -86,14 +93,13 @@ export class DexService {
     try {
       const data = await this.httpService.axiosRef.get(url, config);
       return {
-        data:JSON.stringify(data.data)
-      }
-      
-    } catch (err: any | AxiosError) {
+        data: JSON.stringify(data.data),
+      };
+    } catch (err: any) {
       if (axios.isAxiosError(err)) {
-        throw new BadRequestException(err.response.data.description)
+        throw new BadRequestException(err.response.data.description);
       }
-      throw new BadRequestException(err.message)
+      throw new BadRequestException(err.message);
     }
   }
 }

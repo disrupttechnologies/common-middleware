@@ -4,9 +4,9 @@ export interface Config {
   graphql: GraphqlConfig;
   security: SecurityConfig;
   binance: BinanceConfig;
-  sumsub: SumSubConfig
-  s3Config: S3Config
-  whitelabelConfig:WhitelabelConfig
+  sumsub: SumSubConfig;
+  s3Config: S3Config;
+  whitelabelConfig: WhitelabelConfig;
 }
 
 export interface S3Config {
@@ -20,21 +20,20 @@ export interface S3Config {
 
 export interface WhitelabelConfig {
   [key: string]: {
-    s3Bucket: string,
-    backendUri:string
-  },
-  
+    s3Bucket: string;
+    backendUri: string;
+  };
 }
 
 export interface NestConfig {
   port: number;
 }
 
-export interface SumSubConfig{
-  apiURL: string,
-  secret: string
-  token: string
-  levelName:string
+export interface SumSubConfig {
+  apiURL: string;
+  secret: string;
+  token: string;
+  levelName: string;
 }
 
 export interface CorsConfig {
@@ -45,7 +44,7 @@ export interface BinanceConfig {
   API_KEY: string;
   API_SECRET: string;
   BASE_URL: string;
-  SUPPORTED_COINS:string[]
+  SUPPORTED_COINS: string[];
 }
 
 export interface GraphqlConfig {

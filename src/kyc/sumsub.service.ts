@@ -1,10 +1,5 @@
-import { BadRequestException, Injectable, StreamableFile } from '@nestjs/common';
-import { PrismaService } from 'nestjs-prisma';
-import { CreateKYCInput } from './dto/createkyc.dto';
-import { OkResponse } from 'src/common/models/okresponse.model';
-import { KYCDetailWhereInput } from 'src/@generated/kyc-detail/kyc-detail-where.input';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { KYCDetail } from 'src/@generated/kyc-detail/kyc-detail.model';
-import { KycStatus } from 'src/@generated/prisma/kyc-status.enum';
 import { ConfigService } from '@nestjs/config';
 import {
   S3Config,
@@ -15,16 +10,9 @@ import { HttpService } from '@nestjs/axios';
 import { findCountryByIso2 } from 'country-tools';
 import { S3 } from '@aws-sdk/client-s3';
 import { AwsCredentialIdentity } from '@aws-sdk/types';
-import fs from 'fs';
 import crypto from 'crypto';
 import moment from 'moment';
 import iFormData from 'form-data';
-import { AxiosRequestConfig } from 'axios';
-
-type KYCProgressResponse = {
-  status: KycStatus;
-  remark?: string;
-};
 
 @Injectable()
 export class SumSubService {
@@ -58,7 +46,6 @@ export class SumSubService {
     signature.update(message);
 
     if (data instanceof iFormData) {
-      //@ts-ignore
       signature.update(data.getBuffer());
     } else if (data) {
       signature.update(data);
@@ -270,15 +257,13 @@ export class SumSubService {
     });
     const data = response.data['fixedInfo'];
 
-
     const address = response.data['fixedInfo']['addresses'][0];
 
     const passportData = response.data['info']['idDocs'].find((item) => {
       return item.idDocType === 'PASSPORT';
     });
 
-
-    console.log("Sasasas",passportData)
+    console.log('Sasasas', passportData);
 
     const information = {
       personalDetails: {
@@ -315,7 +300,7 @@ export class SumSubService {
           value: passportData['validUntil'],
         },
         'Passport Issue Date': {
-          value: ""
+          value: '',
         },
       },
       residentialAddress: {
@@ -347,7 +332,7 @@ export class SumSubService {
       'X-App-Token': this.sumSubConfig.token,
       ...this.createSignature('GET', url, null),
     };
-    const response = await this.http.axiosRef.get(url,  {
+    const response = await this.http.axiosRef.get(url, {
       headers,
     });
     const data = response.data;
@@ -377,7 +362,7 @@ export class SumSubService {
 
   async getDocument(inspectionId: string, docId: string) {
     const url = `https://api.sumsub.com/resources/inspections/${inspectionId}/resources/${docId}`;
-  
+
     const headers = {
       Accept: 'application/json',
       'X-App-Token': this.sumSubConfig.token,
@@ -387,13 +372,12 @@ export class SumSubService {
     try {
       const resp = await this.http.axiosRef.get(url, {
         headers,
-        responseType: "arraybuffer",
+        responseType: 'arraybuffer',
       });
       const contentType = resp.headers['content-type'];
       return { image: resp.data, contentType };
     } catch (err) {
-      throw new BadRequestException()
-   }
- 
+      throw new BadRequestException();
+    }
   }
 }

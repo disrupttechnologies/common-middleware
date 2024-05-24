@@ -1,8 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {
-  CreateIncomingTxnsInput,
-  IncomingTxnCreateInput,
-} from './dto/createincomingtxns.input';
+import { CreateIncomingTxnsInput } from './dto/createincomingtxns.input';
 import { PrismaService } from 'nestjs-prisma';
 import { WhitelabelIncomingTransactionWhereInput } from 'src/@generated/whitelabel-incoming-transaction/whitelabel-incoming-transaction-where.input';
 
@@ -15,7 +12,6 @@ export class FundsmanagerService {
     data: CreateIncomingTxnsInput,
   ) {
     const items = data.data.map((item) => {
-     
       return {
         ...item,
         provisionTxnHash: item.provisionTxnHash.toLowerCase(),
@@ -23,10 +19,9 @@ export class FundsmanagerService {
       };
     });
 
-    
     await this.prisma.whitelabelIncomingTransaction.createMany({
       data: items,
-    
+
       skipDuplicates: true,
     });
 
@@ -43,5 +38,4 @@ export class FundsmanagerService {
       },
     });
   }
-
 }

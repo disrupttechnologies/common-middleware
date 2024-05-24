@@ -2,11 +2,9 @@ import {
   Controller,
   Post,
   Body,
-
   Req,
   RawBodyRequest,
   BadRequestException,
-  Get,
 } from '@nestjs/common';
 import { KycwebhookService } from './kycwebhook.service';
 import crypto from 'crypto';
@@ -20,9 +18,8 @@ export class KycwebhookController {
     @Body() createKycwebhookDto: any,
     @Req() req: RawBodyRequest<Request>,
   ) {
-
     const digestAlg = req.headers['x-payload-digest-alg'];
-    
+
     const algo = {
       HMAC_SHA1_HEX: 'sha1',
       HMAC_SHA256_HEX: 'sha256',
@@ -44,6 +41,4 @@ export class KycwebhookController {
     }
     return this.kycwebhookService.handleSubsubWebHook(createKycwebhookDto);
   }
-
-
 }
