@@ -42,9 +42,13 @@ export class BinanceOrderManagerService {
   async initSellOrder(record: BinanceIncomingTxn, binanceClient: Spot) {
     try {
       const options: RestTradeTypes.newOrderOptions = {
-        quoteOrderQty: Number(record.amountInPaidCurrency),
         newClientOrderId: record.id,
       };
+      if (record.paidCurrency === "USDC" || record.paidCurrency === "DAI") {
+        options.quoteOrderQty=  Number(record.amountInPaidCurrency)
+      } else {
+        options.quantity=  Number(record.amountInPaidCurrency)
+      }
 
       const resp = await binanceClient.newOrder(
         `${record.paidCurrency}USDT`,
