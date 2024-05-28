@@ -165,7 +165,7 @@ export class BinanceOrderManagerService {
         );
         const settlementTxn = await this.manageOrder(order);
         if (settlementTxn) {
-          if (settlementTxn.status === 'SUCCESS' && record.network === 'BTC') {
+          if (settlementTxn.status === 'SUCCESS' && (record.network === 'BTC' || record.network === "SEGWITBTC")) {
             btcOrders.push({
               senderAddress: record.senderAddress,
               txnHash: record.txnHash,
