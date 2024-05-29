@@ -72,6 +72,11 @@ export class BinanceOrderManagerService {
     this.exchangeTokenInfo = _exchangeTokenInfo;
   }
 
+  adjustToStepSize(number:number, stepSize:number) {
+    const precision = Math.floor(Math.log10(1 / stepSize));
+    return parseFloat((Math.floor(number / stepSize) * stepSize).toFixed(precision));
+  }
+
   async initSellOrder(record: BinanceIncomingTxn, binanceClient: Spot) {
     try {
       const quantity = Number(record.amountInPaidCurrency);
@@ -93,7 +98,7 @@ export class BinanceOrderManagerService {
         return;
       }
       const stepSize = this.exchangeTokenInfo[pair].stepSize;
-      const adjustedQuantity = Math.floor(quantity / stepSize) * stepSize;
+      const adjustedQuantity = this.adjustToStepSize(quantity,stepSize)
       if (adjustedQuantity === 0) {
         await this.prisma.binanceIncomingTxn.update({
           where: {

@@ -7,6 +7,11 @@ interface ExchangeTokenInfoType {
     stepSize: number;
   };
 }
+
+function adjustToStepSize(number:number, stepSize:number) {
+  const precision = Math.floor(Math.log10(1 / stepSize));
+  return parseFloat((Math.floor(number / stepSize) * stepSize).toFixed(precision));
+}
 const main = async () => {
   const binance = new BinanceClient(
     process.env.BINANCE_API_KEY,
@@ -36,36 +41,37 @@ const main = async () => {
     'MKR',
     'UNI',
   ]);
-  // const resp = await binance.exchangeInformation()
-  // const exchangeInfo = resp;
+  const resp = await binance.exchangeInformation()
+  const exchangeInfo = resp;
 
-  // // Find the BTCUSDT pair
-  // const symbolInfo = exchangeInfo.symbols.find(symbol => symbol.symbol === 'BTCUSDT');
+  // Find the BTCUSDT pair
+  const symbolInfo = exchangeInfo.symbols.find(symbol => symbol.symbol === 'BTCUSDT');
 
-  // // Extract the LOT_SIZE filter
-  // const lotSizeFilter = symbolInfo.filters.find(filter => filter.filterType === 'LOT_SIZE');
-  // //@ts-ignore
-  // const minQty = parseFloat(lotSizeFilter.minQty);
-  // //@ts-ignore
-  // const maxQty = parseFloat(lotSizeFilter.maxQty);
-  // //@ts-ignore
-  // const stepSize = parseFloat(lotSizeFilter.stepSize);
-
+  // Extract the LOT_SIZE filter
+  const lotSizeFilter = symbolInfo.filters.find(filter => filter.filterType === 'LOT_SIZE');
   //@ts-ignore
-  // console.log("resp", minQty, maxQty, stepSize)
+  const minQty = parseFloat(lotSizeFilter.minQty);
+  //@ts-ignore
+  const maxQty = parseFloat(lotSizeFilter.maxQty);
+  //@ts-ignore
+  const stepSize = parseFloat(lotSizeFilter.stepSize);
 
-  //  // Your order quantity
-  //  const quantity = 0.00506157;
+  // @ts-ignore
+  console.log("resp", minQty, maxQty, stepSize)
 
-  //  // Ensure the quantity is within the allowed range
-//    if (quantity < minQty || quantity > maxQty) {
-//      throw new Error(`Quantity must be between ${minQty} and ${maxQty}`);
-//    }
-  //  const adjustedQuantity = Math.floor(quantity / stepSize) * stepSize;
-  //  if (adjustedQuantity === 0) {
-  //     throw new Error(`Adjusted quantity is zero after applying step size of ${stepSize}`);
-  //  }
-  // console.log(adjustedQuantity)
+   // Your order quantity
+   const quantity = 0.01477151
+
+   // Ensure the quantity is within the allowed range
+   if (quantity < minQty || quantity > maxQty) {
+     throw new Error(`Quantity must be between ${minQty} and ${maxQty}`);
+   }
+  // const adjustedQuantity = Math.floor(quantity / stepSize) * stepSize;
+  const adjustedQuantity =adjustToStepSize(quantity,stepSize)
+   if (adjustedQuantity === 0) {
+      throw new Error(`Adjusted quantity is zero after applying step size of ${stepSize}`);
+   }
+  console.log(adjustedQuantity)
 };
 
 async function initExchangeInfo(binanceClient: Spot, tokens: string[]) {
