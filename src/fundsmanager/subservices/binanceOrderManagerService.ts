@@ -47,10 +47,7 @@ interface ExchangeTokenInfoType {
 export class BinanceOrderManagerService {
   private exchangeTokenInfo: ExchangeTokenInfoType = {};
 
-  constructor(
-    private readonly prisma: PrismaService,) {
-    
-  }
+  constructor(private readonly prisma: PrismaService) {}
 
   async initExchangeInfo(binanceClient: Spot, tokens: string[]) {
     const _exchangeTokenInfo: ExchangeTokenInfoType = {};

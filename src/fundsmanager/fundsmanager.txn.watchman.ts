@@ -37,7 +37,7 @@ export class FundManagerTxnWatchman {
     this.init(binanceConfig.SUPPORTED_COINS);
   }
 
-  async init(tokens:string[]) {
+  async init(tokens: string[]) {
     let incomingSyncRec = await this.prisma.syncDetails.findFirst({
       where: {
         actionName: SYNC_ACTION_NAME.BINANCE_INCOMING,
@@ -73,7 +73,10 @@ export class FundManagerTxnWatchman {
 
     this.isInitialized = true;
 
-    await this.binanceOrderManagerService.initExchangeInfo( this.binanceClient,tokens);
+    await this.binanceOrderManagerService.initExchangeInfo(
+      this.binanceClient,
+      tokens,
+    );
     await this.listenForNewTxns();
     await this.settleOrders();
     await this.updateCryptoPrice();
