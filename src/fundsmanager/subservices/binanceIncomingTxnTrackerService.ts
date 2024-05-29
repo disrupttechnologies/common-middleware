@@ -54,6 +54,10 @@ export class BinanceIncomingTxnTrackerService {
           break;
       }
       if (txnStatus === 'FAILED' || txnStatus === 'SUCCESS') {
+        let network = record.network;
+        if (network === "SEGWITBTC") {
+          network= "BTC"
+        }
         const data = {
           id: createId(),
           txnHash: record.txId.toLowerCase(),
@@ -65,7 +69,7 @@ export class BinanceIncomingTxnTrackerService {
           binanceTxnId: record.id,
           amountInPaidCurrency: record.amount,
           paidCurrency: record.coin,
-          network: record.network,
+          network,
           settlementTransactionId: null,
           status: null,
         };
