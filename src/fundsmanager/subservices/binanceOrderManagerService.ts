@@ -35,23 +35,92 @@ interface OrdersResponse {
   origQuoteOrderQty: string;
 }
 
+interface ExchangeTokenInfoType {
+  [symbol: string]: {
+    minQty: number;
+    maxQty: number;
+    stepSize: number;
+  };
+}
+
 @Injectable()
 export class BinanceOrderManagerService {
-  constructor(private readonly prisma: PrismaService) {}
+  private exchangeTokenInfo: ExchangeTokenInfoType = {};
+
+  constructor(
+    private readonly prisma: PrismaService,) {
+    
+  }
+
+  async initExchangeInfo(binanceClient: Spot, tokens: string[]) {
+    const _exchangeTokenInfo: ExchangeTokenInfoType = {};
+    const info = await binanceClient.exchangeInformation();
+    const infoSymbols = info.symbols;
+    for (const token of tokens) {
+      const pair = `${token}USDT`;
+      const symbol = infoSymbols.find((symbol) => symbol.symbol === pair);
+      const lotSizeFilter = symbol.filters.find(
+        (filter) => filter.filterType === 'LOT_SIZE',
+      );
+      const minQty = parseFloat(lotSizeFilter['minQty']);
+      const maxQty = parseFloat(lotSizeFilter['maxQty']);
+      const stepSize = parseFloat(lotSizeFilter['stepSize']);
+
+      _exchangeTokenInfo[pair] = {
+        stepSize,
+        maxQty,
+        minQty,
+      };
+    }
+    this.exchangeTokenInfo = _exchangeTokenInfo;
+  }
 
   async initSellOrder(record: BinanceIncomingTxn, binanceClient: Spot) {
     try {
+      const quantity = Number(record.amountInPaidCurrency);
+
+      const pair = `${record.paidCurrency}USDT`;
+      if (
+        quantity < this.exchangeTokenInfo[pair].minQty ||
+        quantity > this.exchangeTokenInfo[pair].maxQty
+      ) {
+        await this.prisma.binanceIncomingTxn.update({
+          where: {
+            id: record.id,
+          },
+          data: {
+            status: 'FAILED',
+            failedRemarks: `Quantity must be between ${this.exchangeTokenInfo[pair].minQty} and ${this.exchangeTokenInfo[pair].maxQty}`,
+          },
+        });
+        return;
+      }
+      const stepSize = this.exchangeTokenInfo[pair].stepSize;
+      const adjustedQuantity = Math.floor(quantity / stepSize) * stepSize;
+      if (adjustedQuantity === 0) {
+        await this.prisma.binanceIncomingTxn.update({
+          where: {
+            id: record.id,
+          },
+          data: {
+            status: 'FAILED',
+            failedRemarks: `Adjusted quantity is zero after applying step size of ${stepSize}`,
+          },
+        });
+        return;
+      }
+
       const options: RestTradeTypes.newOrderOptions = {
         newClientOrderId: record.id,
       };
-      if (record.paidCurrency === "USDC" || record.paidCurrency === "DAI") {
-        options.quoteOrderQty=  Number(record.amountInPaidCurrency)
+      if (record.paidCurrency === 'USDC' || record.paidCurrency === 'DAI') {
+        options.quoteOrderQty = adjustedQuantity;
       } else {
-        options.quantity=  Number(record.amountInPaidCurrency)
+        options.quantity = adjustedQuantity;
       }
 
       const resp = await binanceClient.newOrder(
-        `${record.paidCurrency}USDT`,
+        pair,
         Side.SELL,
         OrderType.MARKET,
         options,
@@ -165,7 +234,10 @@ export class BinanceOrderManagerService {
         );
         const settlementTxn = await this.manageOrder(order);
         if (settlementTxn) {
-          if (settlementTxn.status === 'SUCCESS' && (record.network === 'BTC' || record.network === "SEGWITBTC")) {
+          if (
+            settlementTxn.status === 'SUCCESS' &&
+            (record.network === 'BTC' || record.network === 'SEGWITBTC')
+          ) {
             btcOrders.push({
               senderAddress: record.senderAddress,
               txnHash: record.txnHash,

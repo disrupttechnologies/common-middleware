@@ -5,7 +5,6 @@ import {
   tokensConfig,
 } from './config/tokens';
 import { TokenPriceResp, TokenTradeResp } from './dto/tokenprice.input';
-import { Cron } from '@nestjs/schedule';
 import { HttpService } from '@nestjs/axios';
 import { CreateTradeDataInput } from './dto/create.trade.input';
 import axios from 'axios';
@@ -25,22 +24,22 @@ export class DexService {
         this.data[chainId][tokens] = '-1';
       }
     }
-    this.fetchPrice();
+    // this.fetchPrice();
   }
 
-  @Cron('*/2 * * * *')
-  async fetchPrice() {
-    for (const chainId of Object.keys(this.data)) {
-      const data = await this.fetchPriceFrom1Inch(
-        chainId,
-        Object.keys(this.data[chainId]),
-      );
-      if (data) {
-        this.data[chainId] = data;
-      }
-      await new Promise((r) => setTimeout(r, 2000)); // avoid ratelimiting
-    }
-  }
+  // @Cron('*/2 * * * *')
+  // async fetchPrice() {
+  //   for (const chainId of Object.keys(this.data)) {
+  //     const data = await this.fetchPriceFrom1Inch(
+  //       chainId,
+  //       Object.keys(this.data[chainId]),
+  //     );
+  //     if (data) {
+  //       this.data[chainId] = data;
+  //     }
+  //     await new Promise((r) => setTimeout(r, 2000)); // avoid ratelimiting
+  //   }
+  // }
 
   async fetchPriceFrom1Inch(chainId: string, tokens: string[]) {
     const url = `https://api.1inch.dev/price/v1.1/${chainId}/${tokens.toString()}`;
