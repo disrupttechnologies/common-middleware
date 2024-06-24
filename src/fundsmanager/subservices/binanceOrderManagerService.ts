@@ -144,6 +144,8 @@ export class BinanceOrderManagerService {
           id: record.id,
         },
       });
+     
+     
     } catch (err) {
       console.error('initSellOrder', err, record.id);
       const sentryMsg = `initSellOrder ${err} ${record.id}`;

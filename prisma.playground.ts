@@ -1,16 +1,22 @@
 import { PrismaClient } from "@prisma/client";
 
-
 const prisma = new PrismaClient();
 
 const main = async () => {
     
-    const ids = []
-
-    await prisma.binanceIncomingTxn.delete({
+    const incomingTxn = await prisma.binanceIncomingTxn.findFirst({
         where: {
-        id:"wxvcrsequfj3kyvzj3owavkq"
-    }})
+            txnHash: {
+                equals: "43FmEhVccggpxLothkCJ8Mb2L7JM6dJq4sk1Tr9Gpu59txDYVfW5ypB984u5RkD5sxyLWpkAdqmPkWwSDhuTqNiq",
+                mode:"insensitive"
+            }
+        }
+    })
+    
+
+    // console.log("Asasaas",data)
+
+   
 }
 
 main()

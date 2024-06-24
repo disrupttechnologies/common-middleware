@@ -8,10 +8,6 @@ const config: Config = {
     secret: process.env.S3_SECRET,
     accessKey: process.env.S3_ACCESS_KEY,
     region: process.env.S3_REGION,
-    // buckets: {
-    //   "Agape4me": "agape-docs",
-    //   "PRVDT":"agape-docs"
-    // }
   },
   whitelabelConfig: {
     Agape4Me: {
@@ -29,6 +25,10 @@ const config: Config = {
     XSwipe: {
       s3Bucket: 'xswipe-docs',
       backendUri: 'https://xswipe-server.fly.dev',
+    },
+    BLP: {
+      s3Bucket: 'boundlesspay-docs',
+      backendUri: 'https://boundlesspay-server.fly.dev',
     },
   },
 
