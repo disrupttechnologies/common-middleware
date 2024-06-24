@@ -72,9 +72,11 @@ export class BinanceOrderManagerService {
     this.exchangeTokenInfo = _exchangeTokenInfo;
   }
 
-  adjustToStepSize(number:number, stepSize:number) {
+  adjustToStepSize(number: number, stepSize: number) {
     const precision = Math.floor(Math.log10(1 / stepSize));
-    return parseFloat((Math.floor(number / stepSize) * stepSize).toFixed(precision));
+    return parseFloat(
+      (Math.floor(number / stepSize) * stepSize).toFixed(precision),
+    );
   }
 
   async initSellOrder(record: BinanceIncomingTxn, binanceClient: Spot) {
@@ -98,7 +100,7 @@ export class BinanceOrderManagerService {
         return;
       }
       const stepSize = this.exchangeTokenInfo[pair].stepSize;
-      const adjustedQuantity = this.adjustToStepSize(quantity,stepSize)
+      const adjustedQuantity = this.adjustToStepSize(quantity, stepSize);
       if (adjustedQuantity === 0) {
         await this.prisma.binanceIncomingTxn.update({
           where: {
@@ -144,8 +146,6 @@ export class BinanceOrderManagerService {
           id: record.id,
         },
       });
-     
-     
     } catch (err) {
       console.error('initSellOrder', err, record.id);
       const sentryMsg = `initSellOrder ${err} ${record.id}`;

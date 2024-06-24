@@ -55,8 +55,8 @@ export class BinanceIncomingTxnTrackerService {
       }
       if (txnStatus === 'FAILED' || txnStatus === 'SUCCESS') {
         let network = record.network;
-        if (network === "SEGWITBTC") {
-          network= "BTC"
+        if (network === 'SEGWITBTC') {
+          network = 'BTC';
         }
         const data = {
           id: createId(),
