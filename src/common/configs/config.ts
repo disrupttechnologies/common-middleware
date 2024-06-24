@@ -28,7 +28,7 @@ const config: Config = {
     },
     BLP: {
       s3Bucket: 'boundlesspay-docs',
-      backendUri: 'https://boundlesspay-server.fly.dev',
+      backendUri: 'https://boundlesspay-server-dawn-fire-8179.fly.dev',
     },
   },
 
