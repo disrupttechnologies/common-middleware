@@ -24,7 +24,7 @@ const config: Config = {
     },
     XSwipe: {
       s3Bucket: 'xswipe-docs',
-      backendUri: 'https://theone-server.fly.dev',
+      backendUri: 'https://xswipe-server.fly.dev',
     },
     THEONE: {
       s3Bucket: 'theone-docs',
