@@ -24,7 +24,11 @@ const config: Config = {
     },
     XSwipe: {
       s3Bucket: 'xswipe-docs',
-      backendUri: 'https://xswipe-server.fly.dev',
+      backendUri: 'https://theone-server.fly.dev',
+    },
+    THEONE: {
+      s3Bucket: 'theone-docs',
+      backendUri: 'https://theone-server.fly.dev',
     },
     BLP: {
       s3Bucket: 'boundlesspay-docs',
