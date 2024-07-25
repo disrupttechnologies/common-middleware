@@ -70,6 +70,7 @@ export class EventManagerService {
   }
 
   async handleOrderFinalization(whitelabelId: string, data: OrderDataType[]) {
+    console.log("handleOrderFinalization",whitelabelId,data)
     if (this.whitelabelConfig[whitelabelId]) {
       try {
         const url = `${this.whitelabelConfig[whitelabelId].backendUri}/middlewarehooks/paymentReceived`;
@@ -78,10 +79,13 @@ export class EventManagerService {
           'Content-Type': 'application/json',
           ...this.createSignature(JSON.stringify(data)),
         };
-        await this.http.axiosRef.post(url, data, {
+       const resp = await this.http.axiosRef.post(url, data, {
           headers,
-        });
-      } catch (err) {}
+       });
+        console.log("qaqawswe",resp)
+      } catch (err) {
+        console.error("handleOrderFinalization",err)
+      }
     }
   }
 }
