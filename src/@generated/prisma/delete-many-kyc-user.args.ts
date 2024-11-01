@@ -5,7 +5,8 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class DeleteManyKycUserArgs {
-  @Field(() => KYCUserWhereInput, { nullable: true })
-  @Type(() => KYCUserWhereInput)
-  where?: KYCUserWhereInput;
+
+    @Field(() => KYCUserWhereInput, {nullable:true})
+    @Type(() => KYCUserWhereInput)
+    where?: KYCUserWhereInput;
 }

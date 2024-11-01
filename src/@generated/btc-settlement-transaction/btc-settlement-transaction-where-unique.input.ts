@@ -9,42 +9,43 @@ import { BTCIncomingTransactionRelationFilter } from '../btc-incoming-transactio
 
 @InputType()
 export class BTCSettlementTransactionWhereUniqueInput {
-  @Field(() => String, { nullable: true })
-  id?: string;
 
-  @Field(() => String, { nullable: true })
-  incomingTxnId?: string;
+    @Field(() => String, {nullable:true})
+    id?: string;
 
-  @Field(() => String, { nullable: true })
-  orderId?: string;
+    @Field(() => String, {nullable:true})
+    incomingTxnId?: string;
 
-  @Field(() => [BTCSettlementTransactionWhereInput], { nullable: true })
-  AND?: Array<BTCSettlementTransactionWhereInput>;
+    @Field(() => String, {nullable:true})
+    orderId?: string;
 
-  @Field(() => [BTCSettlementTransactionWhereInput], { nullable: true })
-  OR?: Array<BTCSettlementTransactionWhereInput>;
+    @Field(() => [BTCSettlementTransactionWhereInput], {nullable:true})
+    AND?: Array<BTCSettlementTransactionWhereInput>;
 
-  @Field(() => [BTCSettlementTransactionWhereInput], { nullable: true })
-  NOT?: Array<BTCSettlementTransactionWhereInput>;
+    @Field(() => [BTCSettlementTransactionWhereInput], {nullable:true})
+    OR?: Array<BTCSettlementTransactionWhereInput>;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  createdAt?: DateTimeFilter;
+    @Field(() => [BTCSettlementTransactionWhereInput], {nullable:true})
+    NOT?: Array<BTCSettlementTransactionWhereInput>;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  updatedAt?: DateTimeFilter;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: DateTimeFilter;
 
-  @Field(() => DateTimeNullableFilter, { nullable: true })
-  orderplaceTime?: DateTimeNullableFilter;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: DateTimeFilter;
 
-  @Field(() => StringNullableFilter, { nullable: true })
-  amountReceivedInUSD?: StringNullableFilter;
+    @Field(() => DateTimeNullableFilter, {nullable:true})
+    orderplaceTime?: DateTimeNullableFilter;
 
-  @Field(() => EnumBTCTxnProcessStatusFilter, { nullable: true })
-  status?: EnumBTCTxnProcessStatusFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    amountReceivedInUSD?: StringNullableFilter;
 
-  @Field(() => StringNullableFilter, { nullable: true })
-  failedRemarks?: StringNullableFilter;
+    @Field(() => EnumBTCTxnProcessStatusFilter, {nullable:true})
+    status?: EnumBTCTxnProcessStatusFilter;
 
-  @Field(() => BTCIncomingTransactionRelationFilter, { nullable: true })
-  incomingTxn?: BTCIncomingTransactionRelationFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    failedRemarks?: StringNullableFilter;
+
+    @Field(() => BTCIncomingTransactionRelationFilter, {nullable:true})
+    incomingTxn?: BTCIncomingTransactionRelationFilter;
 }

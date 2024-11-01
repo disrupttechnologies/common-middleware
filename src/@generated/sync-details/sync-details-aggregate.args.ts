@@ -12,28 +12,29 @@ import { SyncDetailsMaxAggregateInput } from './sync-details-max-aggregate.input
 
 @ArgsType()
 export class SyncDetailsAggregateArgs {
-  @Field(() => SyncDetailsWhereInput, { nullable: true })
-  @Type(() => SyncDetailsWhereInput)
-  where?: SyncDetailsWhereInput;
 
-  @Field(() => [SyncDetailsOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<SyncDetailsOrderByWithRelationInput>;
+    @Field(() => SyncDetailsWhereInput, {nullable:true})
+    @Type(() => SyncDetailsWhereInput)
+    where?: SyncDetailsWhereInput;
 
-  @Field(() => SyncDetailsWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
+    @Field(() => [SyncDetailsOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<SyncDetailsOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => SyncDetailsWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => SyncDetailsCountAggregateInput, { nullable: true })
-  _count?: SyncDetailsCountAggregateInput;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => SyncDetailsMinAggregateInput, { nullable: true })
-  _min?: SyncDetailsMinAggregateInput;
+    @Field(() => SyncDetailsCountAggregateInput, {nullable:true})
+    _count?: SyncDetailsCountAggregateInput;
 
-  @Field(() => SyncDetailsMaxAggregateInput, { nullable: true })
-  _max?: SyncDetailsMaxAggregateInput;
+    @Field(() => SyncDetailsMinAggregateInput, {nullable:true})
+    _min?: SyncDetailsMinAggregateInput;
+
+    @Field(() => SyncDetailsMaxAggregateInput, {nullable:true})
+    _max?: SyncDetailsMaxAggregateInput;
 }

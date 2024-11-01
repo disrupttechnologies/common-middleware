@@ -10,37 +10,24 @@ import { BTCIncomingTransactionUpdateToOneWithWhereWithoutSettlementTxnInput } f
 
 @InputType()
 export class BTCIncomingTransactionUpdateOneRequiredWithoutSettlementTxnNestedInput {
-  @Field(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput, {
-    nullable: true,
-  })
-  @Type(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput)
-  create?: BTCIncomingTransactionCreateWithoutSettlementTxnInput;
 
-  @Field(() => BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput, {
-    nullable: true,
-  })
-  @Type(() => BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput)
-  connectOrCreate?: BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput;
+    @Field(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput, {nullable:true})
+    @Type(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput)
+    create?: BTCIncomingTransactionCreateWithoutSettlementTxnInput;
 
-  @Field(() => BTCIncomingTransactionUpsertWithoutSettlementTxnInput, {
-    nullable: true,
-  })
-  @Type(() => BTCIncomingTransactionUpsertWithoutSettlementTxnInput)
-  upsert?: BTCIncomingTransactionUpsertWithoutSettlementTxnInput;
+    @Field(() => BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput, {nullable:true})
+    @Type(() => BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput)
+    connectOrCreate?: BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput;
 
-  @Field(() => BTCIncomingTransactionWhereUniqueInput, { nullable: true })
-  @Type(() => BTCIncomingTransactionWhereUniqueInput)
-  connect?: Prisma.AtLeast<
-    BTCIncomingTransactionWhereUniqueInput,
-    'id' | 'txnHash' | 'binanceTxnId'
-  >;
+    @Field(() => BTCIncomingTransactionUpsertWithoutSettlementTxnInput, {nullable:true})
+    @Type(() => BTCIncomingTransactionUpsertWithoutSettlementTxnInput)
+    upsert?: BTCIncomingTransactionUpsertWithoutSettlementTxnInput;
 
-  @Field(
-    () => BTCIncomingTransactionUpdateToOneWithWhereWithoutSettlementTxnInput,
-    { nullable: true },
-  )
-  @Type(
-    () => BTCIncomingTransactionUpdateToOneWithWhereWithoutSettlementTxnInput,
-  )
-  update?: BTCIncomingTransactionUpdateToOneWithWhereWithoutSettlementTxnInput;
+    @Field(() => BTCIncomingTransactionWhereUniqueInput, {nullable:true})
+    @Type(() => BTCIncomingTransactionWhereUniqueInput)
+    connect?: Prisma.AtLeast<BTCIncomingTransactionWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId'>;
+
+    @Field(() => BTCIncomingTransactionUpdateToOneWithWhereWithoutSettlementTxnInput, {nullable:true})
+    @Type(() => BTCIncomingTransactionUpdateToOneWithWhereWithoutSettlementTxnInput)
+    update?: BTCIncomingTransactionUpdateToOneWithWhereWithoutSettlementTxnInput;
 }

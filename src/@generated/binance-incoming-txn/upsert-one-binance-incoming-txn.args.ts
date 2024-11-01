@@ -8,18 +8,16 @@ import { BinanceIncomingTxnUpdateInput } from './binance-incoming-txn-update.inp
 
 @ArgsType()
 export class UpsertOneBinanceIncomingTxnArgs {
-  @Field(() => BinanceIncomingTxnWhereUniqueInput, { nullable: false })
-  @Type(() => BinanceIncomingTxnWhereUniqueInput)
-  where!: Prisma.AtLeast<
-    BinanceIncomingTxnWhereUniqueInput,
-    'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'
-  >;
 
-  @Field(() => BinanceIncomingTxnCreateInput, { nullable: false })
-  @Type(() => BinanceIncomingTxnCreateInput)
-  create!: BinanceIncomingTxnCreateInput;
+    @Field(() => BinanceIncomingTxnWhereUniqueInput, {nullable:false})
+    @Type(() => BinanceIncomingTxnWhereUniqueInput)
+    where!: Prisma.AtLeast<BinanceIncomingTxnWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'>;
 
-  @Field(() => BinanceIncomingTxnUpdateInput, { nullable: false })
-  @Type(() => BinanceIncomingTxnUpdateInput)
-  update!: BinanceIncomingTxnUpdateInput;
+    @Field(() => BinanceIncomingTxnCreateInput, {nullable:false})
+    @Type(() => BinanceIncomingTxnCreateInput)
+    create!: BinanceIncomingTxnCreateInput;
+
+    @Field(() => BinanceIncomingTxnUpdateInput, {nullable:false})
+    @Type(() => BinanceIncomingTxnUpdateInput)
+    update!: BinanceIncomingTxnUpdateInput;
 }

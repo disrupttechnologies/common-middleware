@@ -5,24 +5,25 @@ import { BTCIncomingTransaction } from '../btc-incoming-transaction/btc-incoming
 
 @ObjectType()
 export class UserBTCAddress {
-  @Field(() => ID, { nullable: false })
-  id!: string;
 
-  @Field(() => Date, { nullable: false })
-  createdAt!: Date;
+    @Field(() => ID, {nullable:false})
+    id!: string;
 
-  @Field(() => Date, { nullable: false })
-  updatedAt!: Date;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
 
-  @Field(() => String, { nullable: false })
-  address!: string;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
 
-  @Field(() => String, { nullable: false })
-  userId!: string;
+    @Field(() => String, {nullable:false})
+    address!: string;
 
-  @Field(() => String, { nullable: false })
-  whitelabelId!: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
 
-  @Field(() => [BTCIncomingTransaction], { nullable: true })
-  txns?: Array<BTCIncomingTransaction>;
+    @Field(() => String, {nullable:false})
+    whitelabelId!: string;
+
+    @Field(() => [BTCIncomingTransaction], {nullable:true})
+    txns?: Array<BTCIncomingTransaction>;
 }

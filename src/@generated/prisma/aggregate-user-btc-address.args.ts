@@ -8,19 +8,20 @@ import { Int } from '@nestjs/graphql';
 
 @ArgsType()
 export class AggregateUserBtcAddressArgs {
-  @Field(() => UserBTCAddressWhereInput, { nullable: true })
-  @Type(() => UserBTCAddressWhereInput)
-  where?: UserBTCAddressWhereInput;
 
-  @Field(() => [UserBTCAddressOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<UserBTCAddressOrderByWithRelationInput>;
+    @Field(() => UserBTCAddressWhereInput, {nullable:true})
+    @Type(() => UserBTCAddressWhereInput)
+    where?: UserBTCAddressWhereInput;
 
-  @Field(() => UserBTCAddressWhereUniqueInput, { nullable: true })
-  cursor?: UserBTCAddressWhereUniqueInput;
+    @Field(() => [UserBTCAddressOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<UserBTCAddressOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => UserBTCAddressWhereUniqueInput, {nullable:true})
+    cursor?: UserBTCAddressWhereUniqueInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 }

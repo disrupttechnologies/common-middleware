@@ -7,48 +7,49 @@ import { BinanceIncomingTxnMaxAggregate } from './binance-incoming-txn-max-aggre
 
 @ObjectType()
 export class BinanceIncomingTxnGroupBy {
-  @Field(() => String, { nullable: false })
-  id!: string;
 
-  @Field(() => Date, { nullable: false })
-  createdAt!: Date | string;
+    @Field(() => String, {nullable:false})
+    id!: string;
 
-  @Field(() => Date, { nullable: false })
-  updatedAt!: Date | string;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date | string;
 
-  @Field(() => String, { nullable: false })
-  paidCurrency!: string;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date | string;
 
-  @Field(() => String, { nullable: false })
-  amountInPaidCurrency!: string;
+    @Field(() => String, {nullable:false})
+    paidCurrency!: string;
 
-  @Field(() => String, { nullable: false })
-  network!: string;
+    @Field(() => String, {nullable:false})
+    amountInPaidCurrency!: string;
 
-  @Field(() => String, { nullable: false })
-  txnHash!: string;
+    @Field(() => String, {nullable:false})
+    network!: string;
 
-  @Field(() => String, { nullable: false })
-  senderAddress!: string;
+    @Field(() => String, {nullable:false})
+    txnHash!: string;
 
-  @Field(() => String, { nullable: false })
-  binanceTxnId!: string;
+    @Field(() => String, {nullable:false})
+    senderAddress!: string;
 
-  @Field(() => IncomingTxnStatus, { nullable: true })
-  status?: keyof typeof IncomingTxnStatus;
+    @Field(() => String, {nullable:false})
+    binanceTxnId!: string;
 
-  @Field(() => String, { nullable: true })
-  settlementTransactionId?: string;
+    @Field(() => IncomingTxnStatus, {nullable:true})
+    status?: keyof typeof IncomingTxnStatus;
 
-  @Field(() => String, { nullable: true })
-  failedRemarks?: string;
+    @Field(() => String, {nullable:true})
+    settlementTransactionId?: string;
 
-  @Field(() => BinanceIncomingTxnCountAggregate, { nullable: true })
-  _count?: BinanceIncomingTxnCountAggregate;
+    @Field(() => String, {nullable:true})
+    failedRemarks?: string;
 
-  @Field(() => BinanceIncomingTxnMinAggregate, { nullable: true })
-  _min?: BinanceIncomingTxnMinAggregate;
+    @Field(() => BinanceIncomingTxnCountAggregate, {nullable:true})
+    _count?: BinanceIncomingTxnCountAggregate;
 
-  @Field(() => BinanceIncomingTxnMaxAggregate, { nullable: true })
-  _max?: BinanceIncomingTxnMaxAggregate;
+    @Field(() => BinanceIncomingTxnMinAggregate, {nullable:true})
+    _min?: BinanceIncomingTxnMinAggregate;
+
+    @Field(() => BinanceIncomingTxnMaxAggregate, {nullable:true})
+    _max?: BinanceIncomingTxnMaxAggregate;
 }

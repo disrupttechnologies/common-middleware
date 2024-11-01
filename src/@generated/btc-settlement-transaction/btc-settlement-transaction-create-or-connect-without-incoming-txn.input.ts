@@ -7,16 +7,12 @@ import { BTCSettlementTransactionCreateWithoutIncomingTxnInput } from './btc-set
 
 @InputType()
 export class BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput {
-  @Field(() => BTCSettlementTransactionWhereUniqueInput, { nullable: false })
-  @Type(() => BTCSettlementTransactionWhereUniqueInput)
-  where!: Prisma.AtLeast<
-    BTCSettlementTransactionWhereUniqueInput,
-    'id' | 'incomingTxnId' | 'orderId'
-  >;
 
-  @Field(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput, {
-    nullable: false,
-  })
-  @Type(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput)
-  create!: BTCSettlementTransactionCreateWithoutIncomingTxnInput;
+    @Field(() => BTCSettlementTransactionWhereUniqueInput, {nullable:false})
+    @Type(() => BTCSettlementTransactionWhereUniqueInput)
+    where!: Prisma.AtLeast<BTCSettlementTransactionWhereUniqueInput, 'id' | 'incomingTxnId' | 'orderId'>;
+
+    @Field(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput, {nullable:false})
+    @Type(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput)
+    create!: BTCSettlementTransactionCreateWithoutIncomingTxnInput;
 }

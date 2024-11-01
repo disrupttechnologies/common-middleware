@@ -8,15 +8,16 @@ import { SyncDetailsUpdateInput } from './sync-details-update.input';
 
 @ArgsType()
 export class UpsertOneSyncDetailsArgs {
-  @Field(() => SyncDetailsWhereUniqueInput, { nullable: false })
-  @Type(() => SyncDetailsWhereUniqueInput)
-  where!: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
 
-  @Field(() => SyncDetailsCreateInput, { nullable: false })
-  @Type(() => SyncDetailsCreateInput)
-  create!: SyncDetailsCreateInput;
+    @Field(() => SyncDetailsWhereUniqueInput, {nullable:false})
+    @Type(() => SyncDetailsWhereUniqueInput)
+    where!: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
 
-  @Field(() => SyncDetailsUpdateInput, { nullable: false })
-  @Type(() => SyncDetailsUpdateInput)
-  update!: SyncDetailsUpdateInput;
+    @Field(() => SyncDetailsCreateInput, {nullable:false})
+    @Type(() => SyncDetailsCreateInput)
+    create!: SyncDetailsCreateInput;
+
+    @Field(() => SyncDetailsUpdateInput, {nullable:false})
+    @Type(() => SyncDetailsUpdateInput)
+    update!: SyncDetailsUpdateInput;
 }

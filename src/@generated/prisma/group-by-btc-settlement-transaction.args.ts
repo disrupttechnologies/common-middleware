@@ -9,26 +9,23 @@ import { Int } from '@nestjs/graphql';
 
 @ArgsType()
 export class GroupByBtcSettlementTransactionArgs {
-  @Field(() => BTCSettlementTransactionWhereInput, { nullable: true })
-  @Type(() => BTCSettlementTransactionWhereInput)
-  where?: BTCSettlementTransactionWhereInput;
 
-  @Field(() => [BTCSettlementTransactionOrderByWithAggregationInput], {
-    nullable: true,
-  })
-  orderBy?: Array<BTCSettlementTransactionOrderByWithAggregationInput>;
+    @Field(() => BTCSettlementTransactionWhereInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionWhereInput)
+    where?: BTCSettlementTransactionWhereInput;
 
-  @Field(() => [BTCSettlementTransactionScalarFieldEnum], { nullable: false })
-  by!: Array<keyof typeof BTCSettlementTransactionScalarFieldEnum>;
+    @Field(() => [BTCSettlementTransactionOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<BTCSettlementTransactionOrderByWithAggregationInput>;
 
-  @Field(() => BTCSettlementTransactionScalarWhereWithAggregatesInput, {
-    nullable: true,
-  })
-  having?: BTCSettlementTransactionScalarWhereWithAggregatesInput;
+    @Field(() => [BTCSettlementTransactionScalarFieldEnum], {nullable:false})
+    by!: Array<keyof typeof BTCSettlementTransactionScalarFieldEnum>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => BTCSettlementTransactionScalarWhereWithAggregatesInput, {nullable:true})
+    having?: BTCSettlementTransactionScalarWhereWithAggregatesInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 }

@@ -6,12 +6,13 @@ import { WhitelabelIncomingTransactionMaxAggregate } from './whitelabel-incoming
 
 @ObjectType()
 export class AggregateWhitelabelIncomingTransaction {
-  @Field(() => WhitelabelIncomingTransactionCountAggregate, { nullable: true })
-  _count?: WhitelabelIncomingTransactionCountAggregate;
 
-  @Field(() => WhitelabelIncomingTransactionMinAggregate, { nullable: true })
-  _min?: WhitelabelIncomingTransactionMinAggregate;
+    @Field(() => WhitelabelIncomingTransactionCountAggregate, {nullable:true})
+    _count?: WhitelabelIncomingTransactionCountAggregate;
 
-  @Field(() => WhitelabelIncomingTransactionMaxAggregate, { nullable: true })
-  _max?: WhitelabelIncomingTransactionMaxAggregate;
+    @Field(() => WhitelabelIncomingTransactionMinAggregate, {nullable:true})
+    _min?: WhitelabelIncomingTransactionMinAggregate;
+
+    @Field(() => WhitelabelIncomingTransactionMaxAggregate, {nullable:true})
+    _max?: WhitelabelIncomingTransactionMaxAggregate;
 }

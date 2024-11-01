@@ -8,19 +8,20 @@ import { Int } from '@nestjs/graphql';
 
 @ArgsType()
 export class AggregateKycDetailArgs {
-  @Field(() => KYCDetailWhereInput, { nullable: true })
-  @Type(() => KYCDetailWhereInput)
-  where?: KYCDetailWhereInput;
 
-  @Field(() => [KYCDetailOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<KYCDetailOrderByWithRelationInput>;
+    @Field(() => KYCDetailWhereInput, {nullable:true})
+    @Type(() => KYCDetailWhereInput)
+    where?: KYCDetailWhereInput;
 
-  @Field(() => KYCDetailWhereUniqueInput, { nullable: true })
-  cursor?: KYCDetailWhereUniqueInput;
+    @Field(() => [KYCDetailOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<KYCDetailOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => KYCDetailWhereUniqueInput, {nullable:true})
+    cursor?: KYCDetailWhereUniqueInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 }

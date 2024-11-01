@@ -5,41 +5,40 @@ import { SettlementTransactionCreateNestedOneWithoutIncomingTxnInput } from '../
 
 @InputType()
 export class BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput {
-  @Field(() => String, { nullable: true })
-  id?: string;
 
-  @Field(() => Date, { nullable: true })
-  createdAt?: Date | string;
+    @Field(() => String, {nullable:true})
+    id?: string;
 
-  @Field(() => Date, { nullable: true })
-  updatedAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
 
-  @Field(() => String, { nullable: false })
-  paidCurrency!: string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
 
-  @Field(() => String, { nullable: false })
-  amountInPaidCurrency!: string;
+    @Field(() => String, {nullable:false})
+    paidCurrency!: string;
 
-  @Field(() => String, { nullable: false })
-  network!: string;
+    @Field(() => String, {nullable:false})
+    amountInPaidCurrency!: string;
 
-  @Field(() => String, { nullable: false })
-  txnHash!: string;
+    @Field(() => String, {nullable:false})
+    network!: string;
 
-  @Field(() => String, { nullable: false })
-  senderAddress!: string;
+    @Field(() => String, {nullable:false})
+    txnHash!: string;
 
-  @Field(() => String, { nullable: false })
-  binanceTxnId!: string;
+    @Field(() => String, {nullable:false})
+    senderAddress!: string;
 
-  @Field(() => IncomingTxnStatus, { nullable: true })
-  status?: keyof typeof IncomingTxnStatus;
+    @Field(() => String, {nullable:false})
+    binanceTxnId!: string;
 
-  @Field(() => String, { nullable: true })
-  failedRemarks?: string;
+    @Field(() => IncomingTxnStatus, {nullable:true})
+    status?: keyof typeof IncomingTxnStatus;
 
-  @Field(() => SettlementTransactionCreateNestedOneWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  settlementTransaction?: SettlementTransactionCreateNestedOneWithoutIncomingTxnInput;
+    @Field(() => String, {nullable:true})
+    failedRemarks?: string;
+
+    @Field(() => SettlementTransactionCreateNestedOneWithoutIncomingTxnInput, {nullable:true})
+    settlementTransaction?: SettlementTransactionCreateNestedOneWithoutIncomingTxnInput;
 }

@@ -163,6 +163,7 @@ enum Network {
   BSC
   ETH
   TRC
+  POL
 }
 
 enum TxnStatus {

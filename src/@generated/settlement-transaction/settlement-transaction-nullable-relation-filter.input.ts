@@ -4,9 +4,10 @@ import { SettlementTransactionWhereInput } from './settlement-transaction-where.
 
 @InputType()
 export class SettlementTransactionNullableRelationFilter {
-  @Field(() => SettlementTransactionWhereInput, { nullable: true })
-  is?: SettlementTransactionWhereInput;
 
-  @Field(() => SettlementTransactionWhereInput, { nullable: true })
-  isNot?: SettlementTransactionWhereInput;
+    @Field(() => SettlementTransactionWhereInput, {nullable:true})
+    is?: SettlementTransactionWhereInput;
+
+    @Field(() => SettlementTransactionWhereInput, {nullable:true})
+    isNot?: SettlementTransactionWhereInput;
 }

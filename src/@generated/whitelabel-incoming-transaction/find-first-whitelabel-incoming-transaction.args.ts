@@ -10,31 +10,23 @@ import { WhitelabelIncomingTransactionScalarFieldEnum } from './whitelabel-incom
 
 @ArgsType()
 export class FindFirstWhitelabelIncomingTransactionArgs {
-  @Field(() => WhitelabelIncomingTransactionWhereInput, { nullable: true })
-  @Type(() => WhitelabelIncomingTransactionWhereInput)
-  where?: WhitelabelIncomingTransactionWhereInput;
 
-  @Field(() => [WhitelabelIncomingTransactionOrderByWithRelationInput], {
-    nullable: true,
-  })
-  orderBy?: Array<WhitelabelIncomingTransactionOrderByWithRelationInput>;
+    @Field(() => WhitelabelIncomingTransactionWhereInput, {nullable:true})
+    @Type(() => WhitelabelIncomingTransactionWhereInput)
+    where?: WhitelabelIncomingTransactionWhereInput;
 
-  @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {
-    nullable: true,
-  })
-  cursor?: Prisma.AtLeast<
-    WhitelabelIncomingTransactionWhereUniqueInput,
-    'id' | 'provisionTxnHash' | 'settlementTransactionId'
-  >;
+    @Field(() => [WhitelabelIncomingTransactionOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<WhitelabelIncomingTransactionOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<WhitelabelIncomingTransactionWhereUniqueInput, 'id' | 'provisionTxnHash' | 'settlementTransactionId'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [WhitelabelIncomingTransactionScalarFieldEnum], {
-    nullable: true,
-  })
-  distinct?: Array<keyof typeof WhitelabelIncomingTransactionScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [WhitelabelIncomingTransactionScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof WhitelabelIncomingTransactionScalarFieldEnum>;
 }

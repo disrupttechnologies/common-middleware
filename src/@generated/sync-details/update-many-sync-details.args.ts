@@ -6,11 +6,12 @@ import { SyncDetailsWhereInput } from './sync-details-where.input';
 
 @ArgsType()
 export class UpdateManySyncDetailsArgs {
-  @Field(() => SyncDetailsUpdateManyMutationInput, { nullable: false })
-  @Type(() => SyncDetailsUpdateManyMutationInput)
-  data!: SyncDetailsUpdateManyMutationInput;
 
-  @Field(() => SyncDetailsWhereInput, { nullable: true })
-  @Type(() => SyncDetailsWhereInput)
-  where?: SyncDetailsWhereInput;
+    @Field(() => SyncDetailsUpdateManyMutationInput, {nullable:false})
+    @Type(() => SyncDetailsUpdateManyMutationInput)
+    data!: SyncDetailsUpdateManyMutationInput;
+
+    @Field(() => SyncDetailsWhereInput, {nullable:true})
+    @Type(() => SyncDetailsWhereInput)
+    where?: SyncDetailsWhereInput;
 }

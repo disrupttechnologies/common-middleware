@@ -4,9 +4,10 @@ import { BTCIncomingTransactionWhereInput } from './btc-incoming-transaction-whe
 
 @InputType()
 export class BTCIncomingTransactionRelationFilter {
-  @Field(() => BTCIncomingTransactionWhereInput, { nullable: true })
-  is?: BTCIncomingTransactionWhereInput;
 
-  @Field(() => BTCIncomingTransactionWhereInput, { nullable: true })
-  isNot?: BTCIncomingTransactionWhereInput;
+    @Field(() => BTCIncomingTransactionWhereInput, {nullable:true})
+    is?: BTCIncomingTransactionWhereInput;
+
+    @Field(() => BTCIncomingTransactionWhereInput, {nullable:true})
+    isNot?: BTCIncomingTransactionWhereInput;
 }

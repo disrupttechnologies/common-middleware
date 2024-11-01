@@ -7,41 +7,40 @@ import { UserBTCAddressOrderByWithRelationInput } from '../user-btc-address/user
 
 @InputType()
 export class BTCIncomingTransactionOrderByWithRelationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  updatedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  txnHash?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  binanceTxnId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    txnHash?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  txnTime?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    binanceTxnId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  amount?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    txnTime?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  senderAddress?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    amount?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  txnStatus?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    senderAddress?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  failedRemarks?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    txnStatus?: keyof typeof SortOrder;
 
-  @Field(() => BTCSettlementTransactionOrderByWithRelationInput, {
-    nullable: true,
-  })
-  settlementTxn?: BTCSettlementTransactionOrderByWithRelationInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    failedRemarks?: SortOrderInput;
 
-  @Field(() => UserBTCAddressOrderByWithRelationInput, { nullable: true })
-  user?: UserBTCAddressOrderByWithRelationInput;
+    @Field(() => BTCSettlementTransactionOrderByWithRelationInput, {nullable:true})
+    settlementTxn?: BTCSettlementTransactionOrderByWithRelationInput;
+
+    @Field(() => UserBTCAddressOrderByWithRelationInput, {nullable:true})
+    user?: UserBTCAddressOrderByWithRelationInput;
 }

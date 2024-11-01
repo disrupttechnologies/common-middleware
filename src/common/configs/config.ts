@@ -18,14 +18,14 @@ const config: Config = {
       s3Bucket: 'cryptoprime-docs',
       backendUri: 'https://cryptoprice-server.fly.dev',
     },
-  
+
     XSwipe: {
       s3Bucket: 'xswipe-docs',
       backendUri: 'https://xswipe-server.fly.dev',
     },
     EdenSwipe: {
-      s3Bucket:"edenswipe-docs",
-      backendUri:"https://edenswipe-server.fly.dev",
+      s3Bucket: 'edenswipe-docs',
+      backendUri: 'https://edenswipe-server.fly.dev',
     },
     THEONE: {
       s3Bucket: 'theone-docs',

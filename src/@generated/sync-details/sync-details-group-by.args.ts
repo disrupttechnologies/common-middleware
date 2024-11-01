@@ -12,31 +12,32 @@ import { SyncDetailsMaxAggregateInput } from './sync-details-max-aggregate.input
 
 @ArgsType()
 export class SyncDetailsGroupByArgs {
-  @Field(() => SyncDetailsWhereInput, { nullable: true })
-  @Type(() => SyncDetailsWhereInput)
-  where?: SyncDetailsWhereInput;
 
-  @Field(() => [SyncDetailsOrderByWithAggregationInput], { nullable: true })
-  orderBy?: Array<SyncDetailsOrderByWithAggregationInput>;
+    @Field(() => SyncDetailsWhereInput, {nullable:true})
+    @Type(() => SyncDetailsWhereInput)
+    where?: SyncDetailsWhereInput;
 
-  @Field(() => [SyncDetailsScalarFieldEnum], { nullable: false })
-  by!: Array<keyof typeof SyncDetailsScalarFieldEnum>;
+    @Field(() => [SyncDetailsOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<SyncDetailsOrderByWithAggregationInput>;
 
-  @Field(() => SyncDetailsScalarWhereWithAggregatesInput, { nullable: true })
-  having?: SyncDetailsScalarWhereWithAggregatesInput;
+    @Field(() => [SyncDetailsScalarFieldEnum], {nullable:false})
+    by!: Array<keyof typeof SyncDetailsScalarFieldEnum>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => SyncDetailsScalarWhereWithAggregatesInput, {nullable:true})
+    having?: SyncDetailsScalarWhereWithAggregatesInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => SyncDetailsCountAggregateInput, { nullable: true })
-  _count?: SyncDetailsCountAggregateInput;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => SyncDetailsMinAggregateInput, { nullable: true })
-  _min?: SyncDetailsMinAggregateInput;
+    @Field(() => SyncDetailsCountAggregateInput, {nullable:true})
+    _count?: SyncDetailsCountAggregateInput;
 
-  @Field(() => SyncDetailsMaxAggregateInput, { nullable: true })
-  _max?: SyncDetailsMaxAggregateInput;
+    @Field(() => SyncDetailsMinAggregateInput, {nullable:true})
+    _min?: SyncDetailsMinAggregateInput;
+
+    @Field(() => SyncDetailsMaxAggregateInput, {nullable:true})
+    _max?: SyncDetailsMaxAggregateInput;
 }

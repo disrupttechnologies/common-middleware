@@ -11,50 +11,32 @@ import { BinanceIncomingTxnUpdateToOneWithWhereWithoutSettlementTransactionInput
 
 @InputType()
 export class BinanceIncomingTxnUpdateOneWithoutSettlementTransactionNestedInput {
-  @Field(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput, {
-    nullable: true,
-  })
-  @Type(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput)
-  create?: BinanceIncomingTxnCreateWithoutSettlementTransactionInput;
 
-  @Field(
-    () => BinanceIncomingTxnCreateOrConnectWithoutSettlementTransactionInput,
-    { nullable: true },
-  )
-  @Type(
-    () => BinanceIncomingTxnCreateOrConnectWithoutSettlementTransactionInput,
-  )
-  connectOrCreate?: BinanceIncomingTxnCreateOrConnectWithoutSettlementTransactionInput;
+    @Field(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput, {nullable:true})
+    @Type(() => BinanceIncomingTxnCreateWithoutSettlementTransactionInput)
+    create?: BinanceIncomingTxnCreateWithoutSettlementTransactionInput;
 
-  @Field(() => BinanceIncomingTxnUpsertWithoutSettlementTransactionInput, {
-    nullable: true,
-  })
-  @Type(() => BinanceIncomingTxnUpsertWithoutSettlementTransactionInput)
-  upsert?: BinanceIncomingTxnUpsertWithoutSettlementTransactionInput;
+    @Field(() => BinanceIncomingTxnCreateOrConnectWithoutSettlementTransactionInput, {nullable:true})
+    @Type(() => BinanceIncomingTxnCreateOrConnectWithoutSettlementTransactionInput)
+    connectOrCreate?: BinanceIncomingTxnCreateOrConnectWithoutSettlementTransactionInput;
 
-  @Field(() => BinanceIncomingTxnWhereInput, { nullable: true })
-  @Type(() => BinanceIncomingTxnWhereInput)
-  disconnect?: BinanceIncomingTxnWhereInput;
+    @Field(() => BinanceIncomingTxnUpsertWithoutSettlementTransactionInput, {nullable:true})
+    @Type(() => BinanceIncomingTxnUpsertWithoutSettlementTransactionInput)
+    upsert?: BinanceIncomingTxnUpsertWithoutSettlementTransactionInput;
 
-  @Field(() => BinanceIncomingTxnWhereInput, { nullable: true })
-  @Type(() => BinanceIncomingTxnWhereInput)
-  delete?: BinanceIncomingTxnWhereInput;
+    @Field(() => BinanceIncomingTxnWhereInput, {nullable:true})
+    @Type(() => BinanceIncomingTxnWhereInput)
+    disconnect?: BinanceIncomingTxnWhereInput;
 
-  @Field(() => BinanceIncomingTxnWhereUniqueInput, { nullable: true })
-  @Type(() => BinanceIncomingTxnWhereUniqueInput)
-  connect?: Prisma.AtLeast<
-    BinanceIncomingTxnWhereUniqueInput,
-    'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'
-  >;
+    @Field(() => BinanceIncomingTxnWhereInput, {nullable:true})
+    @Type(() => BinanceIncomingTxnWhereInput)
+    delete?: BinanceIncomingTxnWhereInput;
 
-  @Field(
-    () =>
-      BinanceIncomingTxnUpdateToOneWithWhereWithoutSettlementTransactionInput,
-    { nullable: true },
-  )
-  @Type(
-    () =>
-      BinanceIncomingTxnUpdateToOneWithWhereWithoutSettlementTransactionInput,
-  )
-  update?: BinanceIncomingTxnUpdateToOneWithWhereWithoutSettlementTransactionInput;
+    @Field(() => BinanceIncomingTxnWhereUniqueInput, {nullable:true})
+    @Type(() => BinanceIncomingTxnWhereUniqueInput)
+    connect?: Prisma.AtLeast<BinanceIncomingTxnWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'>;
+
+    @Field(() => BinanceIncomingTxnUpdateToOneWithWhereWithoutSettlementTransactionInput, {nullable:true})
+    @Type(() => BinanceIncomingTxnUpdateToOneWithWhereWithoutSettlementTransactionInput)
+    update?: BinanceIncomingTxnUpdateToOneWithWhereWithoutSettlementTransactionInput;
 }

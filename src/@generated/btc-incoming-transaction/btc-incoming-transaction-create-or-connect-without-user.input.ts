@@ -7,16 +7,12 @@ import { BTCIncomingTransactionCreateWithoutUserInput } from './btc-incoming-tra
 
 @InputType()
 export class BTCIncomingTransactionCreateOrConnectWithoutUserInput {
-  @Field(() => BTCIncomingTransactionWhereUniqueInput, { nullable: false })
-  @Type(() => BTCIncomingTransactionWhereUniqueInput)
-  where!: Prisma.AtLeast<
-    BTCIncomingTransactionWhereUniqueInput,
-    'id' | 'txnHash' | 'binanceTxnId'
-  >;
 
-  @Field(() => BTCIncomingTransactionCreateWithoutUserInput, {
-    nullable: false,
-  })
-  @Type(() => BTCIncomingTransactionCreateWithoutUserInput)
-  create!: BTCIncomingTransactionCreateWithoutUserInput;
+    @Field(() => BTCIncomingTransactionWhereUniqueInput, {nullable:false})
+    @Type(() => BTCIncomingTransactionWhereUniqueInput)
+    where!: Prisma.AtLeast<BTCIncomingTransactionWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId'>;
+
+    @Field(() => BTCIncomingTransactionCreateWithoutUserInput, {nullable:false})
+    @Type(() => BTCIncomingTransactionCreateWithoutUserInput)
+    create!: BTCIncomingTransactionCreateWithoutUserInput;
 }

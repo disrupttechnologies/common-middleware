@@ -4,12 +4,12 @@ const prisma = new PrismaClient();
 
 const main = async () => {
     
-    const data = await prisma.binanceIncomingTxn.findFirst({
+    const data = await prisma.userBTCAddress.findFirst({
         where: {
-            txnHash: {
-                contains: "htgmevgbangtvkh4y4roku9ibemlff6pnnnsrpzvnna2gmqqaattks6bewg56uykgx3x4bgxnsyxl2b4gssikjg",
+            address: {
+                equals: "bc1q4kvxhvr808kp6u2tavzdyu2hhy7fl3ga2hctn6",
                 mode:"insensitive"
-           }
+          }
        }
     })
     console.log(data)

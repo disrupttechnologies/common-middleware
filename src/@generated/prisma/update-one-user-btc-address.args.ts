@@ -6,11 +6,12 @@ import { UserBTCAddressWhereUniqueInput } from '../user-btc-address/user-btc-add
 
 @ArgsType()
 export class UpdateOneUserBtcAddressArgs {
-  @Field(() => UserBTCAddressUpdateInput, { nullable: false })
-  @Type(() => UserBTCAddressUpdateInput)
-  data!: UserBTCAddressUpdateInput;
 
-  @Field(() => UserBTCAddressWhereUniqueInput, { nullable: false })
-  @Type(() => UserBTCAddressWhereUniqueInput)
-  where!: UserBTCAddressWhereUniqueInput;
+    @Field(() => UserBTCAddressUpdateInput, {nullable:false})
+    @Type(() => UserBTCAddressUpdateInput)
+    data!: UserBTCAddressUpdateInput;
+
+    @Field(() => UserBTCAddressWhereUniqueInput, {nullable:false})
+    @Type(() => UserBTCAddressWhereUniqueInput)
+    where!: UserBTCAddressWhereUniqueInput;
 }

@@ -6,13 +6,12 @@ import { WhitelabelIncomingTransactionWhereInput } from './whitelabel-incoming-t
 
 @ArgsType()
 export class UpdateManyWhitelabelIncomingTransactionArgs {
-  @Field(() => WhitelabelIncomingTransactionUpdateManyMutationInput, {
-    nullable: false,
-  })
-  @Type(() => WhitelabelIncomingTransactionUpdateManyMutationInput)
-  data!: WhitelabelIncomingTransactionUpdateManyMutationInput;
 
-  @Field(() => WhitelabelIncomingTransactionWhereInput, { nullable: true })
-  @Type(() => WhitelabelIncomingTransactionWhereInput)
-  where?: WhitelabelIncomingTransactionWhereInput;
+    @Field(() => WhitelabelIncomingTransactionUpdateManyMutationInput, {nullable:false})
+    @Type(() => WhitelabelIncomingTransactionUpdateManyMutationInput)
+    data!: WhitelabelIncomingTransactionUpdateManyMutationInput;
+
+    @Field(() => WhitelabelIncomingTransactionWhereInput, {nullable:true})
+    @Type(() => WhitelabelIncomingTransactionWhereInput)
+    where?: WhitelabelIncomingTransactionWhereInput;
 }
