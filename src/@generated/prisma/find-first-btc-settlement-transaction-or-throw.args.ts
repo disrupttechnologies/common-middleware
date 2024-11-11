@@ -9,23 +9,24 @@ import { BTCSettlementTransactionScalarFieldEnum } from '../btc-settlement-trans
 
 @ArgsType()
 export class FindFirstBtcSettlementTransactionOrThrowArgs {
+  @Field(() => BTCSettlementTransactionWhereInput, { nullable: true })
+  @Type(() => BTCSettlementTransactionWhereInput)
+  where?: BTCSettlementTransactionWhereInput;
 
-    @Field(() => BTCSettlementTransactionWhereInput, {nullable:true})
-    @Type(() => BTCSettlementTransactionWhereInput)
-    where?: BTCSettlementTransactionWhereInput;
+  @Field(() => [BTCSettlementTransactionOrderByWithRelationInput], {
+    nullable: true,
+  })
+  orderBy?: Array<BTCSettlementTransactionOrderByWithRelationInput>;
 
-    @Field(() => [BTCSettlementTransactionOrderByWithRelationInput], {nullable:true})
-    orderBy?: Array<BTCSettlementTransactionOrderByWithRelationInput>;
+  @Field(() => BTCSettlementTransactionWhereUniqueInput, { nullable: true })
+  cursor?: BTCSettlementTransactionWhereUniqueInput;
 
-    @Field(() => BTCSettlementTransactionWhereUniqueInput, {nullable:true})
-    cursor?: BTCSettlementTransactionWhereUniqueInput;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
-
-    @Field(() => [BTCSettlementTransactionScalarFieldEnum], {nullable:true})
-    distinct?: Array<keyof typeof BTCSettlementTransactionScalarFieldEnum>;
+  @Field(() => [BTCSettlementTransactionScalarFieldEnum], { nullable: true })
+  distinct?: Array<keyof typeof BTCSettlementTransactionScalarFieldEnum>;
 }

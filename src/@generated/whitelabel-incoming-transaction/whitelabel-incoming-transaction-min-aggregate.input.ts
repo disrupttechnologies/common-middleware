@@ -3,25 +3,24 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class WhitelabelIncomingTransactionMinAggregateInput {
+  @Field(() => Boolean, { nullable: true })
+  id?: true;
 
-    @Field(() => Boolean, {nullable:true})
-    id?: true;
+  @Field(() => Boolean, { nullable: true })
+  createdAt?: true;
 
-    @Field(() => Boolean, {nullable:true})
-    createdAt?: true;
+  @Field(() => Boolean, { nullable: true })
+  updatedAt?: true;
 
-    @Field(() => Boolean, {nullable:true})
-    updatedAt?: true;
+  @Field(() => Boolean, { nullable: true })
+  userId?: true;
 
-    @Field(() => Boolean, {nullable:true})
-    userId?: true;
+  @Field(() => Boolean, { nullable: true })
+  whitelabelId?: true;
 
-    @Field(() => Boolean, {nullable:true})
-    whitelabelId?: true;
+  @Field(() => Boolean, { nullable: true })
+  provisionTxnHash?: true;
 
-    @Field(() => Boolean, {nullable:true})
-    provisionTxnHash?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    settlementTransactionId?: true;
+  @Field(() => Boolean, { nullable: true })
+  settlementTransactionId?: true;
 }

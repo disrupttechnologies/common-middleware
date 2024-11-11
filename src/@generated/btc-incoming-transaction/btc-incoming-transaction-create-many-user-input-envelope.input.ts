@@ -5,11 +5,10 @@ import { Type } from 'class-transformer';
 
 @InputType()
 export class BTCIncomingTransactionCreateManyUserInputEnvelope {
+  @Field(() => [BTCIncomingTransactionCreateManyUserInput], { nullable: false })
+  @Type(() => BTCIncomingTransactionCreateManyUserInput)
+  data!: Array<BTCIncomingTransactionCreateManyUserInput>;
 
-    @Field(() => [BTCIncomingTransactionCreateManyUserInput], {nullable:false})
-    @Type(() => BTCIncomingTransactionCreateManyUserInput)
-    data!: Array<BTCIncomingTransactionCreateManyUserInput>;
-
-    @Field(() => Boolean, {nullable:true})
-    skipDuplicates?: boolean;
+  @Field(() => Boolean, { nullable: true })
+  skipDuplicates?: boolean;
 }

@@ -5,8 +5,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateOneUserBtcAddressArgs {
-
-    @Field(() => UserBTCAddressCreateInput, {nullable:false})
-    @Type(() => UserBTCAddressCreateInput)
-    data!: UserBTCAddressCreateInput;
+  @Field(() => UserBTCAddressCreateInput, { nullable: false })
+  @Type(() => UserBTCAddressCreateInput)
+  data!: UserBTCAddressCreateInput;
 }

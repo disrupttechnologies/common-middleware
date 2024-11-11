@@ -5,8 +5,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateOneKycUserArgs {
-
-    @Field(() => KYCUserCreateInput, {nullable:false})
-    @Type(() => KYCUserCreateInput)
-    data!: KYCUserCreateInput;
+  @Field(() => KYCUserCreateInput, { nullable: false })
+  @Type(() => KYCUserCreateInput)
+  data!: KYCUserCreateInput;
 }

@@ -72,6 +72,7 @@ const config: Config = {
       'NEAR',
       'MKR',
       'UNI',
+      'POL'
     ],
   },
 

@@ -6,12 +6,13 @@ import { BTCSettlementTransactionWhereInput } from '../btc-settlement-transactio
 
 @ArgsType()
 export class UpdateManyBtcSettlementTransactionArgs {
+  @Field(() => BTCSettlementTransactionUpdateManyMutationInput, {
+    nullable: false,
+  })
+  @Type(() => BTCSettlementTransactionUpdateManyMutationInput)
+  data!: BTCSettlementTransactionUpdateManyMutationInput;
 
-    @Field(() => BTCSettlementTransactionUpdateManyMutationInput, {nullable:false})
-    @Type(() => BTCSettlementTransactionUpdateManyMutationInput)
-    data!: BTCSettlementTransactionUpdateManyMutationInput;
-
-    @Field(() => BTCSettlementTransactionWhereInput, {nullable:true})
-    @Type(() => BTCSettlementTransactionWhereInput)
-    where?: BTCSettlementTransactionWhereInput;
+  @Field(() => BTCSettlementTransactionWhereInput, { nullable: true })
+  @Type(() => BTCSettlementTransactionWhereInput)
+  where?: BTCSettlementTransactionWhereInput;
 }

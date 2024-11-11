@@ -6,8 +6,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class DeleteOneSyncDetailsArgs {
-
-    @Field(() => SyncDetailsWhereUniqueInput, {nullable:false})
-    @Type(() => SyncDetailsWhereUniqueInput)
-    where!: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
+  @Field(() => SyncDetailsWhereUniqueInput, { nullable: false })
+  @Type(() => SyncDetailsWhereUniqueInput)
+  where!: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
 }

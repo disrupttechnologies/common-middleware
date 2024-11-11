@@ -6,12 +6,13 @@ import { BTCIncomingTransactionWhereInput } from '../btc-incoming-transaction/bt
 
 @ArgsType()
 export class UpdateManyBtcIncomingTransactionArgs {
+  @Field(() => BTCIncomingTransactionUpdateManyMutationInput, {
+    nullable: false,
+  })
+  @Type(() => BTCIncomingTransactionUpdateManyMutationInput)
+  data!: BTCIncomingTransactionUpdateManyMutationInput;
 
-    @Field(() => BTCIncomingTransactionUpdateManyMutationInput, {nullable:false})
-    @Type(() => BTCIncomingTransactionUpdateManyMutationInput)
-    data!: BTCIncomingTransactionUpdateManyMutationInput;
-
-    @Field(() => BTCIncomingTransactionWhereInput, {nullable:true})
-    @Type(() => BTCIncomingTransactionWhereInput)
-    where?: BTCIncomingTransactionWhereInput;
+  @Field(() => BTCIncomingTransactionWhereInput, { nullable: true })
+  @Type(() => BTCIncomingTransactionWhereInput)
+  where?: BTCIncomingTransactionWhereInput;
 }

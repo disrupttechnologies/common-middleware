@@ -5,8 +5,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateOneBinanceIncomingTxnArgs {
-
-    @Field(() => BinanceIncomingTxnCreateInput, {nullable:false})
-    @Type(() => BinanceIncomingTxnCreateInput)
-    data!: BinanceIncomingTxnCreateInput;
+  @Field(() => BinanceIncomingTxnCreateInput, { nullable: false })
+  @Type(() => BinanceIncomingTxnCreateInput)
+  data!: BinanceIncomingTxnCreateInput;
 }

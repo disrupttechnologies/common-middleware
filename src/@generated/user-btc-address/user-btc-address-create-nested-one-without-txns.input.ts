@@ -8,16 +8,17 @@ import { UserBTCAddressWhereUniqueInput } from './user-btc-address-where-unique.
 
 @InputType()
 export class UserBTCAddressCreateNestedOneWithoutTxnsInput {
+  @Field(() => UserBTCAddressCreateWithoutTxnsInput, { nullable: true })
+  @Type(() => UserBTCAddressCreateWithoutTxnsInput)
+  create?: UserBTCAddressCreateWithoutTxnsInput;
 
-    @Field(() => UserBTCAddressCreateWithoutTxnsInput, {nullable:true})
-    @Type(() => UserBTCAddressCreateWithoutTxnsInput)
-    create?: UserBTCAddressCreateWithoutTxnsInput;
+  @Field(() => UserBTCAddressCreateOrConnectWithoutTxnsInput, {
+    nullable: true,
+  })
+  @Type(() => UserBTCAddressCreateOrConnectWithoutTxnsInput)
+  connectOrCreate?: UserBTCAddressCreateOrConnectWithoutTxnsInput;
 
-    @Field(() => UserBTCAddressCreateOrConnectWithoutTxnsInput, {nullable:true})
-    @Type(() => UserBTCAddressCreateOrConnectWithoutTxnsInput)
-    connectOrCreate?: UserBTCAddressCreateOrConnectWithoutTxnsInput;
-
-    @Field(() => UserBTCAddressWhereUniqueInput, {nullable:true})
-    @Type(() => UserBTCAddressWhereUniqueInput)
-    connect?: Prisma.AtLeast<UserBTCAddressWhereUniqueInput, 'id' | 'address'>;
+  @Field(() => UserBTCAddressWhereUniqueInput, { nullable: true })
+  @Type(() => UserBTCAddressWhereUniqueInput)
+  connect?: Prisma.AtLeast<UserBTCAddressWhereUniqueInput, 'id' | 'address'>;
 }

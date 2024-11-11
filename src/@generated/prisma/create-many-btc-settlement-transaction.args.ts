@@ -5,11 +5,10 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateManyBtcSettlementTransactionArgs {
+  @Field(() => [BTCSettlementTransactionCreateManyInput], { nullable: false })
+  @Type(() => BTCSettlementTransactionCreateManyInput)
+  data!: Array<BTCSettlementTransactionCreateManyInput>;
 
-    @Field(() => [BTCSettlementTransactionCreateManyInput], {nullable:false})
-    @Type(() => BTCSettlementTransactionCreateManyInput)
-    data!: Array<BTCSettlementTransactionCreateManyInput>;
-
-    @Field(() => Boolean, {nullable:true})
-    skipDuplicates?: boolean;
+  @Field(() => Boolean, { nullable: true })
+  skipDuplicates?: boolean;
 }

@@ -7,16 +7,15 @@ import { KYCDetailUpdateInput } from '../kyc-detail/kyc-detail-update.input';
 
 @ArgsType()
 export class UpsertOneKycDetailArgs {
+  @Field(() => KYCDetailWhereUniqueInput, { nullable: false })
+  @Type(() => KYCDetailWhereUniqueInput)
+  where!: KYCDetailWhereUniqueInput;
 
-    @Field(() => KYCDetailWhereUniqueInput, {nullable:false})
-    @Type(() => KYCDetailWhereUniqueInput)
-    where!: KYCDetailWhereUniqueInput;
+  @Field(() => KYCDetailCreateInput, { nullable: false })
+  @Type(() => KYCDetailCreateInput)
+  create!: KYCDetailCreateInput;
 
-    @Field(() => KYCDetailCreateInput, {nullable:false})
-    @Type(() => KYCDetailCreateInput)
-    create!: KYCDetailCreateInput;
-
-    @Field(() => KYCDetailUpdateInput, {nullable:false})
-    @Type(() => KYCDetailUpdateInput)
-    update!: KYCDetailUpdateInput;
+  @Field(() => KYCDetailUpdateInput, { nullable: false })
+  @Type(() => KYCDetailUpdateInput)
+  update!: KYCDetailUpdateInput;
 }

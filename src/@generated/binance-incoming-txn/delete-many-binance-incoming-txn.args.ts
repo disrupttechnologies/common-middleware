@@ -5,8 +5,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class DeleteManyBinanceIncomingTxnArgs {
-
-    @Field(() => BinanceIncomingTxnWhereInput, {nullable:true})
-    @Type(() => BinanceIncomingTxnWhereInput)
-    where?: BinanceIncomingTxnWhereInput;
+  @Field(() => BinanceIncomingTxnWhereInput, { nullable: true })
+  @Type(() => BinanceIncomingTxnWhereInput)
+  where?: BinanceIncomingTxnWhereInput;
 }

@@ -6,13 +6,12 @@ import { SettlementTransactionMaxAggregate } from './settlement-transaction-max-
 
 @ObjectType()
 export class AggregateSettlementTransaction {
+  @Field(() => SettlementTransactionCountAggregate, { nullable: true })
+  _count?: SettlementTransactionCountAggregate;
 
-    @Field(() => SettlementTransactionCountAggregate, {nullable:true})
-    _count?: SettlementTransactionCountAggregate;
+  @Field(() => SettlementTransactionMinAggregate, { nullable: true })
+  _min?: SettlementTransactionMinAggregate;
 
-    @Field(() => SettlementTransactionMinAggregate, {nullable:true})
-    _min?: SettlementTransactionMinAggregate;
-
-    @Field(() => SettlementTransactionMaxAggregate, {nullable:true})
-    _max?: SettlementTransactionMaxAggregate;
+  @Field(() => SettlementTransactionMaxAggregate, { nullable: true })
+  _max?: SettlementTransactionMaxAggregate;
 }

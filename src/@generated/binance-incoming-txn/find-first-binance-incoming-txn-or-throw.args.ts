@@ -10,23 +10,25 @@ import { BinanceIncomingTxnScalarFieldEnum } from './binance-incoming-txn-scalar
 
 @ArgsType()
 export class FindFirstBinanceIncomingTxnOrThrowArgs {
+  @Field(() => BinanceIncomingTxnWhereInput, { nullable: true })
+  @Type(() => BinanceIncomingTxnWhereInput)
+  where?: BinanceIncomingTxnWhereInput;
 
-    @Field(() => BinanceIncomingTxnWhereInput, {nullable:true})
-    @Type(() => BinanceIncomingTxnWhereInput)
-    where?: BinanceIncomingTxnWhereInput;
+  @Field(() => [BinanceIncomingTxnOrderByWithRelationInput], { nullable: true })
+  orderBy?: Array<BinanceIncomingTxnOrderByWithRelationInput>;
 
-    @Field(() => [BinanceIncomingTxnOrderByWithRelationInput], {nullable:true})
-    orderBy?: Array<BinanceIncomingTxnOrderByWithRelationInput>;
+  @Field(() => BinanceIncomingTxnWhereUniqueInput, { nullable: true })
+  cursor?: Prisma.AtLeast<
+    BinanceIncomingTxnWhereUniqueInput,
+    'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'
+  >;
 
-    @Field(() => BinanceIncomingTxnWhereUniqueInput, {nullable:true})
-    cursor?: Prisma.AtLeast<BinanceIncomingTxnWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'>;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
-
-    @Field(() => [BinanceIncomingTxnScalarFieldEnum], {nullable:true})
-    distinct?: Array<keyof typeof BinanceIncomingTxnScalarFieldEnum>;
+  @Field(() => [BinanceIncomingTxnScalarFieldEnum], { nullable: true })
+  distinct?: Array<keyof typeof BinanceIncomingTxnScalarFieldEnum>;
 }

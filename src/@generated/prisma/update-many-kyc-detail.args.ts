@@ -6,12 +6,11 @@ import { KYCDetailWhereInput } from '../kyc-detail/kyc-detail-where.input';
 
 @ArgsType()
 export class UpdateManyKycDetailArgs {
+  @Field(() => KYCDetailUpdateManyMutationInput, { nullable: false })
+  @Type(() => KYCDetailUpdateManyMutationInput)
+  data!: KYCDetailUpdateManyMutationInput;
 
-    @Field(() => KYCDetailUpdateManyMutationInput, {nullable:false})
-    @Type(() => KYCDetailUpdateManyMutationInput)
-    data!: KYCDetailUpdateManyMutationInput;
-
-    @Field(() => KYCDetailWhereInput, {nullable:true})
-    @Type(() => KYCDetailWhereInput)
-    where?: KYCDetailWhereInput;
+  @Field(() => KYCDetailWhereInput, { nullable: true })
+  @Type(() => KYCDetailWhereInput)
+  where?: KYCDetailWhereInput;
 }

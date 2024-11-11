@@ -6,13 +6,12 @@ import { BinanceIncomingTxnMaxAggregate } from './binance-incoming-txn-max-aggre
 
 @ObjectType()
 export class AggregateBinanceIncomingTxn {
+  @Field(() => BinanceIncomingTxnCountAggregate, { nullable: true })
+  _count?: BinanceIncomingTxnCountAggregate;
 
-    @Field(() => BinanceIncomingTxnCountAggregate, {nullable:true})
-    _count?: BinanceIncomingTxnCountAggregate;
+  @Field(() => BinanceIncomingTxnMinAggregate, { nullable: true })
+  _min?: BinanceIncomingTxnMinAggregate;
 
-    @Field(() => BinanceIncomingTxnMinAggregate, {nullable:true})
-    _min?: BinanceIncomingTxnMinAggregate;
-
-    @Field(() => BinanceIncomingTxnMaxAggregate, {nullable:true})
-    _max?: BinanceIncomingTxnMaxAggregate;
+  @Field(() => BinanceIncomingTxnMaxAggregate, { nullable: true })
+  _max?: BinanceIncomingTxnMaxAggregate;
 }

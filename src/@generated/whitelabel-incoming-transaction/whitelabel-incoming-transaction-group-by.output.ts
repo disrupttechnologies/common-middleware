@@ -6,34 +6,33 @@ import { WhitelabelIncomingTransactionMaxAggregate } from './whitelabel-incoming
 
 @ObjectType()
 export class WhitelabelIncomingTransactionGroupBy {
+  @Field(() => String, { nullable: false })
+  id!: string;
 
-    @Field(() => String, {nullable:false})
-    id!: string;
+  @Field(() => Date, { nullable: false })
+  createdAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    createdAt!: Date | string;
+  @Field(() => Date, { nullable: false })
+  updatedAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    updatedAt!: Date | string;
+  @Field(() => String, { nullable: false })
+  userId!: string;
 
-    @Field(() => String, {nullable:false})
-    userId!: string;
+  @Field(() => String, { nullable: false })
+  whitelabelId!: string;
 
-    @Field(() => String, {nullable:false})
-    whitelabelId!: string;
+  @Field(() => String, { nullable: false })
+  provisionTxnHash!: string;
 
-    @Field(() => String, {nullable:false})
-    provisionTxnHash!: string;
+  @Field(() => String, { nullable: true })
+  settlementTransactionId?: string;
 
-    @Field(() => String, {nullable:true})
-    settlementTransactionId?: string;
+  @Field(() => WhitelabelIncomingTransactionCountAggregate, { nullable: true })
+  _count?: WhitelabelIncomingTransactionCountAggregate;
 
-    @Field(() => WhitelabelIncomingTransactionCountAggregate, {nullable:true})
-    _count?: WhitelabelIncomingTransactionCountAggregate;
+  @Field(() => WhitelabelIncomingTransactionMinAggregate, { nullable: true })
+  _min?: WhitelabelIncomingTransactionMinAggregate;
 
-    @Field(() => WhitelabelIncomingTransactionMinAggregate, {nullable:true})
-    _min?: WhitelabelIncomingTransactionMinAggregate;
-
-    @Field(() => WhitelabelIncomingTransactionMaxAggregate, {nullable:true})
-    _max?: WhitelabelIncomingTransactionMaxAggregate;
+  @Field(() => WhitelabelIncomingTransactionMaxAggregate, { nullable: true })
+  _max?: WhitelabelIncomingTransactionMaxAggregate;
 }

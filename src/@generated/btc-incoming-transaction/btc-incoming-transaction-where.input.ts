@@ -9,49 +9,50 @@ import { UserBTCAddressRelationFilter } from '../user-btc-address/user-btc-addre
 
 @InputType()
 export class BTCIncomingTransactionWhereInput {
+  @Field(() => [BTCIncomingTransactionWhereInput], { nullable: true })
+  AND?: Array<BTCIncomingTransactionWhereInput>;
 
-    @Field(() => [BTCIncomingTransactionWhereInput], {nullable:true})
-    AND?: Array<BTCIncomingTransactionWhereInput>;
+  @Field(() => [BTCIncomingTransactionWhereInput], { nullable: true })
+  OR?: Array<BTCIncomingTransactionWhereInput>;
 
-    @Field(() => [BTCIncomingTransactionWhereInput], {nullable:true})
-    OR?: Array<BTCIncomingTransactionWhereInput>;
+  @Field(() => [BTCIncomingTransactionWhereInput], { nullable: true })
+  NOT?: Array<BTCIncomingTransactionWhereInput>;
 
-    @Field(() => [BTCIncomingTransactionWhereInput], {nullable:true})
-    NOT?: Array<BTCIncomingTransactionWhereInput>;
+  @Field(() => StringFilter, { nullable: true })
+  id?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    id?: StringFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  createdAt?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    createdAt?: DateTimeFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  updatedAt?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    updatedAt?: DateTimeFilter;
+  @Field(() => StringFilter, { nullable: true })
+  txnHash?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    txnHash?: StringFilter;
+  @Field(() => StringFilter, { nullable: true })
+  binanceTxnId?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    binanceTxnId?: StringFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  txnTime?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    txnTime?: DateTimeFilter;
+  @Field(() => StringFilter, { nullable: true })
+  amount?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    amount?: StringFilter;
+  @Field(() => StringFilter, { nullable: true })
+  senderAddress?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    senderAddress?: StringFilter;
+  @Field(() => EnumTxnStatusFilter, { nullable: true })
+  txnStatus?: EnumTxnStatusFilter;
 
-    @Field(() => EnumTxnStatusFilter, {nullable:true})
-    txnStatus?: EnumTxnStatusFilter;
+  @Field(() => StringNullableFilter, { nullable: true })
+  failedRemarks?: StringNullableFilter;
 
-    @Field(() => StringNullableFilter, {nullable:true})
-    failedRemarks?: StringNullableFilter;
+  @Field(() => BTCSettlementTransactionNullableRelationFilter, {
+    nullable: true,
+  })
+  settlementTxn?: BTCSettlementTransactionNullableRelationFilter;
 
-    @Field(() => BTCSettlementTransactionNullableRelationFilter, {nullable:true})
-    settlementTxn?: BTCSettlementTransactionNullableRelationFilter;
-
-    @Field(() => UserBTCAddressRelationFilter, {nullable:true})
-    user?: UserBTCAddressRelationFilter;
+  @Field(() => UserBTCAddressRelationFilter, { nullable: true })
+  user?: UserBTCAddressRelationFilter;
 }

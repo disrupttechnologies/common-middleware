@@ -10,24 +10,27 @@ import { UserBTCAddressUpdateToOneWithWhereWithoutTxnsInput } from './user-btc-a
 
 @InputType()
 export class UserBTCAddressUpdateOneRequiredWithoutTxnsNestedInput {
+  @Field(() => UserBTCAddressCreateWithoutTxnsInput, { nullable: true })
+  @Type(() => UserBTCAddressCreateWithoutTxnsInput)
+  create?: UserBTCAddressCreateWithoutTxnsInput;
 
-    @Field(() => UserBTCAddressCreateWithoutTxnsInput, {nullable:true})
-    @Type(() => UserBTCAddressCreateWithoutTxnsInput)
-    create?: UserBTCAddressCreateWithoutTxnsInput;
+  @Field(() => UserBTCAddressCreateOrConnectWithoutTxnsInput, {
+    nullable: true,
+  })
+  @Type(() => UserBTCAddressCreateOrConnectWithoutTxnsInput)
+  connectOrCreate?: UserBTCAddressCreateOrConnectWithoutTxnsInput;
 
-    @Field(() => UserBTCAddressCreateOrConnectWithoutTxnsInput, {nullable:true})
-    @Type(() => UserBTCAddressCreateOrConnectWithoutTxnsInput)
-    connectOrCreate?: UserBTCAddressCreateOrConnectWithoutTxnsInput;
+  @Field(() => UserBTCAddressUpsertWithoutTxnsInput, { nullable: true })
+  @Type(() => UserBTCAddressUpsertWithoutTxnsInput)
+  upsert?: UserBTCAddressUpsertWithoutTxnsInput;
 
-    @Field(() => UserBTCAddressUpsertWithoutTxnsInput, {nullable:true})
-    @Type(() => UserBTCAddressUpsertWithoutTxnsInput)
-    upsert?: UserBTCAddressUpsertWithoutTxnsInput;
+  @Field(() => UserBTCAddressWhereUniqueInput, { nullable: true })
+  @Type(() => UserBTCAddressWhereUniqueInput)
+  connect?: Prisma.AtLeast<UserBTCAddressWhereUniqueInput, 'id' | 'address'>;
 
-    @Field(() => UserBTCAddressWhereUniqueInput, {nullable:true})
-    @Type(() => UserBTCAddressWhereUniqueInput)
-    connect?: Prisma.AtLeast<UserBTCAddressWhereUniqueInput, 'id' | 'address'>;
-
-    @Field(() => UserBTCAddressUpdateToOneWithWhereWithoutTxnsInput, {nullable:true})
-    @Type(() => UserBTCAddressUpdateToOneWithWhereWithoutTxnsInput)
-    update?: UserBTCAddressUpdateToOneWithWhereWithoutTxnsInput;
+  @Field(() => UserBTCAddressUpdateToOneWithWhereWithoutTxnsInput, {
+    nullable: true,
+  })
+  @Type(() => UserBTCAddressUpdateToOneWithWhereWithoutTxnsInput)
+  update?: UserBTCAddressUpdateToOneWithWhereWithoutTxnsInput;
 }

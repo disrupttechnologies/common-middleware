@@ -7,12 +7,11 @@ import { UserBTCAddressCreateWithoutTxnsInput } from './user-btc-address-create-
 
 @InputType()
 export class UserBTCAddressCreateOrConnectWithoutTxnsInput {
+  @Field(() => UserBTCAddressWhereUniqueInput, { nullable: false })
+  @Type(() => UserBTCAddressWhereUniqueInput)
+  where!: Prisma.AtLeast<UserBTCAddressWhereUniqueInput, 'id' | 'address'>;
 
-    @Field(() => UserBTCAddressWhereUniqueInput, {nullable:false})
-    @Type(() => UserBTCAddressWhereUniqueInput)
-    where!: Prisma.AtLeast<UserBTCAddressWhereUniqueInput, 'id' | 'address'>;
-
-    @Field(() => UserBTCAddressCreateWithoutTxnsInput, {nullable:false})
-    @Type(() => UserBTCAddressCreateWithoutTxnsInput)
-    create!: UserBTCAddressCreateWithoutTxnsInput;
+  @Field(() => UserBTCAddressCreateWithoutTxnsInput, { nullable: false })
+  @Type(() => UserBTCAddressCreateWithoutTxnsInput)
+  create!: UserBTCAddressCreateWithoutTxnsInput;
 }

@@ -6,13 +6,12 @@ import { BTCIncomingTransactionMaxAggregate } from './btc-incoming-transaction-m
 
 @ObjectType()
 export class AggregateBTCIncomingTransaction {
+  @Field(() => BTCIncomingTransactionCountAggregate, { nullable: true })
+  _count?: BTCIncomingTransactionCountAggregate;
 
-    @Field(() => BTCIncomingTransactionCountAggregate, {nullable:true})
-    _count?: BTCIncomingTransactionCountAggregate;
+  @Field(() => BTCIncomingTransactionMinAggregate, { nullable: true })
+  _min?: BTCIncomingTransactionMinAggregate;
 
-    @Field(() => BTCIncomingTransactionMinAggregate, {nullable:true})
-    _min?: BTCIncomingTransactionMinAggregate;
-
-    @Field(() => BTCIncomingTransactionMaxAggregate, {nullable:true})
-    _max?: BTCIncomingTransactionMaxAggregate;
+  @Field(() => BTCIncomingTransactionMaxAggregate, { nullable: true })
+  _max?: BTCIncomingTransactionMaxAggregate;
 }

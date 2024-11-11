@@ -5,11 +5,12 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateManyWhitelabelIncomingTransactionArgs {
+  @Field(() => [WhitelabelIncomingTransactionCreateManyInput], {
+    nullable: false,
+  })
+  @Type(() => WhitelabelIncomingTransactionCreateManyInput)
+  data!: Array<WhitelabelIncomingTransactionCreateManyInput>;
 
-    @Field(() => [WhitelabelIncomingTransactionCreateManyInput], {nullable:false})
-    @Type(() => WhitelabelIncomingTransactionCreateManyInput)
-    data!: Array<WhitelabelIncomingTransactionCreateManyInput>;
-
-    @Field(() => Boolean, {nullable:true})
-    skipDuplicates?: boolean;
+  @Field(() => Boolean, { nullable: true })
+  skipDuplicates?: boolean;
 }

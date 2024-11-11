@@ -6,31 +6,30 @@ import { UserBTCAddressMaxAggregate } from './user-btc-address-max-aggregate.out
 
 @ObjectType()
 export class UserBTCAddressGroupBy {
+  @Field(() => String, { nullable: false })
+  id!: string;
 
-    @Field(() => String, {nullable:false})
-    id!: string;
+  @Field(() => Date, { nullable: false })
+  createdAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    createdAt!: Date | string;
+  @Field(() => Date, { nullable: false })
+  updatedAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    updatedAt!: Date | string;
+  @Field(() => String, { nullable: false })
+  address!: string;
 
-    @Field(() => String, {nullable:false})
-    address!: string;
+  @Field(() => String, { nullable: false })
+  userId!: string;
 
-    @Field(() => String, {nullable:false})
-    userId!: string;
+  @Field(() => String, { nullable: false })
+  whitelabelId!: string;
 
-    @Field(() => String, {nullable:false})
-    whitelabelId!: string;
+  @Field(() => UserBTCAddressCountAggregate, { nullable: true })
+  _count?: UserBTCAddressCountAggregate;
 
-    @Field(() => UserBTCAddressCountAggregate, {nullable:true})
-    _count?: UserBTCAddressCountAggregate;
+  @Field(() => UserBTCAddressMinAggregate, { nullable: true })
+  _min?: UserBTCAddressMinAggregate;
 
-    @Field(() => UserBTCAddressMinAggregate, {nullable:true})
-    _min?: UserBTCAddressMinAggregate;
-
-    @Field(() => UserBTCAddressMaxAggregate, {nullable:true})
-    _max?: UserBTCAddressMaxAggregate;
+  @Field(() => UserBTCAddressMaxAggregate, { nullable: true })
+  _max?: UserBTCAddressMaxAggregate;
 }

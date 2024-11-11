@@ -9,23 +9,22 @@ import { UserBTCAddressScalarFieldEnum } from '../user-btc-address/user-btc-addr
 
 @ArgsType()
 export class FindFirstUserBtcAddressOrThrowArgs {
+  @Field(() => UserBTCAddressWhereInput, { nullable: true })
+  @Type(() => UserBTCAddressWhereInput)
+  where?: UserBTCAddressWhereInput;
 
-    @Field(() => UserBTCAddressWhereInput, {nullable:true})
-    @Type(() => UserBTCAddressWhereInput)
-    where?: UserBTCAddressWhereInput;
+  @Field(() => [UserBTCAddressOrderByWithRelationInput], { nullable: true })
+  orderBy?: Array<UserBTCAddressOrderByWithRelationInput>;
 
-    @Field(() => [UserBTCAddressOrderByWithRelationInput], {nullable:true})
-    orderBy?: Array<UserBTCAddressOrderByWithRelationInput>;
+  @Field(() => UserBTCAddressWhereUniqueInput, { nullable: true })
+  cursor?: UserBTCAddressWhereUniqueInput;
 
-    @Field(() => UserBTCAddressWhereUniqueInput, {nullable:true})
-    cursor?: UserBTCAddressWhereUniqueInput;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
-
-    @Field(() => [UserBTCAddressScalarFieldEnum], {nullable:true})
-    distinct?: Array<keyof typeof UserBTCAddressScalarFieldEnum>;
+  @Field(() => [UserBTCAddressScalarFieldEnum], { nullable: true })
+  distinct?: Array<keyof typeof UserBTCAddressScalarFieldEnum>;
 }

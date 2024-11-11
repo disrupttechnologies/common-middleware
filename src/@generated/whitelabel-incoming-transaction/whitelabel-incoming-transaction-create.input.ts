@@ -4,25 +4,28 @@ import { BinanceIncomingTxnCreateNestedOneWithoutWhitelabelIncomingTransactionIn
 
 @InputType()
 export class WhitelabelIncomingTransactionCreateInput {
+  @Field(() => String, { nullable: true })
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    updatedAt?: Date | string;
+  @Field(() => String, { nullable: false })
+  userId!: string;
 
-    @Field(() => String, {nullable:false})
-    userId!: string;
+  @Field(() => String, { nullable: false })
+  whitelabelId!: string;
 
-    @Field(() => String, {nullable:false})
-    whitelabelId!: string;
+  @Field(() => String, { nullable: false })
+  provisionTxnHash!: string;
 
-    @Field(() => String, {nullable:false})
-    provisionTxnHash!: string;
-
-    @Field(() => BinanceIncomingTxnCreateNestedOneWithoutWhitelabelIncomingTransactionInput, {nullable:true})
-    settlementTransaction?: BinanceIncomingTxnCreateNestedOneWithoutWhitelabelIncomingTransactionInput;
+  @Field(
+    () =>
+      BinanceIncomingTxnCreateNestedOneWithoutWhitelabelIncomingTransactionInput,
+    { nullable: true },
+  )
+  settlementTransaction?: BinanceIncomingTxnCreateNestedOneWithoutWhitelabelIncomingTransactionInput;
 }

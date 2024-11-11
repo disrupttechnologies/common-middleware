@@ -12,32 +12,35 @@ import { BinanceIncomingTxnMaxAggregateInput } from './binance-incoming-txn-max-
 
 @ArgsType()
 export class BinanceIncomingTxnGroupByArgs {
+  @Field(() => BinanceIncomingTxnWhereInput, { nullable: true })
+  @Type(() => BinanceIncomingTxnWhereInput)
+  where?: BinanceIncomingTxnWhereInput;
 
-    @Field(() => BinanceIncomingTxnWhereInput, {nullable:true})
-    @Type(() => BinanceIncomingTxnWhereInput)
-    where?: BinanceIncomingTxnWhereInput;
+  @Field(() => [BinanceIncomingTxnOrderByWithAggregationInput], {
+    nullable: true,
+  })
+  orderBy?: Array<BinanceIncomingTxnOrderByWithAggregationInput>;
 
-    @Field(() => [BinanceIncomingTxnOrderByWithAggregationInput], {nullable:true})
-    orderBy?: Array<BinanceIncomingTxnOrderByWithAggregationInput>;
+  @Field(() => [BinanceIncomingTxnScalarFieldEnum], { nullable: false })
+  by!: Array<keyof typeof BinanceIncomingTxnScalarFieldEnum>;
 
-    @Field(() => [BinanceIncomingTxnScalarFieldEnum], {nullable:false})
-    by!: Array<keyof typeof BinanceIncomingTxnScalarFieldEnum>;
+  @Field(() => BinanceIncomingTxnScalarWhereWithAggregatesInput, {
+    nullable: true,
+  })
+  having?: BinanceIncomingTxnScalarWhereWithAggregatesInput;
 
-    @Field(() => BinanceIncomingTxnScalarWhereWithAggregatesInput, {nullable:true})
-    having?: BinanceIncomingTxnScalarWhereWithAggregatesInput;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
+  @Field(() => BinanceIncomingTxnCountAggregateInput, { nullable: true })
+  _count?: BinanceIncomingTxnCountAggregateInput;
 
-    @Field(() => BinanceIncomingTxnCountAggregateInput, {nullable:true})
-    _count?: BinanceIncomingTxnCountAggregateInput;
+  @Field(() => BinanceIncomingTxnMinAggregateInput, { nullable: true })
+  _min?: BinanceIncomingTxnMinAggregateInput;
 
-    @Field(() => BinanceIncomingTxnMinAggregateInput, {nullable:true})
-    _min?: BinanceIncomingTxnMinAggregateInput;
-
-    @Field(() => BinanceIncomingTxnMaxAggregateInput, {nullable:true})
-    _max?: BinanceIncomingTxnMaxAggregateInput;
+  @Field(() => BinanceIncomingTxnMaxAggregateInput, { nullable: true })
+  _max?: BinanceIncomingTxnMaxAggregateInput;
 }

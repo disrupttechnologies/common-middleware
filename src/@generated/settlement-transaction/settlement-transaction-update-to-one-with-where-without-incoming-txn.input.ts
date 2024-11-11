@@ -6,12 +6,13 @@ import { SettlementTransactionUpdateWithoutIncomingTxnInput } from './settlement
 
 @InputType()
 export class SettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput {
+  @Field(() => SettlementTransactionWhereInput, { nullable: true })
+  @Type(() => SettlementTransactionWhereInput)
+  where?: SettlementTransactionWhereInput;
 
-    @Field(() => SettlementTransactionWhereInput, {nullable:true})
-    @Type(() => SettlementTransactionWhereInput)
-    where?: SettlementTransactionWhereInput;
-
-    @Field(() => SettlementTransactionUpdateWithoutIncomingTxnInput, {nullable:false})
-    @Type(() => SettlementTransactionUpdateWithoutIncomingTxnInput)
-    data!: SettlementTransactionUpdateWithoutIncomingTxnInput;
+  @Field(() => SettlementTransactionUpdateWithoutIncomingTxnInput, {
+    nullable: false,
+  })
+  @Type(() => SettlementTransactionUpdateWithoutIncomingTxnInput)
+  data!: SettlementTransactionUpdateWithoutIncomingTxnInput;
 }

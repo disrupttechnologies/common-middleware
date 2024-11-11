@@ -9,37 +9,36 @@ import { BinanceIncomingTxnNullableRelationFilter } from '../binance-incoming-tx
 
 @InputType()
 export class SettlementTransactionWhereInput {
+  @Field(() => [SettlementTransactionWhereInput], { nullable: true })
+  AND?: Array<SettlementTransactionWhereInput>;
 
-    @Field(() => [SettlementTransactionWhereInput], {nullable:true})
-    AND?: Array<SettlementTransactionWhereInput>;
+  @Field(() => [SettlementTransactionWhereInput], { nullable: true })
+  OR?: Array<SettlementTransactionWhereInput>;
 
-    @Field(() => [SettlementTransactionWhereInput], {nullable:true})
-    OR?: Array<SettlementTransactionWhereInput>;
+  @Field(() => [SettlementTransactionWhereInput], { nullable: true })
+  NOT?: Array<SettlementTransactionWhereInput>;
 
-    @Field(() => [SettlementTransactionWhereInput], {nullable:true})
-    NOT?: Array<SettlementTransactionWhereInput>;
+  @Field(() => StringFilter, { nullable: true })
+  id?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    id?: StringFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  createdAt?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    createdAt?: DateTimeFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  updatedAt?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    updatedAt?: DateTimeFilter;
+  @Field(() => StringNullableFilter, { nullable: true })
+  orderId?: StringNullableFilter;
 
-    @Field(() => StringNullableFilter, {nullable:true})
-    orderId?: StringNullableFilter;
+  @Field(() => DateTimeNullableFilter, { nullable: true })
+  orderplaceTime?: DateTimeNullableFilter;
 
-    @Field(() => DateTimeNullableFilter, {nullable:true})
-    orderplaceTime?: DateTimeNullableFilter;
+  @Field(() => StringNullableFilter, { nullable: true })
+  amountReceived?: StringNullableFilter;
 
-    @Field(() => StringNullableFilter, {nullable:true})
-    amountReceived?: StringNullableFilter;
+  @Field(() => EnumSettlementTransactionProcessStatusFilter, { nullable: true })
+  status?: EnumSettlementTransactionProcessStatusFilter;
 
-    @Field(() => EnumSettlementTransactionProcessStatusFilter, {nullable:true})
-    status?: EnumSettlementTransactionProcessStatusFilter;
-
-    @Field(() => BinanceIncomingTxnNullableRelationFilter, {nullable:true})
-    incomingTxn?: BinanceIncomingTxnNullableRelationFilter;
+  @Field(() => BinanceIncomingTxnNullableRelationFilter, { nullable: true })
+  incomingTxn?: BinanceIncomingTxnNullableRelationFilter;
 }

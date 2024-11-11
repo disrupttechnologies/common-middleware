@@ -11,32 +11,60 @@ import { WhitelabelIncomingTransactionUpdateToOneWithWhereWithoutSettlementTrans
 
 @InputType()
 export class WhitelabelIncomingTransactionUpdateOneWithoutSettlementTransactionNestedInput {
+  @Field(
+    () => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput,
+    { nullable: true },
+  )
+  @Type(
+    () => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput,
+  )
+  create?: WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput;
 
-    @Field(() => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput)
-    create?: WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput;
+  @Field(
+    () =>
+      WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput,
+    { nullable: true },
+  )
+  @Type(
+    () =>
+      WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput,
+  )
+  connectOrCreate?: WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput;
 
-    @Field(() => WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput)
-    connectOrCreate?: WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput;
+  @Field(
+    () => WhitelabelIncomingTransactionUpsertWithoutSettlementTransactionInput,
+    { nullable: true },
+  )
+  @Type(
+    () => WhitelabelIncomingTransactionUpsertWithoutSettlementTransactionInput,
+  )
+  upsert?: WhitelabelIncomingTransactionUpsertWithoutSettlementTransactionInput;
 
-    @Field(() => WhitelabelIncomingTransactionUpsertWithoutSettlementTransactionInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionUpsertWithoutSettlementTransactionInput)
-    upsert?: WhitelabelIncomingTransactionUpsertWithoutSettlementTransactionInput;
+  @Field(() => WhitelabelIncomingTransactionWhereInput, { nullable: true })
+  @Type(() => WhitelabelIncomingTransactionWhereInput)
+  disconnect?: WhitelabelIncomingTransactionWhereInput;
 
-    @Field(() => WhitelabelIncomingTransactionWhereInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionWhereInput)
-    disconnect?: WhitelabelIncomingTransactionWhereInput;
+  @Field(() => WhitelabelIncomingTransactionWhereInput, { nullable: true })
+  @Type(() => WhitelabelIncomingTransactionWhereInput)
+  delete?: WhitelabelIncomingTransactionWhereInput;
 
-    @Field(() => WhitelabelIncomingTransactionWhereInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionWhereInput)
-    delete?: WhitelabelIncomingTransactionWhereInput;
+  @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {
+    nullable: true,
+  })
+  @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
+  connect?: Prisma.AtLeast<
+    WhitelabelIncomingTransactionWhereUniqueInput,
+    'id' | 'provisionTxnHash' | 'settlementTransactionId'
+  >;
 
-    @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
-    connect?: Prisma.AtLeast<WhitelabelIncomingTransactionWhereUniqueInput, 'id' | 'provisionTxnHash' | 'settlementTransactionId'>;
-
-    @Field(() => WhitelabelIncomingTransactionUpdateToOneWithWhereWithoutSettlementTransactionInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionUpdateToOneWithWhereWithoutSettlementTransactionInput)
-    update?: WhitelabelIncomingTransactionUpdateToOneWithWhereWithoutSettlementTransactionInput;
+  @Field(
+    () =>
+      WhitelabelIncomingTransactionUpdateToOneWithWhereWithoutSettlementTransactionInput,
+    { nullable: true },
+  )
+  @Type(
+    () =>
+      WhitelabelIncomingTransactionUpdateToOneWithWhereWithoutSettlementTransactionInput,
+  )
+  update?: WhitelabelIncomingTransactionUpdateToOneWithWhereWithoutSettlementTransactionInput;
 }

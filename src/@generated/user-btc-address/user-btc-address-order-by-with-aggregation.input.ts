@@ -7,31 +7,30 @@ import { UserBTCAddressMinOrderByAggregateInput } from './user-btc-address-min-o
 
 @InputType()
 export class UserBTCAddressOrderByWithAggregationInput {
+  @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  createdAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  updatedAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  address?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    address?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  userId?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    userId?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  whitelabelId?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    whitelabelId?: keyof typeof SortOrder;
+  @Field(() => UserBTCAddressCountOrderByAggregateInput, { nullable: true })
+  _count?: UserBTCAddressCountOrderByAggregateInput;
 
-    @Field(() => UserBTCAddressCountOrderByAggregateInput, {nullable:true})
-    _count?: UserBTCAddressCountOrderByAggregateInput;
+  @Field(() => UserBTCAddressMaxOrderByAggregateInput, { nullable: true })
+  _max?: UserBTCAddressMaxOrderByAggregateInput;
 
-    @Field(() => UserBTCAddressMaxOrderByAggregateInput, {nullable:true})
-    _max?: UserBTCAddressMaxOrderByAggregateInput;
-
-    @Field(() => UserBTCAddressMinOrderByAggregateInput, {nullable:true})
-    _min?: UserBTCAddressMinOrderByAggregateInput;
+  @Field(() => UserBTCAddressMinOrderByAggregateInput, { nullable: true })
+  _min?: UserBTCAddressMinOrderByAggregateInput;
 }
