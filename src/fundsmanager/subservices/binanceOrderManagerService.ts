@@ -81,7 +81,7 @@ export class BinanceOrderManagerService {
   }
 
   async initSellOrder(record: BinanceIncomingTxn, binanceClient: Spot) {
-    console.log("sasasasas",record)
+    console.log('sasasasas', record);
     try {
       const quantity = Number(record.amountInPaidCurrency);
 
@@ -125,8 +125,7 @@ export class BinanceOrderManagerService {
         options.quantity = adjustedQuantity;
       }
 
-
-      console.log("optionsoptions",options)
+      console.log('optionsoptions', options);
       const resp = await binanceClient.newOrder(
         pair,
         Side.SELL,

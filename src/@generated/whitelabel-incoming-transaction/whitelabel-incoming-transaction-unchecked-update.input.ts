@@ -3,25 +3,24 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class WhitelabelIncomingTransactionUncheckedUpdateInput {
+  @Field(() => String, { nullable: true })
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    updatedAt?: Date | string;
+  @Field(() => String, { nullable: true })
+  userId?: string;
 
-    @Field(() => String, {nullable:true})
-    userId?: string;
+  @Field(() => String, { nullable: true })
+  whitelabelId?: string;
 
-    @Field(() => String, {nullable:true})
-    whitelabelId?: string;
+  @Field(() => String, { nullable: true })
+  provisionTxnHash?: string;
 
-    @Field(() => String, {nullable:true})
-    provisionTxnHash?: string;
-
-    @Field(() => String, {nullable:true})
-    settlementTransactionId?: string;
+  @Field(() => String, { nullable: true })
+  settlementTransactionId?: string;
 }

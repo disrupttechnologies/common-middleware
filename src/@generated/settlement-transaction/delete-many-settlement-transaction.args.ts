@@ -5,8 +5,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class DeleteManySettlementTransactionArgs {
-
-    @Field(() => SettlementTransactionWhereInput, {nullable:true})
-    @Type(() => SettlementTransactionWhereInput)
-    where?: SettlementTransactionWhereInput;
+  @Field(() => SettlementTransactionWhereInput, { nullable: true })
+  @Type(() => SettlementTransactionWhereInput)
+  where?: SettlementTransactionWhereInput;
 }

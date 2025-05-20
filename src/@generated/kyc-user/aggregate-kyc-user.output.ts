@@ -6,13 +6,12 @@ import { KYCUserMaxAggregate } from './kyc-user-max-aggregate.output';
 
 @ObjectType()
 export class AggregateKYCUser {
+  @Field(() => KYCUserCountAggregate, { nullable: true })
+  _count?: KYCUserCountAggregate;
 
-    @Field(() => KYCUserCountAggregate, {nullable:true})
-    _count?: KYCUserCountAggregate;
+  @Field(() => KYCUserMinAggregate, { nullable: true })
+  _min?: KYCUserMinAggregate;
 
-    @Field(() => KYCUserMinAggregate, {nullable:true})
-    _min?: KYCUserMinAggregate;
-
-    @Field(() => KYCUserMaxAggregate, {nullable:true})
-    _max?: KYCUserMaxAggregate;
+  @Field(() => KYCUserMaxAggregate, { nullable: true })
+  _max?: KYCUserMaxAggregate;
 }

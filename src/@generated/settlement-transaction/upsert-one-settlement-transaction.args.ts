@@ -8,16 +8,18 @@ import { SettlementTransactionUpdateInput } from './settlement-transaction-updat
 
 @ArgsType()
 export class UpsertOneSettlementTransactionArgs {
+  @Field(() => SettlementTransactionWhereUniqueInput, { nullable: false })
+  @Type(() => SettlementTransactionWhereUniqueInput)
+  where!: Prisma.AtLeast<
+    SettlementTransactionWhereUniqueInput,
+    'id' | 'orderId'
+  >;
 
-    @Field(() => SettlementTransactionWhereUniqueInput, {nullable:false})
-    @Type(() => SettlementTransactionWhereUniqueInput)
-    where!: Prisma.AtLeast<SettlementTransactionWhereUniqueInput, 'id' | 'orderId'>;
+  @Field(() => SettlementTransactionCreateInput, { nullable: false })
+  @Type(() => SettlementTransactionCreateInput)
+  create!: SettlementTransactionCreateInput;
 
-    @Field(() => SettlementTransactionCreateInput, {nullable:false})
-    @Type(() => SettlementTransactionCreateInput)
-    create!: SettlementTransactionCreateInput;
-
-    @Field(() => SettlementTransactionUpdateInput, {nullable:false})
-    @Type(() => SettlementTransactionUpdateInput)
-    update!: SettlementTransactionUpdateInput;
+  @Field(() => SettlementTransactionUpdateInput, { nullable: false })
+  @Type(() => SettlementTransactionUpdateInput)
+  update!: SettlementTransactionUpdateInput;
 }

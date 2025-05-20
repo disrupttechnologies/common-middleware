@@ -13,48 +13,79 @@ import { BTCIncomingTransactionScalarWhereInput } from './btc-incoming-transacti
 
 @InputType()
 export class BTCIncomingTransactionUncheckedUpdateManyWithoutUserNestedInput {
+  @Field(() => [BTCIncomingTransactionCreateWithoutUserInput], {
+    nullable: true,
+  })
+  @Type(() => BTCIncomingTransactionCreateWithoutUserInput)
+  create?: Array<BTCIncomingTransactionCreateWithoutUserInput>;
 
-    @Field(() => [BTCIncomingTransactionCreateWithoutUserInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionCreateWithoutUserInput)
-    create?: Array<BTCIncomingTransactionCreateWithoutUserInput>;
+  @Field(() => [BTCIncomingTransactionCreateOrConnectWithoutUserInput], {
+    nullable: true,
+  })
+  @Type(() => BTCIncomingTransactionCreateOrConnectWithoutUserInput)
+  connectOrCreate?: Array<BTCIncomingTransactionCreateOrConnectWithoutUserInput>;
 
-    @Field(() => [BTCIncomingTransactionCreateOrConnectWithoutUserInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionCreateOrConnectWithoutUserInput)
-    connectOrCreate?: Array<BTCIncomingTransactionCreateOrConnectWithoutUserInput>;
+  @Field(() => [BTCIncomingTransactionUpsertWithWhereUniqueWithoutUserInput], {
+    nullable: true,
+  })
+  @Type(() => BTCIncomingTransactionUpsertWithWhereUniqueWithoutUserInput)
+  upsert?: Array<BTCIncomingTransactionUpsertWithWhereUniqueWithoutUserInput>;
 
-    @Field(() => [BTCIncomingTransactionUpsertWithWhereUniqueWithoutUserInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionUpsertWithWhereUniqueWithoutUserInput)
-    upsert?: Array<BTCIncomingTransactionUpsertWithWhereUniqueWithoutUserInput>;
+  @Field(() => BTCIncomingTransactionCreateManyUserInputEnvelope, {
+    nullable: true,
+  })
+  @Type(() => BTCIncomingTransactionCreateManyUserInputEnvelope)
+  createMany?: BTCIncomingTransactionCreateManyUserInputEnvelope;
 
-    @Field(() => BTCIncomingTransactionCreateManyUserInputEnvelope, {nullable:true})
-    @Type(() => BTCIncomingTransactionCreateManyUserInputEnvelope)
-    createMany?: BTCIncomingTransactionCreateManyUserInputEnvelope;
+  @Field(() => [BTCIncomingTransactionWhereUniqueInput], { nullable: true })
+  @Type(() => BTCIncomingTransactionWhereUniqueInput)
+  set?: Array<
+    Prisma.AtLeast<
+      BTCIncomingTransactionWhereUniqueInput,
+      'id' | 'txnHash' | 'binanceTxnId'
+    >
+  >;
 
-    @Field(() => [BTCIncomingTransactionWhereUniqueInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionWhereUniqueInput)
-    set?: Array<Prisma.AtLeast<BTCIncomingTransactionWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId'>>;
+  @Field(() => [BTCIncomingTransactionWhereUniqueInput], { nullable: true })
+  @Type(() => BTCIncomingTransactionWhereUniqueInput)
+  disconnect?: Array<
+    Prisma.AtLeast<
+      BTCIncomingTransactionWhereUniqueInput,
+      'id' | 'txnHash' | 'binanceTxnId'
+    >
+  >;
 
-    @Field(() => [BTCIncomingTransactionWhereUniqueInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionWhereUniqueInput)
-    disconnect?: Array<Prisma.AtLeast<BTCIncomingTransactionWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId'>>;
+  @Field(() => [BTCIncomingTransactionWhereUniqueInput], { nullable: true })
+  @Type(() => BTCIncomingTransactionWhereUniqueInput)
+  delete?: Array<
+    Prisma.AtLeast<
+      BTCIncomingTransactionWhereUniqueInput,
+      'id' | 'txnHash' | 'binanceTxnId'
+    >
+  >;
 
-    @Field(() => [BTCIncomingTransactionWhereUniqueInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionWhereUniqueInput)
-    delete?: Array<Prisma.AtLeast<BTCIncomingTransactionWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId'>>;
+  @Field(() => [BTCIncomingTransactionWhereUniqueInput], { nullable: true })
+  @Type(() => BTCIncomingTransactionWhereUniqueInput)
+  connect?: Array<
+    Prisma.AtLeast<
+      BTCIncomingTransactionWhereUniqueInput,
+      'id' | 'txnHash' | 'binanceTxnId'
+    >
+  >;
 
-    @Field(() => [BTCIncomingTransactionWhereUniqueInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionWhereUniqueInput)
-    connect?: Array<Prisma.AtLeast<BTCIncomingTransactionWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId'>>;
+  @Field(() => [BTCIncomingTransactionUpdateWithWhereUniqueWithoutUserInput], {
+    nullable: true,
+  })
+  @Type(() => BTCIncomingTransactionUpdateWithWhereUniqueWithoutUserInput)
+  update?: Array<BTCIncomingTransactionUpdateWithWhereUniqueWithoutUserInput>;
 
-    @Field(() => [BTCIncomingTransactionUpdateWithWhereUniqueWithoutUserInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionUpdateWithWhereUniqueWithoutUserInput)
-    update?: Array<BTCIncomingTransactionUpdateWithWhereUniqueWithoutUserInput>;
+  @Field(() => [BTCIncomingTransactionUpdateManyWithWhereWithoutUserInput], {
+    nullable: true,
+  })
+  @Type(() => BTCIncomingTransactionUpdateManyWithWhereWithoutUserInput)
+  updateMany?: Array<BTCIncomingTransactionUpdateManyWithWhereWithoutUserInput>;
 
-    @Field(() => [BTCIncomingTransactionUpdateManyWithWhereWithoutUserInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionUpdateManyWithWhereWithoutUserInput)
-    updateMany?: Array<BTCIncomingTransactionUpdateManyWithWhereWithoutUserInput>;
-
-    @Field(() => [BTCIncomingTransactionScalarWhereInput], {nullable:true})
-    @Type(() => BTCIncomingTransactionScalarWhereInput)
-    deleteMany?: Array<BTCIncomingTransactionScalarWhereInput>;
+  @Field(() => [BTCIncomingTransactionScalarWhereInput], { nullable: true })
+  @Type(() => BTCIncomingTransactionScalarWhereInput)
+  deleteMany?: Array<BTCIncomingTransactionScalarWhereInput>;
 }

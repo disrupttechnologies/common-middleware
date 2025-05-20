@@ -12,29 +12,31 @@ import { BinanceIncomingTxnMaxAggregateInput } from './binance-incoming-txn-max-
 
 @ArgsType()
 export class BinanceIncomingTxnAggregateArgs {
+  @Field(() => BinanceIncomingTxnWhereInput, { nullable: true })
+  @Type(() => BinanceIncomingTxnWhereInput)
+  where?: BinanceIncomingTxnWhereInput;
 
-    @Field(() => BinanceIncomingTxnWhereInput, {nullable:true})
-    @Type(() => BinanceIncomingTxnWhereInput)
-    where?: BinanceIncomingTxnWhereInput;
+  @Field(() => [BinanceIncomingTxnOrderByWithRelationInput], { nullable: true })
+  orderBy?: Array<BinanceIncomingTxnOrderByWithRelationInput>;
 
-    @Field(() => [BinanceIncomingTxnOrderByWithRelationInput], {nullable:true})
-    orderBy?: Array<BinanceIncomingTxnOrderByWithRelationInput>;
+  @Field(() => BinanceIncomingTxnWhereUniqueInput, { nullable: true })
+  cursor?: Prisma.AtLeast<
+    BinanceIncomingTxnWhereUniqueInput,
+    'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'
+  >;
 
-    @Field(() => BinanceIncomingTxnWhereUniqueInput, {nullable:true})
-    cursor?: Prisma.AtLeast<BinanceIncomingTxnWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'>;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
+  @Field(() => BinanceIncomingTxnCountAggregateInput, { nullable: true })
+  _count?: BinanceIncomingTxnCountAggregateInput;
 
-    @Field(() => BinanceIncomingTxnCountAggregateInput, {nullable:true})
-    _count?: BinanceIncomingTxnCountAggregateInput;
+  @Field(() => BinanceIncomingTxnMinAggregateInput, { nullable: true })
+  _min?: BinanceIncomingTxnMinAggregateInput;
 
-    @Field(() => BinanceIncomingTxnMinAggregateInput, {nullable:true})
-    _min?: BinanceIncomingTxnMinAggregateInput;
-
-    @Field(() => BinanceIncomingTxnMaxAggregateInput, {nullable:true})
-    _max?: BinanceIncomingTxnMaxAggregateInput;
+  @Field(() => BinanceIncomingTxnMaxAggregateInput, { nullable: true })
+  _max?: BinanceIncomingTxnMaxAggregateInput;
 }

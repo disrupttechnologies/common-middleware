@@ -6,25 +6,26 @@ import { NestedEnumIncomingTxnStatusNullableFilter } from './nested-enum-incomin
 
 @InputType()
 export class NestedEnumIncomingTxnStatusNullableWithAggregatesFilter {
+  @Field(() => IncomingTxnStatus, { nullable: true })
+  equals?: keyof typeof IncomingTxnStatus;
 
-    @Field(() => IncomingTxnStatus, {nullable:true})
-    equals?: keyof typeof IncomingTxnStatus;
+  @Field(() => [IncomingTxnStatus], { nullable: true })
+  in?: Array<keyof typeof IncomingTxnStatus>;
 
-    @Field(() => [IncomingTxnStatus], {nullable:true})
-    in?: Array<keyof typeof IncomingTxnStatus>;
+  @Field(() => [IncomingTxnStatus], { nullable: true })
+  notIn?: Array<keyof typeof IncomingTxnStatus>;
 
-    @Field(() => [IncomingTxnStatus], {nullable:true})
-    notIn?: Array<keyof typeof IncomingTxnStatus>;
+  @Field(() => NestedEnumIncomingTxnStatusNullableWithAggregatesFilter, {
+    nullable: true,
+  })
+  not?: NestedEnumIncomingTxnStatusNullableWithAggregatesFilter;
 
-    @Field(() => NestedEnumIncomingTxnStatusNullableWithAggregatesFilter, {nullable:true})
-    not?: NestedEnumIncomingTxnStatusNullableWithAggregatesFilter;
+  @Field(() => NestedIntNullableFilter, { nullable: true })
+  _count?: NestedIntNullableFilter;
 
-    @Field(() => NestedIntNullableFilter, {nullable:true})
-    _count?: NestedIntNullableFilter;
+  @Field(() => NestedEnumIncomingTxnStatusNullableFilter, { nullable: true })
+  _min?: NestedEnumIncomingTxnStatusNullableFilter;
 
-    @Field(() => NestedEnumIncomingTxnStatusNullableFilter, {nullable:true})
-    _min?: NestedEnumIncomingTxnStatusNullableFilter;
-
-    @Field(() => NestedEnumIncomingTxnStatusNullableFilter, {nullable:true})
-    _max?: NestedEnumIncomingTxnStatusNullableFilter;
+  @Field(() => NestedEnumIncomingTxnStatusNullableFilter, { nullable: true })
+  _max?: NestedEnumIncomingTxnStatusNullableFilter;
 }

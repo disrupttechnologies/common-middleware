@@ -7,12 +7,21 @@ import { WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput } 
 
 @InputType()
 export class WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput {
+  @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {
+    nullable: false,
+  })
+  @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
+  where!: Prisma.AtLeast<
+    WhitelabelIncomingTransactionWhereUniqueInput,
+    'id' | 'provisionTxnHash' | 'settlementTransactionId'
+  >;
 
-    @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {nullable:false})
-    @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
-    where!: Prisma.AtLeast<WhitelabelIncomingTransactionWhereUniqueInput, 'id' | 'provisionTxnHash' | 'settlementTransactionId'>;
-
-    @Field(() => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput, {nullable:false})
-    @Type(() => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput)
-    create!: WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput;
+  @Field(
+    () => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput,
+    { nullable: false },
+  )
+  @Type(
+    () => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput,
+  )
+  create!: WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput;
 }

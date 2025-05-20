@@ -8,16 +8,20 @@ import { WhitelabelIncomingTransactionUpdateInput } from './whitelabel-incoming-
 
 @ArgsType()
 export class UpsertOneWhitelabelIncomingTransactionArgs {
+  @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {
+    nullable: false,
+  })
+  @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
+  where!: Prisma.AtLeast<
+    WhitelabelIncomingTransactionWhereUniqueInput,
+    'id' | 'provisionTxnHash' | 'settlementTransactionId'
+  >;
 
-    @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {nullable:false})
-    @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
-    where!: Prisma.AtLeast<WhitelabelIncomingTransactionWhereUniqueInput, 'id' | 'provisionTxnHash' | 'settlementTransactionId'>;
+  @Field(() => WhitelabelIncomingTransactionCreateInput, { nullable: false })
+  @Type(() => WhitelabelIncomingTransactionCreateInput)
+  create!: WhitelabelIncomingTransactionCreateInput;
 
-    @Field(() => WhitelabelIncomingTransactionCreateInput, {nullable:false})
-    @Type(() => WhitelabelIncomingTransactionCreateInput)
-    create!: WhitelabelIncomingTransactionCreateInput;
-
-    @Field(() => WhitelabelIncomingTransactionUpdateInput, {nullable:false})
-    @Type(() => WhitelabelIncomingTransactionUpdateInput)
-    update!: WhitelabelIncomingTransactionUpdateInput;
+  @Field(() => WhitelabelIncomingTransactionUpdateInput, { nullable: false })
+  @Type(() => WhitelabelIncomingTransactionUpdateInput)
+  update!: WhitelabelIncomingTransactionUpdateInput;
 }

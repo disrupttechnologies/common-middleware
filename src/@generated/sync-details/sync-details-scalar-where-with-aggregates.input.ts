@@ -6,25 +6,24 @@ import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-wi
 
 @InputType()
 export class SyncDetailsScalarWhereWithAggregatesInput {
+  @Field(() => [SyncDetailsScalarWhereWithAggregatesInput], { nullable: true })
+  AND?: Array<SyncDetailsScalarWhereWithAggregatesInput>;
 
-    @Field(() => [SyncDetailsScalarWhereWithAggregatesInput], {nullable:true})
-    AND?: Array<SyncDetailsScalarWhereWithAggregatesInput>;
+  @Field(() => [SyncDetailsScalarWhereWithAggregatesInput], { nullable: true })
+  OR?: Array<SyncDetailsScalarWhereWithAggregatesInput>;
 
-    @Field(() => [SyncDetailsScalarWhereWithAggregatesInput], {nullable:true})
-    OR?: Array<SyncDetailsScalarWhereWithAggregatesInput>;
+  @Field(() => [SyncDetailsScalarWhereWithAggregatesInput], { nullable: true })
+  NOT?: Array<SyncDetailsScalarWhereWithAggregatesInput>;
 
-    @Field(() => [SyncDetailsScalarWhereWithAggregatesInput], {nullable:true})
-    NOT?: Array<SyncDetailsScalarWhereWithAggregatesInput>;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  id?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    id?: StringWithAggregatesFilter;
+  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
+  lastSyncedAt?: DateTimeWithAggregatesFilter;
 
-    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
-    lastSyncedAt?: DateTimeWithAggregatesFilter;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  actionName?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    actionName?: StringWithAggregatesFilter;
-
-    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
-    metadata?: StringNullableWithAggregatesFilter;
+  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
+  metadata?: StringNullableWithAggregatesFilter;
 }

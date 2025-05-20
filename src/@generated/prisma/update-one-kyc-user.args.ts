@@ -6,12 +6,11 @@ import { KYCUserWhereUniqueInput } from '../kyc-user/kyc-user-where-unique.input
 
 @ArgsType()
 export class UpdateOneKycUserArgs {
+  @Field(() => KYCUserUpdateInput, { nullable: false })
+  @Type(() => KYCUserUpdateInput)
+  data!: KYCUserUpdateInput;
 
-    @Field(() => KYCUserUpdateInput, {nullable:false})
-    @Type(() => KYCUserUpdateInput)
-    data!: KYCUserUpdateInput;
-
-    @Field(() => KYCUserWhereUniqueInput, {nullable:false})
-    @Type(() => KYCUserWhereUniqueInput)
-    where!: KYCUserWhereUniqueInput;
+  @Field(() => KYCUserWhereUniqueInput, { nullable: false })
+  @Type(() => KYCUserWhereUniqueInput)
+  where!: KYCUserWhereUniqueInput;
 }

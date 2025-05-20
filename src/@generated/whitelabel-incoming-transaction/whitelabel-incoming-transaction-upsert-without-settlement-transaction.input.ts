@@ -7,16 +7,25 @@ import { WhitelabelIncomingTransactionWhereInput } from './whitelabel-incoming-t
 
 @InputType()
 export class WhitelabelIncomingTransactionUpsertWithoutSettlementTransactionInput {
+  @Field(
+    () => WhitelabelIncomingTransactionUpdateWithoutSettlementTransactionInput,
+    { nullable: false },
+  )
+  @Type(
+    () => WhitelabelIncomingTransactionUpdateWithoutSettlementTransactionInput,
+  )
+  update!: WhitelabelIncomingTransactionUpdateWithoutSettlementTransactionInput;
 
-    @Field(() => WhitelabelIncomingTransactionUpdateWithoutSettlementTransactionInput, {nullable:false})
-    @Type(() => WhitelabelIncomingTransactionUpdateWithoutSettlementTransactionInput)
-    update!: WhitelabelIncomingTransactionUpdateWithoutSettlementTransactionInput;
+  @Field(
+    () => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput,
+    { nullable: false },
+  )
+  @Type(
+    () => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput,
+  )
+  create!: WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput;
 
-    @Field(() => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput, {nullable:false})
-    @Type(() => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput)
-    create!: WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput;
-
-    @Field(() => WhitelabelIncomingTransactionWhereInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionWhereInput)
-    where?: WhitelabelIncomingTransactionWhereInput;
+  @Field(() => WhitelabelIncomingTransactionWhereInput, { nullable: true })
+  @Type(() => WhitelabelIncomingTransactionWhereInput)
+  where?: WhitelabelIncomingTransactionWhereInput;
 }

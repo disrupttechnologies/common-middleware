@@ -5,34 +5,33 @@ import { KYCStage } from '../prisma/kyc-stage.enum';
 
 @InputType()
 export class KYCDetailUncheckedUpdateInput {
+  @Field(() => String, { nullable: true })
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    updatedAt?: Date | string;
+  @Field(() => String, { nullable: true })
+  userId?: string;
 
-    @Field(() => String, {nullable:true})
-    userId?: string;
+  @Field(() => KycStatus, { nullable: true })
+  kycStatus?: keyof typeof KycStatus;
 
-    @Field(() => KycStatus, {nullable:true})
-    kycStatus?: keyof typeof KycStatus;
+  @Field(() => String, { nullable: true })
+  failedRemarks?: string;
 
-    @Field(() => String, {nullable:true})
-    failedRemarks?: string;
+  @Field(() => String, { nullable: true })
+  userMetadata?: string;
 
-    @Field(() => String, {nullable:true})
-    userMetadata?: string;
+  @Field(() => String, { nullable: true })
+  whitelabelId?: string;
 
-    @Field(() => String, {nullable:true})
-    whitelabelId?: string;
+  @Field(() => String, { nullable: true })
+  kycApplicantId?: string;
 
-    @Field(() => String, {nullable:true})
-    kycApplicantId?: string;
-
-    @Field(() => KYCStage, {nullable:true})
-    kycStage?: keyof typeof KYCStage;
+  @Field(() => KYCStage, { nullable: true })
+  kycStage?: keyof typeof KYCStage;
 }

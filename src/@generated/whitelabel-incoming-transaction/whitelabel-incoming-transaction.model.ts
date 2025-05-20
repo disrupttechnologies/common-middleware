@@ -5,28 +5,27 @@ import { BinanceIncomingTxn } from '../binance-incoming-txn/binance-incoming-txn
 
 @ObjectType()
 export class WhitelabelIncomingTransaction {
+  @Field(() => ID, { nullable: false })
+  id!: string;
 
-    @Field(() => ID, {nullable:false})
-    id!: string;
+  @Field(() => Date, { nullable: false })
+  createdAt!: Date;
 
-    @Field(() => Date, {nullable:false})
-    createdAt!: Date;
+  @Field(() => Date, { nullable: false })
+  updatedAt!: Date;
 
-    @Field(() => Date, {nullable:false})
-    updatedAt!: Date;
+  @Field(() => String, { nullable: false })
+  userId!: string;
 
-    @Field(() => String, {nullable:false})
-    userId!: string;
+  @Field(() => String, { nullable: false })
+  whitelabelId!: string;
 
-    @Field(() => String, {nullable:false})
-    whitelabelId!: string;
+  @Field(() => String, { nullable: false })
+  provisionTxnHash!: string;
 
-    @Field(() => String, {nullable:false})
-    provisionTxnHash!: string;
+  @Field(() => String, { nullable: true })
+  settlementTransactionId!: string | null;
 
-    @Field(() => String, {nullable:true})
-    settlementTransactionId!: string | null;
-
-    @Field(() => BinanceIncomingTxn, {nullable:true})
-    settlementTransaction?: BinanceIncomingTxn | null;
+  @Field(() => BinanceIncomingTxn, { nullable: true })
+  settlementTransaction?: BinanceIncomingTxn | null;
 }

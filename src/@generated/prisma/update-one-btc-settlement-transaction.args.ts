@@ -6,12 +6,11 @@ import { BTCSettlementTransactionWhereUniqueInput } from '../btc-settlement-tran
 
 @ArgsType()
 export class UpdateOneBtcSettlementTransactionArgs {
+  @Field(() => BTCSettlementTransactionUpdateInput, { nullable: false })
+  @Type(() => BTCSettlementTransactionUpdateInput)
+  data!: BTCSettlementTransactionUpdateInput;
 
-    @Field(() => BTCSettlementTransactionUpdateInput, {nullable:false})
-    @Type(() => BTCSettlementTransactionUpdateInput)
-    data!: BTCSettlementTransactionUpdateInput;
-
-    @Field(() => BTCSettlementTransactionWhereUniqueInput, {nullable:false})
-    @Type(() => BTCSettlementTransactionWhereUniqueInput)
-    where!: BTCSettlementTransactionWhereUniqueInput;
+  @Field(() => BTCSettlementTransactionWhereUniqueInput, { nullable: false })
+  @Type(() => BTCSettlementTransactionWhereUniqueInput)
+  where!: BTCSettlementTransactionWhereUniqueInput;
 }

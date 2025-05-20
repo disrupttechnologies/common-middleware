@@ -9,13 +9,8 @@ import { TVLEntity } from './entities/tvl.entity';
 export class InsightsResolver {
   constructor(private readonly insightsService: InsightsService) {}
 
-
-
   @Query(() => [TVLEntity])
   getTVL() {
-    return this.insightsService.getTVL()
-    
+    return this.insightsService.getTVL();
   }
-
- 
 }

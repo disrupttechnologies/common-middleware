@@ -7,16 +7,19 @@ import { SettlementTransactionWhereInput } from './settlement-transaction-where.
 
 @InputType()
 export class SettlementTransactionUpsertWithoutIncomingTxnInput {
+  @Field(() => SettlementTransactionUpdateWithoutIncomingTxnInput, {
+    nullable: false,
+  })
+  @Type(() => SettlementTransactionUpdateWithoutIncomingTxnInput)
+  update!: SettlementTransactionUpdateWithoutIncomingTxnInput;
 
-    @Field(() => SettlementTransactionUpdateWithoutIncomingTxnInput, {nullable:false})
-    @Type(() => SettlementTransactionUpdateWithoutIncomingTxnInput)
-    update!: SettlementTransactionUpdateWithoutIncomingTxnInput;
+  @Field(() => SettlementTransactionCreateWithoutIncomingTxnInput, {
+    nullable: false,
+  })
+  @Type(() => SettlementTransactionCreateWithoutIncomingTxnInput)
+  create!: SettlementTransactionCreateWithoutIncomingTxnInput;
 
-    @Field(() => SettlementTransactionCreateWithoutIncomingTxnInput, {nullable:false})
-    @Type(() => SettlementTransactionCreateWithoutIncomingTxnInput)
-    create!: SettlementTransactionCreateWithoutIncomingTxnInput;
-
-    @Field(() => SettlementTransactionWhereInput, {nullable:true})
-    @Type(() => SettlementTransactionWhereInput)
-    where?: SettlementTransactionWhereInput;
+  @Field(() => SettlementTransactionWhereInput, { nullable: true })
+  @Type(() => SettlementTransactionWhereInput)
+  where?: SettlementTransactionWhereInput;
 }

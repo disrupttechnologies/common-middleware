@@ -9,23 +9,22 @@ import { Int } from '@nestjs/graphql';
 
 @ArgsType()
 export class GroupByKycDetailArgs {
+  @Field(() => KYCDetailWhereInput, { nullable: true })
+  @Type(() => KYCDetailWhereInput)
+  where?: KYCDetailWhereInput;
 
-    @Field(() => KYCDetailWhereInput, {nullable:true})
-    @Type(() => KYCDetailWhereInput)
-    where?: KYCDetailWhereInput;
+  @Field(() => [KYCDetailOrderByWithAggregationInput], { nullable: true })
+  orderBy?: Array<KYCDetailOrderByWithAggregationInput>;
 
-    @Field(() => [KYCDetailOrderByWithAggregationInput], {nullable:true})
-    orderBy?: Array<KYCDetailOrderByWithAggregationInput>;
+  @Field(() => [KYCDetailScalarFieldEnum], { nullable: false })
+  by!: Array<keyof typeof KYCDetailScalarFieldEnum>;
 
-    @Field(() => [KYCDetailScalarFieldEnum], {nullable:false})
-    by!: Array<keyof typeof KYCDetailScalarFieldEnum>;
+  @Field(() => KYCDetailScalarWhereWithAggregatesInput, { nullable: true })
+  having?: KYCDetailScalarWhereWithAggregatesInput;
 
-    @Field(() => KYCDetailScalarWhereWithAggregatesInput, {nullable:true})
-    having?: KYCDetailScalarWhereWithAggregatesInput;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
-
-    @Field(() => Int, {nullable:true})
-    skip?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 }

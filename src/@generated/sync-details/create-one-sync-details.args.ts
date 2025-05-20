@@ -5,8 +5,7 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateOneSyncDetailsArgs {
-
-    @Field(() => SyncDetailsCreateInput, {nullable:false})
-    @Type(() => SyncDetailsCreateInput)
-    data!: SyncDetailsCreateInput;
+  @Field(() => SyncDetailsCreateInput, { nullable: false })
+  @Type(() => SyncDetailsCreateInput)
+  data!: SyncDetailsCreateInput;
 }

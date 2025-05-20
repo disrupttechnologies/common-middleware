@@ -12,29 +12,33 @@ import { SettlementTransactionMaxAggregateInput } from './settlement-transaction
 
 @ArgsType()
 export class SettlementTransactionAggregateArgs {
+  @Field(() => SettlementTransactionWhereInput, { nullable: true })
+  @Type(() => SettlementTransactionWhereInput)
+  where?: SettlementTransactionWhereInput;
 
-    @Field(() => SettlementTransactionWhereInput, {nullable:true})
-    @Type(() => SettlementTransactionWhereInput)
-    where?: SettlementTransactionWhereInput;
+  @Field(() => [SettlementTransactionOrderByWithRelationInput], {
+    nullable: true,
+  })
+  orderBy?: Array<SettlementTransactionOrderByWithRelationInput>;
 
-    @Field(() => [SettlementTransactionOrderByWithRelationInput], {nullable:true})
-    orderBy?: Array<SettlementTransactionOrderByWithRelationInput>;
+  @Field(() => SettlementTransactionWhereUniqueInput, { nullable: true })
+  cursor?: Prisma.AtLeast<
+    SettlementTransactionWhereUniqueInput,
+    'id' | 'orderId'
+  >;
 
-    @Field(() => SettlementTransactionWhereUniqueInput, {nullable:true})
-    cursor?: Prisma.AtLeast<SettlementTransactionWhereUniqueInput, 'id' | 'orderId'>;
+  @Field(() => Int, { nullable: true })
+  take?: number;
 
-    @Field(() => Int, {nullable:true})
-    take?: number;
+  @Field(() => Int, { nullable: true })
+  skip?: number;
 
-    @Field(() => Int, {nullable:true})
-    skip?: number;
+  @Field(() => SettlementTransactionCountAggregateInput, { nullable: true })
+  _count?: SettlementTransactionCountAggregateInput;
 
-    @Field(() => SettlementTransactionCountAggregateInput, {nullable:true})
-    _count?: SettlementTransactionCountAggregateInput;
+  @Field(() => SettlementTransactionMinAggregateInput, { nullable: true })
+  _min?: SettlementTransactionMinAggregateInput;
 
-    @Field(() => SettlementTransactionMinAggregateInput, {nullable:true})
-    _min?: SettlementTransactionMinAggregateInput;
-
-    @Field(() => SettlementTransactionMaxAggregateInput, {nullable:true})
-    _max?: SettlementTransactionMaxAggregateInput;
+  @Field(() => SettlementTransactionMaxAggregateInput, { nullable: true })
+  _max?: SettlementTransactionMaxAggregateInput;
 }

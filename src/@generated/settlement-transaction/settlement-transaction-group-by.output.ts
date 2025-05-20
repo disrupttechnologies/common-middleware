@@ -7,34 +7,33 @@ import { SettlementTransactionMaxAggregate } from './settlement-transaction-max-
 
 @ObjectType()
 export class SettlementTransactionGroupBy {
+  @Field(() => String, { nullable: false })
+  id!: string;
 
-    @Field(() => String, {nullable:false})
-    id!: string;
+  @Field(() => Date, { nullable: false })
+  createdAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    createdAt!: Date | string;
+  @Field(() => Date, { nullable: false })
+  updatedAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    updatedAt!: Date | string;
+  @Field(() => String, { nullable: true })
+  orderId?: string;
 
-    @Field(() => String, {nullable:true})
-    orderId?: string;
+  @Field(() => Date, { nullable: true })
+  orderplaceTime?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    orderplaceTime?: Date | string;
+  @Field(() => String, { nullable: true })
+  amountReceived?: string;
 
-    @Field(() => String, {nullable:true})
-    amountReceived?: string;
+  @Field(() => SettlementTransactionProcessStatus, { nullable: false })
+  status!: keyof typeof SettlementTransactionProcessStatus;
 
-    @Field(() => SettlementTransactionProcessStatus, {nullable:false})
-    status!: keyof typeof SettlementTransactionProcessStatus;
+  @Field(() => SettlementTransactionCountAggregate, { nullable: true })
+  _count?: SettlementTransactionCountAggregate;
 
-    @Field(() => SettlementTransactionCountAggregate, {nullable:true})
-    _count?: SettlementTransactionCountAggregate;
+  @Field(() => SettlementTransactionMinAggregate, { nullable: true })
+  _min?: SettlementTransactionMinAggregate;
 
-    @Field(() => SettlementTransactionMinAggregate, {nullable:true})
-    _min?: SettlementTransactionMinAggregate;
-
-    @Field(() => SettlementTransactionMaxAggregate, {nullable:true})
-    _max?: SettlementTransactionMaxAggregate;
+  @Field(() => SettlementTransactionMaxAggregate, { nullable: true })
+  _max?: SettlementTransactionMaxAggregate;
 }

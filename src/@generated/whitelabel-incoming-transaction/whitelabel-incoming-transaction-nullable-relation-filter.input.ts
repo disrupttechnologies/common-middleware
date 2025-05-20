@@ -4,10 +4,9 @@ import { WhitelabelIncomingTransactionWhereInput } from './whitelabel-incoming-t
 
 @InputType()
 export class WhitelabelIncomingTransactionNullableRelationFilter {
+  @Field(() => WhitelabelIncomingTransactionWhereInput, { nullable: true })
+  is?: WhitelabelIncomingTransactionWhereInput;
 
-    @Field(() => WhitelabelIncomingTransactionWhereInput, {nullable:true})
-    is?: WhitelabelIncomingTransactionWhereInput;
-
-    @Field(() => WhitelabelIncomingTransactionWhereInput, {nullable:true})
-    isNot?: WhitelabelIncomingTransactionWhereInput;
+  @Field(() => WhitelabelIncomingTransactionWhereInput, { nullable: true })
+  isNot?: WhitelabelIncomingTransactionWhereInput;
 }

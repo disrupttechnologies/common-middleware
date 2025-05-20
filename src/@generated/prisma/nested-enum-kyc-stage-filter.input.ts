@@ -4,16 +4,15 @@ import { KYCStage } from './kyc-stage.enum';
 
 @InputType()
 export class NestedEnumKYCStageFilter {
+  @Field(() => KYCStage, { nullable: true })
+  equals?: keyof typeof KYCStage;
 
-    @Field(() => KYCStage, {nullable:true})
-    equals?: keyof typeof KYCStage;
+  @Field(() => [KYCStage], { nullable: true })
+  in?: Array<keyof typeof KYCStage>;
 
-    @Field(() => [KYCStage], {nullable:true})
-    in?: Array<keyof typeof KYCStage>;
+  @Field(() => [KYCStage], { nullable: true })
+  notIn?: Array<keyof typeof KYCStage>;
 
-    @Field(() => [KYCStage], {nullable:true})
-    notIn?: Array<keyof typeof KYCStage>;
-
-    @Field(() => NestedEnumKYCStageFilter, {nullable:true})
-    not?: NestedEnumKYCStageFilter;
+  @Field(() => NestedEnumKYCStageFilter, { nullable: true })
+  not?: NestedEnumKYCStageFilter;
 }

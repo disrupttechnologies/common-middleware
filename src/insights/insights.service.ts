@@ -33,7 +33,7 @@ ORDER BY
     } catch (err) {
       console.log('ssasasasasassaqq', err);
     } finally {
-        console.log("qaqere")
+      console.log('qaqere');
     }
   }
 }

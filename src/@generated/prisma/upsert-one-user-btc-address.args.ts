@@ -7,16 +7,15 @@ import { UserBTCAddressUpdateInput } from '../user-btc-address/user-btc-address-
 
 @ArgsType()
 export class UpsertOneUserBtcAddressArgs {
+  @Field(() => UserBTCAddressWhereUniqueInput, { nullable: false })
+  @Type(() => UserBTCAddressWhereUniqueInput)
+  where!: UserBTCAddressWhereUniqueInput;
 
-    @Field(() => UserBTCAddressWhereUniqueInput, {nullable:false})
-    @Type(() => UserBTCAddressWhereUniqueInput)
-    where!: UserBTCAddressWhereUniqueInput;
+  @Field(() => UserBTCAddressCreateInput, { nullable: false })
+  @Type(() => UserBTCAddressCreateInput)
+  create!: UserBTCAddressCreateInput;
 
-    @Field(() => UserBTCAddressCreateInput, {nullable:false})
-    @Type(() => UserBTCAddressCreateInput)
-    create!: UserBTCAddressCreateInput;
-
-    @Field(() => UserBTCAddressUpdateInput, {nullable:false})
-    @Type(() => UserBTCAddressUpdateInput)
-    update!: UserBTCAddressUpdateInput;
+  @Field(() => UserBTCAddressUpdateInput, { nullable: false })
+  @Type(() => UserBTCAddressUpdateInput)
+  update!: UserBTCAddressUpdateInput;
 }

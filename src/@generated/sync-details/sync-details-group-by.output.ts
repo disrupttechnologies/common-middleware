@@ -6,25 +6,24 @@ import { SyncDetailsMaxAggregate } from './sync-details-max-aggregate.output';
 
 @ObjectType()
 export class SyncDetailsGroupBy {
+  @Field(() => String, { nullable: false })
+  id!: string;
 
-    @Field(() => String, {nullable:false})
-    id!: string;
+  @Field(() => Date, { nullable: false })
+  lastSyncedAt!: Date | string;
 
-    @Field(() => Date, {nullable:false})
-    lastSyncedAt!: Date | string;
+  @Field(() => String, { nullable: false })
+  actionName!: string;
 
-    @Field(() => String, {nullable:false})
-    actionName!: string;
+  @Field(() => String, { nullable: true })
+  metadata?: string;
 
-    @Field(() => String, {nullable:true})
-    metadata?: string;
+  @Field(() => SyncDetailsCountAggregate, { nullable: true })
+  _count?: SyncDetailsCountAggregate;
 
-    @Field(() => SyncDetailsCountAggregate, {nullable:true})
-    _count?: SyncDetailsCountAggregate;
+  @Field(() => SyncDetailsMinAggregate, { nullable: true })
+  _min?: SyncDetailsMinAggregate;
 
-    @Field(() => SyncDetailsMinAggregate, {nullable:true})
-    _min?: SyncDetailsMinAggregate;
-
-    @Field(() => SyncDetailsMaxAggregate, {nullable:true})
-    _max?: SyncDetailsMaxAggregate;
+  @Field(() => SyncDetailsMaxAggregate, { nullable: true })
+  _max?: SyncDetailsMaxAggregate;
 }

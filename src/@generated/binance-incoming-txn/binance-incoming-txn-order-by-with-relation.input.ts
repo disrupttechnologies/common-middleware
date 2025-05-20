@@ -7,46 +7,49 @@ import { WhitelabelIncomingTransactionOrderByWithRelationInput } from '../whitel
 
 @InputType()
 export class BinanceIncomingTxnOrderByWithRelationInput {
+  @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    id?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  createdAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    createdAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  updatedAt?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    updatedAt?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  paidCurrency?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    paidCurrency?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  amountInPaidCurrency?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    amountInPaidCurrency?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  network?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    network?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  txnHash?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    txnHash?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  senderAddress?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    senderAddress?: keyof typeof SortOrder;
+  @Field(() => SortOrder, { nullable: true })
+  binanceTxnId?: keyof typeof SortOrder;
 
-    @Field(() => SortOrder, {nullable:true})
-    binanceTxnId?: keyof typeof SortOrder;
+  @Field(() => SortOrderInput, { nullable: true })
+  status?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    status?: SortOrderInput;
+  @Field(() => SortOrderInput, { nullable: true })
+  settlementTransactionId?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    settlementTransactionId?: SortOrderInput;
+  @Field(() => SortOrderInput, { nullable: true })
+  failedRemarks?: SortOrderInput;
 
-    @Field(() => SortOrderInput, {nullable:true})
-    failedRemarks?: SortOrderInput;
+  @Field(() => SettlementTransactionOrderByWithRelationInput, {
+    nullable: true,
+  })
+  settlementTransaction?: SettlementTransactionOrderByWithRelationInput;
 
-    @Field(() => SettlementTransactionOrderByWithRelationInput, {nullable:true})
-    settlementTransaction?: SettlementTransactionOrderByWithRelationInput;
-
-    @Field(() => WhitelabelIncomingTransactionOrderByWithRelationInput, {nullable:true})
-    whitelabelIncomingTransaction?: WhitelabelIncomingTransactionOrderByWithRelationInput;
+  @Field(() => WhitelabelIncomingTransactionOrderByWithRelationInput, {
+    nullable: true,
+  })
+  whitelabelIncomingTransaction?: WhitelabelIncomingTransactionOrderByWithRelationInput;
 }

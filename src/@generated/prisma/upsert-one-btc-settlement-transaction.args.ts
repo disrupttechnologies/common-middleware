@@ -7,16 +7,15 @@ import { BTCSettlementTransactionUpdateInput } from '../btc-settlement-transacti
 
 @ArgsType()
 export class UpsertOneBtcSettlementTransactionArgs {
+  @Field(() => BTCSettlementTransactionWhereUniqueInput, { nullable: false })
+  @Type(() => BTCSettlementTransactionWhereUniqueInput)
+  where!: BTCSettlementTransactionWhereUniqueInput;
 
-    @Field(() => BTCSettlementTransactionWhereUniqueInput, {nullable:false})
-    @Type(() => BTCSettlementTransactionWhereUniqueInput)
-    where!: BTCSettlementTransactionWhereUniqueInput;
+  @Field(() => BTCSettlementTransactionCreateInput, { nullable: false })
+  @Type(() => BTCSettlementTransactionCreateInput)
+  create!: BTCSettlementTransactionCreateInput;
 
-    @Field(() => BTCSettlementTransactionCreateInput, {nullable:false})
-    @Type(() => BTCSettlementTransactionCreateInput)
-    create!: BTCSettlementTransactionCreateInput;
-
-    @Field(() => BTCSettlementTransactionUpdateInput, {nullable:false})
-    @Type(() => BTCSettlementTransactionUpdateInput)
-    update!: BTCSettlementTransactionUpdateInput;
+  @Field(() => BTCSettlementTransactionUpdateInput, { nullable: false })
+  @Type(() => BTCSettlementTransactionUpdateInput)
+  update!: BTCSettlementTransactionUpdateInput;
 }

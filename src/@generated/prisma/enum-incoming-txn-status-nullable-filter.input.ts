@@ -5,16 +5,15 @@ import { NestedEnumIncomingTxnStatusNullableFilter } from './nested-enum-incomin
 
 @InputType()
 export class EnumIncomingTxnStatusNullableFilter {
+  @Field(() => IncomingTxnStatus, { nullable: true })
+  equals?: keyof typeof IncomingTxnStatus;
 
-    @Field(() => IncomingTxnStatus, {nullable:true})
-    equals?: keyof typeof IncomingTxnStatus;
+  @Field(() => [IncomingTxnStatus], { nullable: true })
+  in?: Array<keyof typeof IncomingTxnStatus>;
 
-    @Field(() => [IncomingTxnStatus], {nullable:true})
-    in?: Array<keyof typeof IncomingTxnStatus>;
+  @Field(() => [IncomingTxnStatus], { nullable: true })
+  notIn?: Array<keyof typeof IncomingTxnStatus>;
 
-    @Field(() => [IncomingTxnStatus], {nullable:true})
-    notIn?: Array<keyof typeof IncomingTxnStatus>;
-
-    @Field(() => NestedEnumIncomingTxnStatusNullableFilter, {nullable:true})
-    not?: NestedEnumIncomingTxnStatusNullableFilter;
+  @Field(() => NestedEnumIncomingTxnStatusNullableFilter, { nullable: true })
+  not?: NestedEnumIncomingTxnStatusNullableFilter;
 }

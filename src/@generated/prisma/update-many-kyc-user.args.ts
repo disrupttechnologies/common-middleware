@@ -6,12 +6,11 @@ import { KYCUserWhereInput } from '../kyc-user/kyc-user-where.input';
 
 @ArgsType()
 export class UpdateManyKycUserArgs {
+  @Field(() => KYCUserUpdateManyMutationInput, { nullable: false })
+  @Type(() => KYCUserUpdateManyMutationInput)
+  data!: KYCUserUpdateManyMutationInput;
 
-    @Field(() => KYCUserUpdateManyMutationInput, {nullable:false})
-    @Type(() => KYCUserUpdateManyMutationInput)
-    data!: KYCUserUpdateManyMutationInput;
-
-    @Field(() => KYCUserWhereInput, {nullable:true})
-    @Type(() => KYCUserWhereInput)
-    where?: KYCUserWhereInput;
+  @Field(() => KYCUserWhereInput, { nullable: true })
+  @Type(() => KYCUserWhereInput)
+  where?: KYCUserWhereInput;
 }

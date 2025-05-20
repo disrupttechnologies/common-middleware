@@ -8,16 +8,32 @@ import { WhitelabelIncomingTransactionWhereUniqueInput } from './whitelabel-inco
 
 @InputType()
 export class WhitelabelIncomingTransactionUncheckedCreateNestedOneWithoutSettlementTransactionInput {
+  @Field(
+    () => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput,
+    { nullable: true },
+  )
+  @Type(
+    () => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput,
+  )
+  create?: WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput;
 
-    @Field(() => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput)
-    create?: WhitelabelIncomingTransactionCreateWithoutSettlementTransactionInput;
+  @Field(
+    () =>
+      WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput,
+    { nullable: true },
+  )
+  @Type(
+    () =>
+      WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput,
+  )
+  connectOrCreate?: WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput;
 
-    @Field(() => WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput)
-    connectOrCreate?: WhitelabelIncomingTransactionCreateOrConnectWithoutSettlementTransactionInput;
-
-    @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {nullable:true})
-    @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
-    connect?: Prisma.AtLeast<WhitelabelIncomingTransactionWhereUniqueInput, 'id' | 'provisionTxnHash' | 'settlementTransactionId'>;
+  @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {
+    nullable: true,
+  })
+  @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
+  connect?: Prisma.AtLeast<
+    WhitelabelIncomingTransactionWhereUniqueInput,
+    'id' | 'provisionTxnHash' | 'settlementTransactionId'
+  >;
 }

@@ -5,28 +5,30 @@ import { BinanceIncomingTxnUpdateOneWithoutSettlementTransactionNestedInput } fr
 
 @InputType()
 export class SettlementTransactionUpdateInput {
+  @Field(() => String, { nullable: true })
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    createdAt?: Date | string;
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    updatedAt?: Date | string;
+  @Field(() => String, { nullable: true })
+  orderId?: string;
 
-    @Field(() => String, {nullable:true})
-    orderId?: string;
+  @Field(() => Date, { nullable: true })
+  orderplaceTime?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    orderplaceTime?: Date | string;
+  @Field(() => String, { nullable: true })
+  amountReceived?: string;
 
-    @Field(() => String, {nullable:true})
-    amountReceived?: string;
+  @Field(() => SettlementTransactionProcessStatus, { nullable: true })
+  status?: keyof typeof SettlementTransactionProcessStatus;
 
-    @Field(() => SettlementTransactionProcessStatus, {nullable:true})
-    status?: keyof typeof SettlementTransactionProcessStatus;
-
-    @Field(() => BinanceIncomingTxnUpdateOneWithoutSettlementTransactionNestedInput, {nullable:true})
-    incomingTxn?: BinanceIncomingTxnUpdateOneWithoutSettlementTransactionNestedInput;
+  @Field(
+    () => BinanceIncomingTxnUpdateOneWithoutSettlementTransactionNestedInput,
+    { nullable: true },
+  )
+  incomingTxn?: BinanceIncomingTxnUpdateOneWithoutSettlementTransactionNestedInput;
 }

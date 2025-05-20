@@ -5,31 +5,36 @@ import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregate
 
 @InputType()
 export class UserBTCAddressScalarWhereWithAggregatesInput {
+  @Field(() => [UserBTCAddressScalarWhereWithAggregatesInput], {
+    nullable: true,
+  })
+  AND?: Array<UserBTCAddressScalarWhereWithAggregatesInput>;
 
-    @Field(() => [UserBTCAddressScalarWhereWithAggregatesInput], {nullable:true})
-    AND?: Array<UserBTCAddressScalarWhereWithAggregatesInput>;
+  @Field(() => [UserBTCAddressScalarWhereWithAggregatesInput], {
+    nullable: true,
+  })
+  OR?: Array<UserBTCAddressScalarWhereWithAggregatesInput>;
 
-    @Field(() => [UserBTCAddressScalarWhereWithAggregatesInput], {nullable:true})
-    OR?: Array<UserBTCAddressScalarWhereWithAggregatesInput>;
+  @Field(() => [UserBTCAddressScalarWhereWithAggregatesInput], {
+    nullable: true,
+  })
+  NOT?: Array<UserBTCAddressScalarWhereWithAggregatesInput>;
 
-    @Field(() => [UserBTCAddressScalarWhereWithAggregatesInput], {nullable:true})
-    NOT?: Array<UserBTCAddressScalarWhereWithAggregatesInput>;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  id?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    id?: StringWithAggregatesFilter;
+  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
+  createdAt?: DateTimeWithAggregatesFilter;
 
-    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
-    createdAt?: DateTimeWithAggregatesFilter;
+  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
+  updatedAt?: DateTimeWithAggregatesFilter;
 
-    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
-    updatedAt?: DateTimeWithAggregatesFilter;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  address?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    address?: StringWithAggregatesFilter;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  userId?: StringWithAggregatesFilter;
 
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    userId?: StringWithAggregatesFilter;
-
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    whitelabelId?: StringWithAggregatesFilter;
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  whitelabelId?: StringWithAggregatesFilter;
 }

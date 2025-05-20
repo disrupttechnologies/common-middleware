@@ -6,12 +6,13 @@ import { BTCIncomingTransactionUpdateManyMutationInput } from './btc-incoming-tr
 
 @InputType()
 export class BTCIncomingTransactionUpdateManyWithWhereWithoutUserInput {
+  @Field(() => BTCIncomingTransactionScalarWhereInput, { nullable: false })
+  @Type(() => BTCIncomingTransactionScalarWhereInput)
+  where!: BTCIncomingTransactionScalarWhereInput;
 
-    @Field(() => BTCIncomingTransactionScalarWhereInput, {nullable:false})
-    @Type(() => BTCIncomingTransactionScalarWhereInput)
-    where!: BTCIncomingTransactionScalarWhereInput;
-
-    @Field(() => BTCIncomingTransactionUpdateManyMutationInput, {nullable:false})
-    @Type(() => BTCIncomingTransactionUpdateManyMutationInput)
-    data!: BTCIncomingTransactionUpdateManyMutationInput;
+  @Field(() => BTCIncomingTransactionUpdateManyMutationInput, {
+    nullable: false,
+  })
+  @Type(() => BTCIncomingTransactionUpdateManyMutationInput)
+  data!: BTCIncomingTransactionUpdateManyMutationInput;
 }

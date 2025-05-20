@@ -3,16 +3,15 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class SyncDetailsUpdateManyMutationInput {
+  @Field(() => String, { nullable: true })
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
+  @Field(() => Date, { nullable: true })
+  lastSyncedAt?: Date | string;
 
-    @Field(() => Date, {nullable:true})
-    lastSyncedAt?: Date | string;
+  @Field(() => String, { nullable: true })
+  actionName?: string;
 
-    @Field(() => String, {nullable:true})
-    actionName?: string;
-
-    @Field(() => String, {nullable:true})
-    metadata?: string;
+  @Field(() => String, { nullable: true })
+  metadata?: string;
 }
