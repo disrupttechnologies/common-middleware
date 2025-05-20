@@ -6,26 +6,25 @@ import { NestedEnumBTCTxnProcessStatusFilter } from './nested-enum-btc-txn-proce
 
 @InputType()
 export class NestedEnumBTCTxnProcessStatusWithAggregatesFilter {
-  @Field(() => BTCTxnProcessStatus, { nullable: true })
-  equals?: keyof typeof BTCTxnProcessStatus;
 
-  @Field(() => [BTCTxnProcessStatus], { nullable: true })
-  in?: Array<keyof typeof BTCTxnProcessStatus>;
+    @Field(() => BTCTxnProcessStatus, {nullable:true})
+    equals?: keyof typeof BTCTxnProcessStatus;
 
-  @Field(() => [BTCTxnProcessStatus], { nullable: true })
-  notIn?: Array<keyof typeof BTCTxnProcessStatus>;
+    @Field(() => [BTCTxnProcessStatus], {nullable:true})
+    in?: Array<keyof typeof BTCTxnProcessStatus>;
 
-  @Field(() => NestedEnumBTCTxnProcessStatusWithAggregatesFilter, {
-    nullable: true,
-  })
-  not?: NestedEnumBTCTxnProcessStatusWithAggregatesFilter;
+    @Field(() => [BTCTxnProcessStatus], {nullable:true})
+    notIn?: Array<keyof typeof BTCTxnProcessStatus>;
 
-  @Field(() => NestedIntFilter, { nullable: true })
-  _count?: NestedIntFilter;
+    @Field(() => NestedEnumBTCTxnProcessStatusWithAggregatesFilter, {nullable:true})
+    not?: NestedEnumBTCTxnProcessStatusWithAggregatesFilter;
 
-  @Field(() => NestedEnumBTCTxnProcessStatusFilter, { nullable: true })
-  _min?: NestedEnumBTCTxnProcessStatusFilter;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: NestedIntFilter;
 
-  @Field(() => NestedEnumBTCTxnProcessStatusFilter, { nullable: true })
-  _max?: NestedEnumBTCTxnProcessStatusFilter;
+    @Field(() => NestedEnumBTCTxnProcessStatusFilter, {nullable:true})
+    _min?: NestedEnumBTCTxnProcessStatusFilter;
+
+    @Field(() => NestedEnumBTCTxnProcessStatusFilter, {nullable:true})
+    _max?: NestedEnumBTCTxnProcessStatusFilter;
 }

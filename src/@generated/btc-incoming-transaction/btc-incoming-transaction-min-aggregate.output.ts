@@ -4,33 +4,34 @@ import { TxnStatus } from '../prisma/txn-status.enum';
 
 @ObjectType()
 export class BTCIncomingTransactionMinAggregate {
-  @Field(() => String, { nullable: true })
-  id?: string;
 
-  @Field(() => Date, { nullable: true })
-  createdAt?: Date | string;
+    @Field(() => String, {nullable:true})
+    id?: string;
 
-  @Field(() => Date, { nullable: true })
-  updatedAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
 
-  @Field(() => String, { nullable: true })
-  txnHash?: string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
 
-  @Field(() => String, { nullable: true })
-  binanceTxnId?: string;
+    @Field(() => String, {nullable:true})
+    txnHash?: string;
 
-  @Field(() => Date, { nullable: true })
-  txnTime?: Date | string;
+    @Field(() => String, {nullable:true})
+    binanceTxnId?: string;
 
-  @Field(() => String, { nullable: true })
-  amount?: string;
+    @Field(() => Date, {nullable:true})
+    txnTime?: Date | string;
 
-  @Field(() => String, { nullable: true })
-  senderAddress?: string;
+    @Field(() => String, {nullable:true})
+    amount?: string;
 
-  @Field(() => TxnStatus, { nullable: true })
-  txnStatus?: keyof typeof TxnStatus;
+    @Field(() => String, {nullable:true})
+    senderAddress?: string;
 
-  @Field(() => String, { nullable: true })
-  failedRemarks?: string;
+    @Field(() => TxnStatus, {nullable:true})
+    txnStatus?: keyof typeof TxnStatus;
+
+    @Field(() => String, {nullable:true})
+    failedRemarks?: string;
 }

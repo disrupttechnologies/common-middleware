@@ -7,56 +7,49 @@ import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-wi
 
 @InputType()
 export class BinanceIncomingTxnScalarWhereWithAggregatesInput {
-  @Field(() => [BinanceIncomingTxnScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  AND?: Array<BinanceIncomingTxnScalarWhereWithAggregatesInput>;
 
-  @Field(() => [BinanceIncomingTxnScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  OR?: Array<BinanceIncomingTxnScalarWhereWithAggregatesInput>;
+    @Field(() => [BinanceIncomingTxnScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<BinanceIncomingTxnScalarWhereWithAggregatesInput>;
 
-  @Field(() => [BinanceIncomingTxnScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  NOT?: Array<BinanceIncomingTxnScalarWhereWithAggregatesInput>;
+    @Field(() => [BinanceIncomingTxnScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<BinanceIncomingTxnScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  id?: StringWithAggregatesFilter;
+    @Field(() => [BinanceIncomingTxnScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<BinanceIncomingTxnScalarWhereWithAggregatesInput>;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: StringWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  paidCurrency?: StringWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  amountInPaidCurrency?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    paidCurrency?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  network?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    amountInPaidCurrency?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  txnHash?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    network?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  senderAddress?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    txnHash?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  binanceTxnId?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    senderAddress?: StringWithAggregatesFilter;
 
-  @Field(() => EnumIncomingTxnStatusNullableWithAggregatesFilter, {
-    nullable: true,
-  })
-  status?: EnumIncomingTxnStatusNullableWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    binanceTxnId?: StringWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  settlementTransactionId?: StringNullableWithAggregatesFilter;
+    @Field(() => EnumIncomingTxnStatusNullableWithAggregatesFilter, {nullable:true})
+    status?: EnumIncomingTxnStatusNullableWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  failedRemarks?: StringNullableWithAggregatesFilter;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    settlementTransactionId?: StringNullableWithAggregatesFilter;
+
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    failedRemarks?: StringNullableWithAggregatesFilter;
 }

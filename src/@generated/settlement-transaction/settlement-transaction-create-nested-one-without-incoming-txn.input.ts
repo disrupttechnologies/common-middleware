@@ -8,22 +8,16 @@ import { SettlementTransactionWhereUniqueInput } from './settlement-transaction-
 
 @InputType()
 export class SettlementTransactionCreateNestedOneWithoutIncomingTxnInput {
-  @Field(() => SettlementTransactionCreateWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  @Type(() => SettlementTransactionCreateWithoutIncomingTxnInput)
-  create?: SettlementTransactionCreateWithoutIncomingTxnInput;
 
-  @Field(() => SettlementTransactionCreateOrConnectWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  @Type(() => SettlementTransactionCreateOrConnectWithoutIncomingTxnInput)
-  connectOrCreate?: SettlementTransactionCreateOrConnectWithoutIncomingTxnInput;
+    @Field(() => SettlementTransactionCreateWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => SettlementTransactionCreateWithoutIncomingTxnInput)
+    create?: SettlementTransactionCreateWithoutIncomingTxnInput;
 
-  @Field(() => SettlementTransactionWhereUniqueInput, { nullable: true })
-  @Type(() => SettlementTransactionWhereUniqueInput)
-  connect?: Prisma.AtLeast<
-    SettlementTransactionWhereUniqueInput,
-    'id' | 'orderId'
-  >;
+    @Field(() => SettlementTransactionCreateOrConnectWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => SettlementTransactionCreateOrConnectWithoutIncomingTxnInput)
+    connectOrCreate?: SettlementTransactionCreateOrConnectWithoutIncomingTxnInput;
+
+    @Field(() => SettlementTransactionWhereUniqueInput, {nullable:true})
+    @Type(() => SettlementTransactionWhereUniqueInput)
+    connect?: Prisma.AtLeast<SettlementTransactionWhereUniqueInput, 'id' | 'orderId'>;
 }

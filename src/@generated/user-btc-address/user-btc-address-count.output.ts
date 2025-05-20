@@ -4,6 +4,7 @@ import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class UserBTCAddressCount {
-  @Field(() => Int, { nullable: false })
-  txns?: number;
+
+    @Field(() => Int, {nullable:false})
+    txns?: number;
 }

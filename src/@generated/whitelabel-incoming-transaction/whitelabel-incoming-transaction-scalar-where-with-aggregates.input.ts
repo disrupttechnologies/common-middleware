@@ -6,39 +6,34 @@ import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-wi
 
 @InputType()
 export class WhitelabelIncomingTransactionScalarWhereWithAggregatesInput {
-  @Field(() => [WhitelabelIncomingTransactionScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  AND?: Array<WhitelabelIncomingTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => [WhitelabelIncomingTransactionScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  OR?: Array<WhitelabelIncomingTransactionScalarWhereWithAggregatesInput>;
+    @Field(() => [WhitelabelIncomingTransactionScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<WhitelabelIncomingTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => [WhitelabelIncomingTransactionScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  NOT?: Array<WhitelabelIncomingTransactionScalarWhereWithAggregatesInput>;
+    @Field(() => [WhitelabelIncomingTransactionScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<WhitelabelIncomingTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  id?: StringWithAggregatesFilter;
+    @Field(() => [WhitelabelIncomingTransactionScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<WhitelabelIncomingTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: StringWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  userId?: StringWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  whitelabelId?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    userId?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  provisionTxnHash?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    whitelabelId?: StringWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  settlementTransactionId?: StringNullableWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    provisionTxnHash?: StringWithAggregatesFilter;
+
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    settlementTransactionId?: StringNullableWithAggregatesFilter;
 }

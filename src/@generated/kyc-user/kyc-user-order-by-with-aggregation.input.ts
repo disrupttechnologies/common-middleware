@@ -8,42 +8,43 @@ import { KYCUserMinOrderByAggregateInput } from './kyc-user-min-order-by-aggrega
 
 @InputType()
 export class KYCUserOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  updatedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  userId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  whitelabelId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  kycApplicantId?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    whitelabelId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  kycStatus?: keyof typeof SortOrder;
+    @Field(() => SortOrderInput, {nullable:true})
+    kycApplicantId?: SortOrderInput;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  inspectionId?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    kycStatus?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  kycData?: SortOrderInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    inspectionId?: SortOrderInput;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  metadata?: SortOrderInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    kycData?: SortOrderInput;
 
-  @Field(() => KYCUserCountOrderByAggregateInput, { nullable: true })
-  _count?: KYCUserCountOrderByAggregateInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    metadata?: SortOrderInput;
 
-  @Field(() => KYCUserMaxOrderByAggregateInput, { nullable: true })
-  _max?: KYCUserMaxOrderByAggregateInput;
+    @Field(() => KYCUserCountOrderByAggregateInput, {nullable:true})
+    _count?: KYCUserCountOrderByAggregateInput;
 
-  @Field(() => KYCUserMinOrderByAggregateInput, { nullable: true })
-  _min?: KYCUserMinOrderByAggregateInput;
+    @Field(() => KYCUserMaxOrderByAggregateInput, {nullable:true})
+    _max?: KYCUserMaxOrderByAggregateInput;
+
+    @Field(() => KYCUserMinOrderByAggregateInput, {nullable:true})
+    _min?: KYCUserMinOrderByAggregateInput;
 }

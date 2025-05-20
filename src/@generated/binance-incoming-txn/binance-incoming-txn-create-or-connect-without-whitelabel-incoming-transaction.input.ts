@@ -7,17 +7,12 @@ import { BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput } fro
 
 @InputType()
 export class BinanceIncomingTxnCreateOrConnectWithoutWhitelabelIncomingTransactionInput {
-  @Field(() => BinanceIncomingTxnWhereUniqueInput, { nullable: false })
-  @Type(() => BinanceIncomingTxnWhereUniqueInput)
-  where!: Prisma.AtLeast<
-    BinanceIncomingTxnWhereUniqueInput,
-    'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'
-  >;
 
-  @Field(
-    () => BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput,
-    { nullable: false },
-  )
-  @Type(() => BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput)
-  create!: BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput;
+    @Field(() => BinanceIncomingTxnWhereUniqueInput, {nullable:false})
+    @Type(() => BinanceIncomingTxnWhereUniqueInput)
+    where!: Prisma.AtLeast<BinanceIncomingTxnWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'>;
+
+    @Field(() => BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput, {nullable:false})
+    @Type(() => BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput)
+    create!: BinanceIncomingTxnCreateWithoutWhitelabelIncomingTransactionInput;
 }

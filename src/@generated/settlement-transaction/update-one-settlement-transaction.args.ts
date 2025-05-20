@@ -7,14 +7,12 @@ import { SettlementTransactionWhereUniqueInput } from './settlement-transaction-
 
 @ArgsType()
 export class UpdateOneSettlementTransactionArgs {
-  @Field(() => SettlementTransactionUpdateInput, { nullable: false })
-  @Type(() => SettlementTransactionUpdateInput)
-  data!: SettlementTransactionUpdateInput;
 
-  @Field(() => SettlementTransactionWhereUniqueInput, { nullable: false })
-  @Type(() => SettlementTransactionWhereUniqueInput)
-  where!: Prisma.AtLeast<
-    SettlementTransactionWhereUniqueInput,
-    'id' | 'orderId'
-  >;
+    @Field(() => SettlementTransactionUpdateInput, {nullable:false})
+    @Type(() => SettlementTransactionUpdateInput)
+    data!: SettlementTransactionUpdateInput;
+
+    @Field(() => SettlementTransactionWhereUniqueInput, {nullable:false})
+    @Type(() => SettlementTransactionWhereUniqueInput)
+    where!: Prisma.AtLeast<SettlementTransactionWhereUniqueInput, 'id' | 'orderId'>;
 }

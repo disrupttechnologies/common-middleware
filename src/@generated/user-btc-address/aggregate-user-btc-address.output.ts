@@ -6,12 +6,13 @@ import { UserBTCAddressMaxAggregate } from './user-btc-address-max-aggregate.out
 
 @ObjectType()
 export class AggregateUserBTCAddress {
-  @Field(() => UserBTCAddressCountAggregate, { nullable: true })
-  _count?: UserBTCAddressCountAggregate;
 
-  @Field(() => UserBTCAddressMinAggregate, { nullable: true })
-  _min?: UserBTCAddressMinAggregate;
+    @Field(() => UserBTCAddressCountAggregate, {nullable:true})
+    _count?: UserBTCAddressCountAggregate;
 
-  @Field(() => UserBTCAddressMaxAggregate, { nullable: true })
-  _max?: UserBTCAddressMaxAggregate;
+    @Field(() => UserBTCAddressMinAggregate, {nullable:true})
+    _min?: UserBTCAddressMinAggregate;
+
+    @Field(() => UserBTCAddressMaxAggregate, {nullable:true})
+    _max?: UserBTCAddressMaxAggregate;
 }

@@ -6,31 +6,25 @@ import { NestedEnumSettlementTransactionProcessStatusFilter } from './nested-enu
 
 @InputType()
 export class NestedEnumSettlementTransactionProcessStatusWithAggregatesFilter {
-  @Field(() => SettlementTransactionProcessStatus, { nullable: true })
-  equals?: keyof typeof SettlementTransactionProcessStatus;
 
-  @Field(() => [SettlementTransactionProcessStatus], { nullable: true })
-  in?: Array<keyof typeof SettlementTransactionProcessStatus>;
+    @Field(() => SettlementTransactionProcessStatus, {nullable:true})
+    equals?: keyof typeof SettlementTransactionProcessStatus;
 
-  @Field(() => [SettlementTransactionProcessStatus], { nullable: true })
-  notIn?: Array<keyof typeof SettlementTransactionProcessStatus>;
+    @Field(() => [SettlementTransactionProcessStatus], {nullable:true})
+    in?: Array<keyof typeof SettlementTransactionProcessStatus>;
 
-  @Field(
-    () => NestedEnumSettlementTransactionProcessStatusWithAggregatesFilter,
-    { nullable: true },
-  )
-  not?: NestedEnumSettlementTransactionProcessStatusWithAggregatesFilter;
+    @Field(() => [SettlementTransactionProcessStatus], {nullable:true})
+    notIn?: Array<keyof typeof SettlementTransactionProcessStatus>;
 
-  @Field(() => NestedIntFilter, { nullable: true })
-  _count?: NestedIntFilter;
+    @Field(() => NestedEnumSettlementTransactionProcessStatusWithAggregatesFilter, {nullable:true})
+    not?: NestedEnumSettlementTransactionProcessStatusWithAggregatesFilter;
 
-  @Field(() => NestedEnumSettlementTransactionProcessStatusFilter, {
-    nullable: true,
-  })
-  _min?: NestedEnumSettlementTransactionProcessStatusFilter;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: NestedIntFilter;
 
-  @Field(() => NestedEnumSettlementTransactionProcessStatusFilter, {
-    nullable: true,
-  })
-  _max?: NestedEnumSettlementTransactionProcessStatusFilter;
+    @Field(() => NestedEnumSettlementTransactionProcessStatusFilter, {nullable:true})
+    _min?: NestedEnumSettlementTransactionProcessStatusFilter;
+
+    @Field(() => NestedEnumSettlementTransactionProcessStatusFilter, {nullable:true})
+    _max?: NestedEnumSettlementTransactionProcessStatusFilter;
 }

@@ -7,39 +7,40 @@ import { BTCSettlementTransactionMaxAggregate } from './btc-settlement-transacti
 
 @ObjectType()
 export class BTCSettlementTransactionGroupBy {
-  @Field(() => String, { nullable: false })
-  id!: string;
 
-  @Field(() => Date, { nullable: false })
-  createdAt!: Date | string;
+    @Field(() => String, {nullable:false})
+    id!: string;
 
-  @Field(() => Date, { nullable: false })
-  updatedAt!: Date | string;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date | string;
 
-  @Field(() => String, { nullable: false })
-  incomingTxnId!: string;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date | string;
 
-  @Field(() => String, { nullable: true })
-  orderId?: string;
+    @Field(() => String, {nullable:false})
+    incomingTxnId!: string;
 
-  @Field(() => Date, { nullable: true })
-  orderplaceTime?: Date | string;
+    @Field(() => String, {nullable:true})
+    orderId?: string;
 
-  @Field(() => String, { nullable: true })
-  amountReceivedInUSD?: string;
+    @Field(() => Date, {nullable:true})
+    orderplaceTime?: Date | string;
 
-  @Field(() => BTCTxnProcessStatus, { nullable: false })
-  status!: keyof typeof BTCTxnProcessStatus;
+    @Field(() => String, {nullable:true})
+    amountReceivedInUSD?: string;
 
-  @Field(() => String, { nullable: true })
-  failedRemarks?: string;
+    @Field(() => BTCTxnProcessStatus, {nullable:false})
+    status!: keyof typeof BTCTxnProcessStatus;
 
-  @Field(() => BTCSettlementTransactionCountAggregate, { nullable: true })
-  _count?: BTCSettlementTransactionCountAggregate;
+    @Field(() => String, {nullable:true})
+    failedRemarks?: string;
 
-  @Field(() => BTCSettlementTransactionMinAggregate, { nullable: true })
-  _min?: BTCSettlementTransactionMinAggregate;
+    @Field(() => BTCSettlementTransactionCountAggregate, {nullable:true})
+    _count?: BTCSettlementTransactionCountAggregate;
 
-  @Field(() => BTCSettlementTransactionMaxAggregate, { nullable: true })
-  _max?: BTCSettlementTransactionMaxAggregate;
+    @Field(() => BTCSettlementTransactionMinAggregate, {nullable:true})
+    _min?: BTCSettlementTransactionMinAggregate;
+
+    @Field(() => BTCSettlementTransactionMaxAggregate, {nullable:true})
+    _max?: BTCSettlementTransactionMaxAggregate;
 }

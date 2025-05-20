@@ -10,22 +10,23 @@ import { SyncDetailsScalarFieldEnum } from './sync-details-scalar-field.enum';
 
 @ArgsType()
 export class FindFirstSyncDetailsOrThrowArgs {
-  @Field(() => SyncDetailsWhereInput, { nullable: true })
-  @Type(() => SyncDetailsWhereInput)
-  where?: SyncDetailsWhereInput;
 
-  @Field(() => [SyncDetailsOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<SyncDetailsOrderByWithRelationInput>;
+    @Field(() => SyncDetailsWhereInput, {nullable:true})
+    @Type(() => SyncDetailsWhereInput)
+    where?: SyncDetailsWhereInput;
 
-  @Field(() => SyncDetailsWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
+    @Field(() => [SyncDetailsOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<SyncDetailsOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => SyncDetailsWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [SyncDetailsScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof SyncDetailsScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [SyncDetailsScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof SyncDetailsScalarFieldEnum>;
 }

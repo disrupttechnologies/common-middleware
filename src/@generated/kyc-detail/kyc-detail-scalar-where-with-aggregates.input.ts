@@ -8,42 +8,43 @@ import { EnumKYCStageWithAggregatesFilter } from '../prisma/enum-kyc-stage-with-
 
 @InputType()
 export class KYCDetailScalarWhereWithAggregatesInput {
-  @Field(() => [KYCDetailScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<KYCDetailScalarWhereWithAggregatesInput>;
 
-  @Field(() => [KYCDetailScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<KYCDetailScalarWhereWithAggregatesInput>;
+    @Field(() => [KYCDetailScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<KYCDetailScalarWhereWithAggregatesInput>;
 
-  @Field(() => [KYCDetailScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<KYCDetailScalarWhereWithAggregatesInput>;
+    @Field(() => [KYCDetailScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<KYCDetailScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  id?: StringWithAggregatesFilter;
+    @Field(() => [KYCDetailScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<KYCDetailScalarWhereWithAggregatesInput>;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: StringWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  userId?: StringWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => EnumKycStatusWithAggregatesFilter, { nullable: true })
-  kycStatus?: EnumKycStatusWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    userId?: StringWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  failedRemarks?: StringNullableWithAggregatesFilter;
+    @Field(() => EnumKycStatusWithAggregatesFilter, {nullable:true})
+    kycStatus?: EnumKycStatusWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  userMetadata?: StringWithAggregatesFilter;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    failedRemarks?: StringNullableWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  whitelabelId?: StringWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    userMetadata?: StringWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  kycApplicantId?: StringNullableWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    whitelabelId?: StringWithAggregatesFilter;
 
-  @Field(() => EnumKYCStageWithAggregatesFilter, { nullable: true })
-  kycStage?: EnumKYCStageWithAggregatesFilter;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    kycApplicantId?: StringNullableWithAggregatesFilter;
+
+    @Field(() => EnumKYCStageWithAggregatesFilter, {nullable:true})
+    kycStage?: EnumKYCStageWithAggregatesFilter;
 }

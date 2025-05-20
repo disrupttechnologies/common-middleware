@@ -116,6 +116,8 @@ export class BinanceIncomingTxnTrackerService {
       includeSource: true,
     };
     const records = await binanceClient.depositHistory(options);
+
+    console.log("Saasasasasa",records)
     await this.saveRecords(records as DepositType[]);
   }
 

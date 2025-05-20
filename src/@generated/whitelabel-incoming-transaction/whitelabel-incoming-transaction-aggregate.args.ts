@@ -12,41 +12,29 @@ import { WhitelabelIncomingTransactionMaxAggregateInput } from './whitelabel-inc
 
 @ArgsType()
 export class WhitelabelIncomingTransactionAggregateArgs {
-  @Field(() => WhitelabelIncomingTransactionWhereInput, { nullable: true })
-  @Type(() => WhitelabelIncomingTransactionWhereInput)
-  where?: WhitelabelIncomingTransactionWhereInput;
 
-  @Field(() => [WhitelabelIncomingTransactionOrderByWithRelationInput], {
-    nullable: true,
-  })
-  orderBy?: Array<WhitelabelIncomingTransactionOrderByWithRelationInput>;
+    @Field(() => WhitelabelIncomingTransactionWhereInput, {nullable:true})
+    @Type(() => WhitelabelIncomingTransactionWhereInput)
+    where?: WhitelabelIncomingTransactionWhereInput;
 
-  @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {
-    nullable: true,
-  })
-  cursor?: Prisma.AtLeast<
-    WhitelabelIncomingTransactionWhereUniqueInput,
-    'id' | 'provisionTxnHash' | 'settlementTransactionId'
-  >;
+    @Field(() => [WhitelabelIncomingTransactionOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<WhitelabelIncomingTransactionOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<WhitelabelIncomingTransactionWhereUniqueInput, 'id' | 'provisionTxnHash' | 'settlementTransactionId'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => WhitelabelIncomingTransactionCountAggregateInput, {
-    nullable: true,
-  })
-  _count?: WhitelabelIncomingTransactionCountAggregateInput;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => WhitelabelIncomingTransactionMinAggregateInput, {
-    nullable: true,
-  })
-  _min?: WhitelabelIncomingTransactionMinAggregateInput;
+    @Field(() => WhitelabelIncomingTransactionCountAggregateInput, {nullable:true})
+    _count?: WhitelabelIncomingTransactionCountAggregateInput;
 
-  @Field(() => WhitelabelIncomingTransactionMaxAggregateInput, {
-    nullable: true,
-  })
-  _max?: WhitelabelIncomingTransactionMaxAggregateInput;
+    @Field(() => WhitelabelIncomingTransactionMinAggregateInput, {nullable:true})
+    _min?: WhitelabelIncomingTransactionMinAggregateInput;
+
+    @Field(() => WhitelabelIncomingTransactionMaxAggregateInput, {nullable:true})
+    _max?: WhitelabelIncomingTransactionMaxAggregateInput;
 }

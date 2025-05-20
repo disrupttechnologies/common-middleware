@@ -9,22 +9,23 @@ import { KYCUserScalarFieldEnum } from '../kyc-user/kyc-user-scalar-field.enum';
 
 @ArgsType()
 export class FindFirstKycUserArgs {
-  @Field(() => KYCUserWhereInput, { nullable: true })
-  @Type(() => KYCUserWhereInput)
-  where?: KYCUserWhereInput;
 
-  @Field(() => [KYCUserOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<KYCUserOrderByWithRelationInput>;
+    @Field(() => KYCUserWhereInput, {nullable:true})
+    @Type(() => KYCUserWhereInput)
+    where?: KYCUserWhereInput;
 
-  @Field(() => KYCUserWhereUniqueInput, { nullable: true })
-  cursor?: KYCUserWhereUniqueInput;
+    @Field(() => [KYCUserOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<KYCUserOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => KYCUserWhereUniqueInput, {nullable:true})
+    cursor?: KYCUserWhereUniqueInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [KYCUserScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof KYCUserScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [KYCUserScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof KYCUserScalarFieldEnum>;
 }

@@ -6,11 +6,12 @@ import { UserBTCAddressUpdateWithoutTxnsInput } from './user-btc-address-update-
 
 @InputType()
 export class UserBTCAddressUpdateToOneWithWhereWithoutTxnsInput {
-  @Field(() => UserBTCAddressWhereInput, { nullable: true })
-  @Type(() => UserBTCAddressWhereInput)
-  where?: UserBTCAddressWhereInput;
 
-  @Field(() => UserBTCAddressUpdateWithoutTxnsInput, { nullable: false })
-  @Type(() => UserBTCAddressUpdateWithoutTxnsInput)
-  data!: UserBTCAddressUpdateWithoutTxnsInput;
+    @Field(() => UserBTCAddressWhereInput, {nullable:true})
+    @Type(() => UserBTCAddressWhereInput)
+    where?: UserBTCAddressWhereInput;
+
+    @Field(() => UserBTCAddressUpdateWithoutTxnsInput, {nullable:false})
+    @Type(() => UserBTCAddressUpdateWithoutTxnsInput)
+    data!: UserBTCAddressUpdateWithoutTxnsInput;
 }

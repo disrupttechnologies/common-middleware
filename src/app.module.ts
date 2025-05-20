@@ -16,6 +16,7 @@ import { FundsmanagerModule } from './fundsmanager/fundsmanager.module';
 import { EventManagerModule } from './event-manager/event-manager.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { DexModule } from './dex/dex.module';
+import { InsightsModule } from './insights/insights.module';
 
 @Module({
   imports: [
@@ -53,10 +54,11 @@ import { DexModule } from './dex/dex.module';
     KycwebhookModule,
 
     DocsModule,
-
-    FundsmanagerModule,
+    // FundsmanagerModule,
 
     EventManagerModule,
+
+    InsightsModule,
   ],
   controllers: [AppController],
   providers: [],

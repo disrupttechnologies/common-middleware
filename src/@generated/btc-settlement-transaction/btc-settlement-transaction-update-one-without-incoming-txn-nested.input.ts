@@ -11,45 +11,32 @@ import { BTCSettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput } f
 
 @InputType()
 export class BTCSettlementTransactionUpdateOneWithoutIncomingTxnNestedInput {
-  @Field(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  @Type(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput)
-  create?: BTCSettlementTransactionCreateWithoutIncomingTxnInput;
 
-  @Field(() => BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  @Type(() => BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput)
-  connectOrCreate?: BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput;
+    @Field(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput)
+    create?: BTCSettlementTransactionCreateWithoutIncomingTxnInput;
 
-  @Field(() => BTCSettlementTransactionUpsertWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  @Type(() => BTCSettlementTransactionUpsertWithoutIncomingTxnInput)
-  upsert?: BTCSettlementTransactionUpsertWithoutIncomingTxnInput;
+    @Field(() => BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput)
+    connectOrCreate?: BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput;
 
-  @Field(() => BTCSettlementTransactionWhereInput, { nullable: true })
-  @Type(() => BTCSettlementTransactionWhereInput)
-  disconnect?: BTCSettlementTransactionWhereInput;
+    @Field(() => BTCSettlementTransactionUpsertWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionUpsertWithoutIncomingTxnInput)
+    upsert?: BTCSettlementTransactionUpsertWithoutIncomingTxnInput;
 
-  @Field(() => BTCSettlementTransactionWhereInput, { nullable: true })
-  @Type(() => BTCSettlementTransactionWhereInput)
-  delete?: BTCSettlementTransactionWhereInput;
+    @Field(() => BTCSettlementTransactionWhereInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionWhereInput)
+    disconnect?: BTCSettlementTransactionWhereInput;
 
-  @Field(() => BTCSettlementTransactionWhereUniqueInput, { nullable: true })
-  @Type(() => BTCSettlementTransactionWhereUniqueInput)
-  connect?: Prisma.AtLeast<
-    BTCSettlementTransactionWhereUniqueInput,
-    'id' | 'incomingTxnId' | 'orderId'
-  >;
+    @Field(() => BTCSettlementTransactionWhereInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionWhereInput)
+    delete?: BTCSettlementTransactionWhereInput;
 
-  @Field(
-    () => BTCSettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput,
-    { nullable: true },
-  )
-  @Type(
-    () => BTCSettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput,
-  )
-  update?: BTCSettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput;
+    @Field(() => BTCSettlementTransactionWhereUniqueInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionWhereUniqueInput)
+    connect?: Prisma.AtLeast<BTCSettlementTransactionWhereUniqueInput, 'id' | 'incomingTxnId' | 'orderId'>;
+
+    @Field(() => BTCSettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput)
+    update?: BTCSettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput;
 }

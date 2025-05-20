@@ -5,7 +5,8 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateOneSettlementTransactionArgs {
-  @Field(() => SettlementTransactionCreateInput, { nullable: false })
-  @Type(() => SettlementTransactionCreateInput)
-  data!: SettlementTransactionCreateInput;
+
+    @Field(() => SettlementTransactionCreateInput, {nullable:false})
+    @Type(() => SettlementTransactionCreateInput)
+    data!: SettlementTransactionCreateInput;
 }

@@ -11,43 +11,32 @@ import { SettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput } from
 
 @InputType()
 export class SettlementTransactionUpdateOneWithoutIncomingTxnNestedInput {
-  @Field(() => SettlementTransactionCreateWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  @Type(() => SettlementTransactionCreateWithoutIncomingTxnInput)
-  create?: SettlementTransactionCreateWithoutIncomingTxnInput;
 
-  @Field(() => SettlementTransactionCreateOrConnectWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  @Type(() => SettlementTransactionCreateOrConnectWithoutIncomingTxnInput)
-  connectOrCreate?: SettlementTransactionCreateOrConnectWithoutIncomingTxnInput;
+    @Field(() => SettlementTransactionCreateWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => SettlementTransactionCreateWithoutIncomingTxnInput)
+    create?: SettlementTransactionCreateWithoutIncomingTxnInput;
 
-  @Field(() => SettlementTransactionUpsertWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  @Type(() => SettlementTransactionUpsertWithoutIncomingTxnInput)
-  upsert?: SettlementTransactionUpsertWithoutIncomingTxnInput;
+    @Field(() => SettlementTransactionCreateOrConnectWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => SettlementTransactionCreateOrConnectWithoutIncomingTxnInput)
+    connectOrCreate?: SettlementTransactionCreateOrConnectWithoutIncomingTxnInput;
 
-  @Field(() => SettlementTransactionWhereInput, { nullable: true })
-  @Type(() => SettlementTransactionWhereInput)
-  disconnect?: SettlementTransactionWhereInput;
+    @Field(() => SettlementTransactionUpsertWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => SettlementTransactionUpsertWithoutIncomingTxnInput)
+    upsert?: SettlementTransactionUpsertWithoutIncomingTxnInput;
 
-  @Field(() => SettlementTransactionWhereInput, { nullable: true })
-  @Type(() => SettlementTransactionWhereInput)
-  delete?: SettlementTransactionWhereInput;
+    @Field(() => SettlementTransactionWhereInput, {nullable:true})
+    @Type(() => SettlementTransactionWhereInput)
+    disconnect?: SettlementTransactionWhereInput;
 
-  @Field(() => SettlementTransactionWhereUniqueInput, { nullable: true })
-  @Type(() => SettlementTransactionWhereUniqueInput)
-  connect?: Prisma.AtLeast<
-    SettlementTransactionWhereUniqueInput,
-    'id' | 'orderId'
-  >;
+    @Field(() => SettlementTransactionWhereInput, {nullable:true})
+    @Type(() => SettlementTransactionWhereInput)
+    delete?: SettlementTransactionWhereInput;
 
-  @Field(
-    () => SettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput,
-    { nullable: true },
-  )
-  @Type(() => SettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput)
-  update?: SettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput;
+    @Field(() => SettlementTransactionWhereUniqueInput, {nullable:true})
+    @Type(() => SettlementTransactionWhereUniqueInput)
+    connect?: Prisma.AtLeast<SettlementTransactionWhereUniqueInput, 'id' | 'orderId'>;
+
+    @Field(() => SettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => SettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput)
+    update?: SettlementTransactionUpdateToOneWithWhereWithoutIncomingTxnInput;
 }

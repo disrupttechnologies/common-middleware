@@ -4,26 +4,25 @@ import { BTCIncomingTransactionCreateNestedManyWithoutUserInput } from '../btc-i
 
 @InputType()
 export class UserBTCAddressCreateInput {
-  @Field(() => String, { nullable: true })
-  id?: string;
 
-  @Field(() => Date, { nullable: true })
-  createdAt?: Date | string;
+    @Field(() => String, {nullable:true})
+    id?: string;
 
-  @Field(() => Date, { nullable: true })
-  updatedAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
 
-  @Field(() => String, { nullable: false })
-  address!: string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
 
-  @Field(() => String, { nullable: false })
-  userId!: string;
+    @Field(() => String, {nullable:false})
+    address!: string;
 
-  @Field(() => String, { nullable: false })
-  whitelabelId!: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
 
-  @Field(() => BTCIncomingTransactionCreateNestedManyWithoutUserInput, {
-    nullable: true,
-  })
-  txns?: BTCIncomingTransactionCreateNestedManyWithoutUserInput;
+    @Field(() => String, {nullable:false})
+    whitelabelId!: string;
+
+    @Field(() => BTCIncomingTransactionCreateNestedManyWithoutUserInput, {nullable:true})
+    txns?: BTCIncomingTransactionCreateNestedManyWithoutUserInput;
 }

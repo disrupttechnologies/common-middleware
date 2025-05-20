@@ -6,48 +6,43 @@ import { WhitelabelIncomingTransactionUpdateOneWithoutSettlementTransactionNeste
 
 @InputType()
 export class BinanceIncomingTxnUpdateInput {
-  @Field(() => String, { nullable: true })
-  id?: string;
 
-  @Field(() => Date, { nullable: true })
-  createdAt?: Date | string;
+    @Field(() => String, {nullable:true})
+    id?: string;
 
-  @Field(() => Date, { nullable: true })
-  updatedAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
 
-  @Field(() => String, { nullable: true })
-  paidCurrency?: string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
 
-  @Field(() => String, { nullable: true })
-  amountInPaidCurrency?: string;
+    @Field(() => String, {nullable:true})
+    paidCurrency?: string;
 
-  @Field(() => String, { nullable: true })
-  network?: string;
+    @Field(() => String, {nullable:true})
+    amountInPaidCurrency?: string;
 
-  @Field(() => String, { nullable: true })
-  txnHash?: string;
+    @Field(() => String, {nullable:true})
+    network?: string;
 
-  @Field(() => String, { nullable: true })
-  senderAddress?: string;
+    @Field(() => String, {nullable:true})
+    txnHash?: string;
 
-  @Field(() => String, { nullable: true })
-  binanceTxnId?: string;
+    @Field(() => String, {nullable:true})
+    senderAddress?: string;
 
-  @Field(() => IncomingTxnStatus, { nullable: true })
-  status?: keyof typeof IncomingTxnStatus;
+    @Field(() => String, {nullable:true})
+    binanceTxnId?: string;
 
-  @Field(() => String, { nullable: true })
-  failedRemarks?: string;
+    @Field(() => IncomingTxnStatus, {nullable:true})
+    status?: keyof typeof IncomingTxnStatus;
 
-  @Field(() => SettlementTransactionUpdateOneWithoutIncomingTxnNestedInput, {
-    nullable: true,
-  })
-  settlementTransaction?: SettlementTransactionUpdateOneWithoutIncomingTxnNestedInput;
+    @Field(() => String, {nullable:true})
+    failedRemarks?: string;
 
-  @Field(
-    () =>
-      WhitelabelIncomingTransactionUpdateOneWithoutSettlementTransactionNestedInput,
-    { nullable: true },
-  )
-  whitelabelIncomingTransaction?: WhitelabelIncomingTransactionUpdateOneWithoutSettlementTransactionNestedInput;
+    @Field(() => SettlementTransactionUpdateOneWithoutIncomingTxnNestedInput, {nullable:true})
+    settlementTransaction?: SettlementTransactionUpdateOneWithoutIncomingTxnNestedInput;
+
+    @Field(() => WhitelabelIncomingTransactionUpdateOneWithoutSettlementTransactionNestedInput, {nullable:true})
+    whitelabelIncomingTransaction?: WhitelabelIncomingTransactionUpdateOneWithoutSettlementTransactionNestedInput;
 }

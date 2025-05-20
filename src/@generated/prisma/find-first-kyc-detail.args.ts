@@ -9,22 +9,23 @@ import { KYCDetailScalarFieldEnum } from '../kyc-detail/kyc-detail-scalar-field.
 
 @ArgsType()
 export class FindFirstKycDetailArgs {
-  @Field(() => KYCDetailWhereInput, { nullable: true })
-  @Type(() => KYCDetailWhereInput)
-  where?: KYCDetailWhereInput;
 
-  @Field(() => [KYCDetailOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<KYCDetailOrderByWithRelationInput>;
+    @Field(() => KYCDetailWhereInput, {nullable:true})
+    @Type(() => KYCDetailWhereInput)
+    where?: KYCDetailWhereInput;
 
-  @Field(() => KYCDetailWhereUniqueInput, { nullable: true })
-  cursor?: KYCDetailWhereUniqueInput;
+    @Field(() => [KYCDetailOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<KYCDetailOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => KYCDetailWhereUniqueInput, {nullable:true})
+    cursor?: KYCDetailWhereUniqueInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [KYCDetailScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof KYCDetailScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [KYCDetailScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof KYCDetailScalarFieldEnum>;
 }

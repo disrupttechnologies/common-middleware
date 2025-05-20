@@ -6,13 +6,12 @@ import { BinanceIncomingTxnUpdateWithoutSettlementTransactionInput } from './bin
 
 @InputType()
 export class BinanceIncomingTxnUpdateToOneWithWhereWithoutSettlementTransactionInput {
-  @Field(() => BinanceIncomingTxnWhereInput, { nullable: true })
-  @Type(() => BinanceIncomingTxnWhereInput)
-  where?: BinanceIncomingTxnWhereInput;
 
-  @Field(() => BinanceIncomingTxnUpdateWithoutSettlementTransactionInput, {
-    nullable: false,
-  })
-  @Type(() => BinanceIncomingTxnUpdateWithoutSettlementTransactionInput)
-  data!: BinanceIncomingTxnUpdateWithoutSettlementTransactionInput;
+    @Field(() => BinanceIncomingTxnWhereInput, {nullable:true})
+    @Type(() => BinanceIncomingTxnWhereInput)
+    where?: BinanceIncomingTxnWhereInput;
+
+    @Field(() => BinanceIncomingTxnUpdateWithoutSettlementTransactionInput, {nullable:false})
+    @Type(() => BinanceIncomingTxnUpdateWithoutSettlementTransactionInput)
+    data!: BinanceIncomingTxnUpdateWithoutSettlementTransactionInput;
 }

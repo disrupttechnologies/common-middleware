@@ -12,11 +12,13 @@ const main = async () => {
 
 
 
-  const resp = await binance.getOrder("ETHUSDT", {
-    origClientOrderId:"no7r43hkeegb4v188smjd2pm"
-  })
+  // const resp = await binance.getOrder("ETHUSDT", {
+  //   origClientOrderId:"no7r43hkeegb4v188smjd2pm"
+  // })
 
-  console.log('ss', resp);
+  const info = await binance.exchangeInformation();
+  const infoSymbols = info.symbols;
+  console.log('ss', infoSymbols);
 };
 
 main();

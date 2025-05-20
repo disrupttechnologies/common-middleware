@@ -9,22 +9,23 @@ import { Int } from '@nestjs/graphql';
 
 @ArgsType()
 export class GroupByUserBtcAddressArgs {
-  @Field(() => UserBTCAddressWhereInput, { nullable: true })
-  @Type(() => UserBTCAddressWhereInput)
-  where?: UserBTCAddressWhereInput;
 
-  @Field(() => [UserBTCAddressOrderByWithAggregationInput], { nullable: true })
-  orderBy?: Array<UserBTCAddressOrderByWithAggregationInput>;
+    @Field(() => UserBTCAddressWhereInput, {nullable:true})
+    @Type(() => UserBTCAddressWhereInput)
+    where?: UserBTCAddressWhereInput;
 
-  @Field(() => [UserBTCAddressScalarFieldEnum], { nullable: false })
-  by!: Array<keyof typeof UserBTCAddressScalarFieldEnum>;
+    @Field(() => [UserBTCAddressOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<UserBTCAddressOrderByWithAggregationInput>;
 
-  @Field(() => UserBTCAddressScalarWhereWithAggregatesInput, { nullable: true })
-  having?: UserBTCAddressScalarWhereWithAggregatesInput;
+    @Field(() => [UserBTCAddressScalarFieldEnum], {nullable:false})
+    by!: Array<keyof typeof UserBTCAddressScalarFieldEnum>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => UserBTCAddressScalarWhereWithAggregatesInput, {nullable:true})
+    having?: UserBTCAddressScalarWhereWithAggregatesInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 }

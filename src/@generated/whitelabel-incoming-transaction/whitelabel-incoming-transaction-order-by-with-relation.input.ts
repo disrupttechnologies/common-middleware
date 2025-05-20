@@ -6,27 +6,28 @@ import { BinanceIncomingTxnOrderByWithRelationInput } from '../binance-incoming-
 
 @InputType()
 export class WhitelabelIncomingTransactionOrderByWithRelationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  updatedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  userId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  whitelabelId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  provisionTxnHash?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    whitelabelId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  settlementTransactionId?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    provisionTxnHash?: keyof typeof SortOrder;
 
-  @Field(() => BinanceIncomingTxnOrderByWithRelationInput, { nullable: true })
-  settlementTransaction?: BinanceIncomingTxnOrderByWithRelationInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    settlementTransactionId?: SortOrderInput;
+
+    @Field(() => BinanceIncomingTxnOrderByWithRelationInput, {nullable:true})
+    settlementTransaction?: BinanceIncomingTxnOrderByWithRelationInput;
 }

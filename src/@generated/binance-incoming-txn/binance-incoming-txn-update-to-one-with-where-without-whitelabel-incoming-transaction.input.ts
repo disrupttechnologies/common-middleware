@@ -6,14 +6,12 @@ import { BinanceIncomingTxnUpdateWithoutWhitelabelIncomingTransactionInput } fro
 
 @InputType()
 export class BinanceIncomingTxnUpdateToOneWithWhereWithoutWhitelabelIncomingTransactionInput {
-  @Field(() => BinanceIncomingTxnWhereInput, { nullable: true })
-  @Type(() => BinanceIncomingTxnWhereInput)
-  where?: BinanceIncomingTxnWhereInput;
 
-  @Field(
-    () => BinanceIncomingTxnUpdateWithoutWhitelabelIncomingTransactionInput,
-    { nullable: false },
-  )
-  @Type(() => BinanceIncomingTxnUpdateWithoutWhitelabelIncomingTransactionInput)
-  data!: BinanceIncomingTxnUpdateWithoutWhitelabelIncomingTransactionInput;
+    @Field(() => BinanceIncomingTxnWhereInput, {nullable:true})
+    @Type(() => BinanceIncomingTxnWhereInput)
+    where?: BinanceIncomingTxnWhereInput;
+
+    @Field(() => BinanceIncomingTxnUpdateWithoutWhitelabelIncomingTransactionInput, {nullable:false})
+    @Type(() => BinanceIncomingTxnUpdateWithoutWhitelabelIncomingTransactionInput)
+    data!: BinanceIncomingTxnUpdateWithoutWhitelabelIncomingTransactionInput;
 }

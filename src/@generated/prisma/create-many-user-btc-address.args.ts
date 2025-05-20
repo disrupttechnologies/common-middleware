@@ -5,10 +5,11 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateManyUserBtcAddressArgs {
-  @Field(() => [UserBTCAddressCreateManyInput], { nullable: false })
-  @Type(() => UserBTCAddressCreateManyInput)
-  data!: Array<UserBTCAddressCreateManyInput>;
 
-  @Field(() => Boolean, { nullable: true })
-  skipDuplicates?: boolean;
+    @Field(() => [UserBTCAddressCreateManyInput], {nullable:false})
+    @Type(() => UserBTCAddressCreateManyInput)
+    data!: Array<UserBTCAddressCreateManyInput>;
+
+    @Field(() => Boolean, {nullable:true})
+    skipDuplicates?: boolean;
 }

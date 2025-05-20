@@ -6,12 +6,13 @@ import { BTCSettlementTransactionMaxAggregate } from './btc-settlement-transacti
 
 @ObjectType()
 export class AggregateBTCSettlementTransaction {
-  @Field(() => BTCSettlementTransactionCountAggregate, { nullable: true })
-  _count?: BTCSettlementTransactionCountAggregate;
 
-  @Field(() => BTCSettlementTransactionMinAggregate, { nullable: true })
-  _min?: BTCSettlementTransactionMinAggregate;
+    @Field(() => BTCSettlementTransactionCountAggregate, {nullable:true})
+    _count?: BTCSettlementTransactionCountAggregate;
 
-  @Field(() => BTCSettlementTransactionMaxAggregate, { nullable: true })
-  _max?: BTCSettlementTransactionMaxAggregate;
+    @Field(() => BTCSettlementTransactionMinAggregate, {nullable:true})
+    _min?: BTCSettlementTransactionMinAggregate;
+
+    @Field(() => BTCSettlementTransactionMaxAggregate, {nullable:true})
+    _max?: BTCSettlementTransactionMaxAggregate;
 }

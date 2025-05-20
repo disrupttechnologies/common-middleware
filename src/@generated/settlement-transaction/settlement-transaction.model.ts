@@ -6,30 +6,28 @@ import { BinanceIncomingTxn } from '../binance-incoming-txn/binance-incoming-txn
 
 @ObjectType()
 export class SettlementTransaction {
-  @Field(() => ID, { nullable: false })
-  id!: string;
 
-  @Field(() => Date, { nullable: false })
-  createdAt!: Date;
+    @Field(() => ID, {nullable:false})
+    id!: string;
 
-  @Field(() => Date, { nullable: false })
-  updatedAt!: Date;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
 
-  @Field(() => String, { nullable: true })
-  orderId!: string | null;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
 
-  @Field(() => Date, { nullable: true })
-  orderplaceTime!: Date | null;
+    @Field(() => String, {nullable:true})
+    orderId!: string | null;
 
-  @Field(() => String, { nullable: true })
-  amountReceived!: string | null;
+    @Field(() => Date, {nullable:true})
+    orderplaceTime!: Date | null;
 
-  @Field(() => SettlementTransactionProcessStatus, {
-    nullable: false,
-    defaultValue: 'NOT_INITIALIZED',
-  })
-  status!: keyof typeof SettlementTransactionProcessStatus;
+    @Field(() => String, {nullable:true})
+    amountReceived!: string | null;
 
-  @Field(() => BinanceIncomingTxn, { nullable: true })
-  incomingTxn?: BinanceIncomingTxn | null;
+    @Field(() => SettlementTransactionProcessStatus, {nullable:false,defaultValue:'NOT_INITIALIZED'})
+    status!: keyof typeof SettlementTransactionProcessStatus;
+
+    @Field(() => BinanceIncomingTxn, {nullable:true})
+    incomingTxn?: BinanceIncomingTxn | null;
 }

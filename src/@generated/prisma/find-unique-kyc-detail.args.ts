@@ -5,7 +5,8 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class FindUniqueKycDetailArgs {
-  @Field(() => KYCDetailWhereUniqueInput, { nullable: false })
-  @Type(() => KYCDetailWhereUniqueInput)
-  where!: KYCDetailWhereUniqueInput;
+
+    @Field(() => KYCDetailWhereUniqueInput, {nullable:false})
+    @Type(() => KYCDetailWhereUniqueInput)
+    where!: KYCDetailWhereUniqueInput;
 }

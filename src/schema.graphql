@@ -355,6 +355,7 @@ type Query {
   getKYCAccessToken(data: GetKYCAccessTokenInput! = {}): GetKYCAccessTokenInputResponse!
   getKYCDetails(where: KYCDetailWhereInput! = {}): [KYCDetail!]!
   getKYCResponses(data: GetKYCResponseInput! = {}): GetKYCResponses!
+  getTVL: [TVLEntity!]!
   getUserAddresses(data: GetUserBTCAddressInput!): [UserBTCAddress!]!
 }
 
@@ -428,6 +429,11 @@ input StringNullableFilter {
   not: NestedStringNullableFilter
   notIn: [String!]
   startsWith: String
+}
+
+type TVLEntity {
+  month_year: String!
+  total_amount_received: String!
 }
 
 type Token {

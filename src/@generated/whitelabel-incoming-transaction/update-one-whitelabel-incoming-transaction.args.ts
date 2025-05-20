@@ -7,16 +7,12 @@ import { WhitelabelIncomingTransactionWhereUniqueInput } from './whitelabel-inco
 
 @ArgsType()
 export class UpdateOneWhitelabelIncomingTransactionArgs {
-  @Field(() => WhitelabelIncomingTransactionUpdateInput, { nullable: false })
-  @Type(() => WhitelabelIncomingTransactionUpdateInput)
-  data!: WhitelabelIncomingTransactionUpdateInput;
 
-  @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {
-    nullable: false,
-  })
-  @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
-  where!: Prisma.AtLeast<
-    WhitelabelIncomingTransactionWhereUniqueInput,
-    'id' | 'provisionTxnHash' | 'settlementTransactionId'
-  >;
+    @Field(() => WhitelabelIncomingTransactionUpdateInput, {nullable:false})
+    @Type(() => WhitelabelIncomingTransactionUpdateInput)
+    data!: WhitelabelIncomingTransactionUpdateInput;
+
+    @Field(() => WhitelabelIncomingTransactionWhereUniqueInput, {nullable:false})
+    @Type(() => WhitelabelIncomingTransactionWhereUniqueInput)
+    where!: Prisma.AtLeast<WhitelabelIncomingTransactionWhereUniqueInput, 'id' | 'provisionTxnHash' | 'settlementTransactionId'>;
 }

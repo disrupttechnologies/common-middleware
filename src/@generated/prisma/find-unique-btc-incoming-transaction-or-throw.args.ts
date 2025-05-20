@@ -5,7 +5,8 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class FindUniqueBtcIncomingTransactionOrThrowArgs {
-  @Field(() => BTCIncomingTransactionWhereUniqueInput, { nullable: false })
-  @Type(() => BTCIncomingTransactionWhereUniqueInput)
-  where!: BTCIncomingTransactionWhereUniqueInput;
+
+    @Field(() => BTCIncomingTransactionWhereUniqueInput, {nullable:false})
+    @Type(() => BTCIncomingTransactionWhereUniqueInput)
+    where!: BTCIncomingTransactionWhereUniqueInput;
 }
