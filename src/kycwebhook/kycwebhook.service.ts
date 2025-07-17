@@ -118,10 +118,10 @@ export class KycwebhookService {
         case 'applicantCreated':
           await this.handleApplicantCreated(data);
           break;
-        case 'applicantPending':
-          await this.handleApplicantPending(data);
+        // case 'applicantPending':
+        //   await this.handleApplicantPending(data);
 
-          break;
+        //   break;
       }
     } catch (err) {}
 

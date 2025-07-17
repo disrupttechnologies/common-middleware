@@ -7,15 +7,16 @@ import { KYCUserUpdateInput } from '../kyc-user/kyc-user-update.input';
 
 @ArgsType()
 export class UpsertOneKycUserArgs {
-  @Field(() => KYCUserWhereUniqueInput, { nullable: false })
-  @Type(() => KYCUserWhereUniqueInput)
-  where!: KYCUserWhereUniqueInput;
 
-  @Field(() => KYCUserCreateInput, { nullable: false })
-  @Type(() => KYCUserCreateInput)
-  create!: KYCUserCreateInput;
+    @Field(() => KYCUserWhereUniqueInput, {nullable:false})
+    @Type(() => KYCUserWhereUniqueInput)
+    where!: KYCUserWhereUniqueInput;
 
-  @Field(() => KYCUserUpdateInput, { nullable: false })
-  @Type(() => KYCUserUpdateInput)
-  update!: KYCUserUpdateInput;
+    @Field(() => KYCUserCreateInput, {nullable:false})
+    @Type(() => KYCUserCreateInput)
+    create!: KYCUserCreateInput;
+
+    @Field(() => KYCUserUpdateInput, {nullable:false})
+    @Type(() => KYCUserUpdateInput)
+    update!: KYCUserUpdateInput;
 }

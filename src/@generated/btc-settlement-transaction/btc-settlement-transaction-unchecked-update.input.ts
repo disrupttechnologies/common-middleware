@@ -4,30 +4,31 @@ import { BTCTxnProcessStatus } from '../prisma/btc-txn-process-status.enum';
 
 @InputType()
 export class BTCSettlementTransactionUncheckedUpdateInput {
-  @Field(() => String, { nullable: true })
-  id?: string;
 
-  @Field(() => Date, { nullable: true })
-  createdAt?: Date | string;
+    @Field(() => String, {nullable:true})
+    id?: string;
 
-  @Field(() => Date, { nullable: true })
-  updatedAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
 
-  @Field(() => String, { nullable: true })
-  incomingTxnId?: string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
 
-  @Field(() => String, { nullable: true })
-  orderId?: string;
+    @Field(() => String, {nullable:true})
+    incomingTxnId?: string;
 
-  @Field(() => Date, { nullable: true })
-  orderplaceTime?: Date | string;
+    @Field(() => String, {nullable:true})
+    orderId?: string;
 
-  @Field(() => String, { nullable: true })
-  amountReceivedInUSD?: string;
+    @Field(() => Date, {nullable:true})
+    orderplaceTime?: Date | string;
 
-  @Field(() => BTCTxnProcessStatus, { nullable: true })
-  status?: keyof typeof BTCTxnProcessStatus;
+    @Field(() => String, {nullable:true})
+    amountReceivedInUSD?: string;
 
-  @Field(() => String, { nullable: true })
-  failedRemarks?: string;
+    @Field(() => BTCTxnProcessStatus, {nullable:true})
+    status?: keyof typeof BTCTxnProcessStatus;
+
+    @Field(() => String, {nullable:true})
+    failedRemarks?: string;
 }

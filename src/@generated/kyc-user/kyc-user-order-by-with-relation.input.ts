@@ -5,33 +5,34 @@ import { SortOrderInput } from '../prisma/sort-order.input';
 
 @InputType()
 export class KYCUserOrderByWithRelationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  updatedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  userId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  whitelabelId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  kycApplicantId?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    whitelabelId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  kycStatus?: keyof typeof SortOrder;
+    @Field(() => SortOrderInput, {nullable:true})
+    kycApplicantId?: SortOrderInput;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  inspectionId?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    kycStatus?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  kycData?: SortOrderInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    inspectionId?: SortOrderInput;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  metadata?: SortOrderInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    kycData?: SortOrderInput;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    metadata?: SortOrderInput;
 }

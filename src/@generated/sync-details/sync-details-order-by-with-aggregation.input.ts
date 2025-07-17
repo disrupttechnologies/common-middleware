@@ -8,24 +8,25 @@ import { SyncDetailsMinOrderByAggregateInput } from './sync-details-min-order-by
 
 @InputType()
 export class SyncDetailsOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  lastSyncedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  actionName?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    lastSyncedAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  metadata?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    actionName?: keyof typeof SortOrder;
 
-  @Field(() => SyncDetailsCountOrderByAggregateInput, { nullable: true })
-  _count?: SyncDetailsCountOrderByAggregateInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    metadata?: SortOrderInput;
 
-  @Field(() => SyncDetailsMaxOrderByAggregateInput, { nullable: true })
-  _max?: SyncDetailsMaxOrderByAggregateInput;
+    @Field(() => SyncDetailsCountOrderByAggregateInput, {nullable:true})
+    _count?: SyncDetailsCountOrderByAggregateInput;
 
-  @Field(() => SyncDetailsMinOrderByAggregateInput, { nullable: true })
-  _min?: SyncDetailsMinOrderByAggregateInput;
+    @Field(() => SyncDetailsMaxOrderByAggregateInput, {nullable:true})
+    _max?: SyncDetailsMaxOrderByAggregateInput;
+
+    @Field(() => SyncDetailsMinOrderByAggregateInput, {nullable:true})
+    _min?: SyncDetailsMinOrderByAggregateInput;
 }

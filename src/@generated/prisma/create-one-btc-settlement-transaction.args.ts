@@ -5,7 +5,8 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateOneBtcSettlementTransactionArgs {
-  @Field(() => BTCSettlementTransactionCreateInput, { nullable: false })
-  @Type(() => BTCSettlementTransactionCreateInput)
-  data!: BTCSettlementTransactionCreateInput;
+
+    @Field(() => BTCSettlementTransactionCreateInput, {nullable:false})
+    @Type(() => BTCSettlementTransactionCreateInput)
+    data!: BTCSettlementTransactionCreateInput;
 }

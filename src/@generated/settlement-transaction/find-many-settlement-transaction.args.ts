@@ -10,27 +10,23 @@ import { SettlementTransactionScalarFieldEnum } from './settlement-transaction-s
 
 @ArgsType()
 export class FindManySettlementTransactionArgs {
-  @Field(() => SettlementTransactionWhereInput, { nullable: true })
-  @Type(() => SettlementTransactionWhereInput)
-  where?: SettlementTransactionWhereInput;
 
-  @Field(() => [SettlementTransactionOrderByWithRelationInput], {
-    nullable: true,
-  })
-  orderBy?: Array<SettlementTransactionOrderByWithRelationInput>;
+    @Field(() => SettlementTransactionWhereInput, {nullable:true})
+    @Type(() => SettlementTransactionWhereInput)
+    where?: SettlementTransactionWhereInput;
 
-  @Field(() => SettlementTransactionWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<
-    SettlementTransactionWhereUniqueInput,
-    'id' | 'orderId'
-  >;
+    @Field(() => [SettlementTransactionOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<SettlementTransactionOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => SettlementTransactionWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<SettlementTransactionWhereUniqueInput, 'id' | 'orderId'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [SettlementTransactionScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof SettlementTransactionScalarFieldEnum>;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [SettlementTransactionScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof SettlementTransactionScalarFieldEnum>;
 }

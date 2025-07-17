@@ -7,11 +7,12 @@ import { SyncDetailsWhereUniqueInput } from './sync-details-where-unique.input';
 
 @ArgsType()
 export class UpdateOneSyncDetailsArgs {
-  @Field(() => SyncDetailsUpdateInput, { nullable: false })
-  @Type(() => SyncDetailsUpdateInput)
-  data!: SyncDetailsUpdateInput;
 
-  @Field(() => SyncDetailsWhereUniqueInput, { nullable: false })
-  @Type(() => SyncDetailsWhereUniqueInput)
-  where!: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
+    @Field(() => SyncDetailsUpdateInput, {nullable:false})
+    @Type(() => SyncDetailsUpdateInput)
+    data!: SyncDetailsUpdateInput;
+
+    @Field(() => SyncDetailsWhereUniqueInput, {nullable:false})
+    @Type(() => SyncDetailsWhereUniqueInput)
+    where!: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
 }

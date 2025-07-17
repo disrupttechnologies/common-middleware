@@ -5,32 +5,31 @@ import { BTCIncomingTransactionCreateNestedOneWithoutSettlementTxnInput } from '
 
 @InputType()
 export class BTCSettlementTransactionCreateInput {
-  @Field(() => String, { nullable: true })
-  id?: string;
 
-  @Field(() => Date, { nullable: true })
-  createdAt?: Date | string;
+    @Field(() => String, {nullable:true})
+    id?: string;
 
-  @Field(() => Date, { nullable: true })
-  updatedAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
 
-  @Field(() => String, { nullable: true })
-  orderId?: string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
 
-  @Field(() => Date, { nullable: true })
-  orderplaceTime?: Date | string;
+    @Field(() => String, {nullable:true})
+    orderId?: string;
 
-  @Field(() => String, { nullable: true })
-  amountReceivedInUSD?: string;
+    @Field(() => Date, {nullable:true})
+    orderplaceTime?: Date | string;
 
-  @Field(() => BTCTxnProcessStatus, { nullable: true })
-  status?: keyof typeof BTCTxnProcessStatus;
+    @Field(() => String, {nullable:true})
+    amountReceivedInUSD?: string;
 
-  @Field(() => String, { nullable: true })
-  failedRemarks?: string;
+    @Field(() => BTCTxnProcessStatus, {nullable:true})
+    status?: keyof typeof BTCTxnProcessStatus;
 
-  @Field(() => BTCIncomingTransactionCreateNestedOneWithoutSettlementTxnInput, {
-    nullable: false,
-  })
-  incomingTxn!: BTCIncomingTransactionCreateNestedOneWithoutSettlementTxnInput;
+    @Field(() => String, {nullable:true})
+    failedRemarks?: string;
+
+    @Field(() => BTCIncomingTransactionCreateNestedOneWithoutSettlementTxnInput, {nullable:false})
+    incomingTxn!: BTCIncomingTransactionCreateNestedOneWithoutSettlementTxnInput;
 }

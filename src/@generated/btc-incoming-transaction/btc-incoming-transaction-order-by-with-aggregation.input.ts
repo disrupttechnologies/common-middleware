@@ -8,48 +8,43 @@ import { BTCIncomingTransactionMinOrderByAggregateInput } from './btc-incoming-t
 
 @InputType()
 export class BTCIncomingTransactionOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  updatedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  txnHash?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  binanceTxnId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    txnHash?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  txnTime?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    binanceTxnId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  amount?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    txnTime?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  senderAddress?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    amount?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  txnStatus?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    senderAddress?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  failedRemarks?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    txnStatus?: keyof typeof SortOrder;
 
-  @Field(() => BTCIncomingTransactionCountOrderByAggregateInput, {
-    nullable: true,
-  })
-  _count?: BTCIncomingTransactionCountOrderByAggregateInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    failedRemarks?: SortOrderInput;
 
-  @Field(() => BTCIncomingTransactionMaxOrderByAggregateInput, {
-    nullable: true,
-  })
-  _max?: BTCIncomingTransactionMaxOrderByAggregateInput;
+    @Field(() => BTCIncomingTransactionCountOrderByAggregateInput, {nullable:true})
+    _count?: BTCIncomingTransactionCountOrderByAggregateInput;
 
-  @Field(() => BTCIncomingTransactionMinOrderByAggregateInput, {
-    nullable: true,
-  })
-  _min?: BTCIncomingTransactionMinOrderByAggregateInput;
+    @Field(() => BTCIncomingTransactionMaxOrderByAggregateInput, {nullable:true})
+    _max?: BTCIncomingTransactionMaxOrderByAggregateInput;
+
+    @Field(() => BTCIncomingTransactionMinOrderByAggregateInput, {nullable:true})
+    _min?: BTCIncomingTransactionMinOrderByAggregateInput;
 }

@@ -6,10 +6,8 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class FindUniqueSettlementTransactionOrThrowArgs {
-  @Field(() => SettlementTransactionWhereUniqueInput, { nullable: false })
-  @Type(() => SettlementTransactionWhereUniqueInput)
-  where!: Prisma.AtLeast<
-    SettlementTransactionWhereUniqueInput,
-    'id' | 'orderId'
-  >;
+
+    @Field(() => SettlementTransactionWhereUniqueInput, {nullable:false})
+    @Type(() => SettlementTransactionWhereUniqueInput)
+    where!: Prisma.AtLeast<SettlementTransactionWhereUniqueInput, 'id' | 'orderId'>;
 }

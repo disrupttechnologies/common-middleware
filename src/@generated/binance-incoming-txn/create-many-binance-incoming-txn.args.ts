@@ -5,10 +5,11 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateManyBinanceIncomingTxnArgs {
-  @Field(() => [BinanceIncomingTxnCreateManyInput], { nullable: false })
-  @Type(() => BinanceIncomingTxnCreateManyInput)
-  data!: Array<BinanceIncomingTxnCreateManyInput>;
 
-  @Field(() => Boolean, { nullable: true })
-  skipDuplicates?: boolean;
+    @Field(() => [BinanceIncomingTxnCreateManyInput], {nullable:false})
+    @Type(() => BinanceIncomingTxnCreateManyInput)
+    data!: Array<BinanceIncomingTxnCreateManyInput>;
+
+    @Field(() => Boolean, {nullable:true})
+    skipDuplicates?: boolean;
 }

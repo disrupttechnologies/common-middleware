@@ -8,41 +8,34 @@ import { EnumSettlementTransactionProcessStatusWithAggregatesFilter } from '../p
 
 @InputType()
 export class SettlementTransactionScalarWhereWithAggregatesInput {
-  @Field(() => [SettlementTransactionScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  AND?: Array<SettlementTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => [SettlementTransactionScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  OR?: Array<SettlementTransactionScalarWhereWithAggregatesInput>;
+    @Field(() => [SettlementTransactionScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<SettlementTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => [SettlementTransactionScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  NOT?: Array<SettlementTransactionScalarWhereWithAggregatesInput>;
+    @Field(() => [SettlementTransactionScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<SettlementTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  id?: StringWithAggregatesFilter;
+    @Field(() => [SettlementTransactionScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<SettlementTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: StringWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  orderId?: StringNullableWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => DateTimeNullableWithAggregatesFilter, { nullable: true })
-  orderplaceTime?: DateTimeNullableWithAggregatesFilter;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    orderId?: StringNullableWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  amountReceived?: StringNullableWithAggregatesFilter;
+    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
+    orderplaceTime?: DateTimeNullableWithAggregatesFilter;
 
-  @Field(() => EnumSettlementTransactionProcessStatusWithAggregatesFilter, {
-    nullable: true,
-  })
-  status?: EnumSettlementTransactionProcessStatusWithAggregatesFilter;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    amountReceived?: StringNullableWithAggregatesFilter;
+
+    @Field(() => EnumSettlementTransactionProcessStatusWithAggregatesFilter, {nullable:true})
+    status?: EnumSettlementTransactionProcessStatusWithAggregatesFilter;
 }

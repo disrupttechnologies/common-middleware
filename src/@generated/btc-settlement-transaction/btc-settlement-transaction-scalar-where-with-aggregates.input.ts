@@ -8,45 +8,40 @@ import { EnumBTCTxnProcessStatusWithAggregatesFilter } from '../prisma/enum-btc-
 
 @InputType()
 export class BTCSettlementTransactionScalarWhereWithAggregatesInput {
-  @Field(() => [BTCSettlementTransactionScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  AND?: Array<BTCSettlementTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => [BTCSettlementTransactionScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  OR?: Array<BTCSettlementTransactionScalarWhereWithAggregatesInput>;
+    @Field(() => [BTCSettlementTransactionScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<BTCSettlementTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => [BTCSettlementTransactionScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  NOT?: Array<BTCSettlementTransactionScalarWhereWithAggregatesInput>;
+    @Field(() => [BTCSettlementTransactionScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<BTCSettlementTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  id?: StringWithAggregatesFilter;
+    @Field(() => [BTCSettlementTransactionScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<BTCSettlementTransactionScalarWhereWithAggregatesInput>;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  createdAt?: DateTimeWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: StringWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  updatedAt?: DateTimeWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  incomingTxnId?: StringWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: DateTimeWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  orderId?: StringNullableWithAggregatesFilter;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    incomingTxnId?: StringWithAggregatesFilter;
 
-  @Field(() => DateTimeNullableWithAggregatesFilter, { nullable: true })
-  orderplaceTime?: DateTimeNullableWithAggregatesFilter;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    orderId?: StringNullableWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  amountReceivedInUSD?: StringNullableWithAggregatesFilter;
+    @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
+    orderplaceTime?: DateTimeNullableWithAggregatesFilter;
 
-  @Field(() => EnumBTCTxnProcessStatusWithAggregatesFilter, { nullable: true })
-  status?: EnumBTCTxnProcessStatusWithAggregatesFilter;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    amountReceivedInUSD?: StringNullableWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  failedRemarks?: StringNullableWithAggregatesFilter;
+    @Field(() => EnumBTCTxnProcessStatusWithAggregatesFilter, {nullable:true})
+    status?: EnumBTCTxnProcessStatusWithAggregatesFilter;
+
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    failedRemarks?: StringNullableWithAggregatesFilter;
 }

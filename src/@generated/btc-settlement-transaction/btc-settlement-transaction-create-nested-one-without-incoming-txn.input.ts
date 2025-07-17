@@ -8,22 +8,16 @@ import { BTCSettlementTransactionWhereUniqueInput } from './btc-settlement-trans
 
 @InputType()
 export class BTCSettlementTransactionCreateNestedOneWithoutIncomingTxnInput {
-  @Field(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  @Type(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput)
-  create?: BTCSettlementTransactionCreateWithoutIncomingTxnInput;
 
-  @Field(() => BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput, {
-    nullable: true,
-  })
-  @Type(() => BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput)
-  connectOrCreate?: BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput;
+    @Field(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionCreateWithoutIncomingTxnInput)
+    create?: BTCSettlementTransactionCreateWithoutIncomingTxnInput;
 
-  @Field(() => BTCSettlementTransactionWhereUniqueInput, { nullable: true })
-  @Type(() => BTCSettlementTransactionWhereUniqueInput)
-  connect?: Prisma.AtLeast<
-    BTCSettlementTransactionWhereUniqueInput,
-    'id' | 'incomingTxnId' | 'orderId'
-  >;
+    @Field(() => BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput)
+    connectOrCreate?: BTCSettlementTransactionCreateOrConnectWithoutIncomingTxnInput;
+
+    @Field(() => BTCSettlementTransactionWhereUniqueInput, {nullable:true})
+    @Type(() => BTCSettlementTransactionWhereUniqueInput)
+    connect?: Prisma.AtLeast<BTCSettlementTransactionWhereUniqueInput, 'id' | 'incomingTxnId' | 'orderId'>;
 }

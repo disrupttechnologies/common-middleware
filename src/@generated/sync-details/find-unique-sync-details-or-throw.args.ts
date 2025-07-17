@@ -6,7 +6,8 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class FindUniqueSyncDetailsOrThrowArgs {
-  @Field(() => SyncDetailsWhereUniqueInput, { nullable: false })
-  @Type(() => SyncDetailsWhereUniqueInput)
-  where!: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
+
+    @Field(() => SyncDetailsWhereUniqueInput, {nullable:false})
+    @Type(() => SyncDetailsWhereUniqueInput)
+    where!: Prisma.AtLeast<SyncDetailsWhereUniqueInput, 'id' | 'actionName'>;
 }

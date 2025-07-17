@@ -5,15 +5,16 @@ import { SortOrderInput } from '../prisma/sort-order.input';
 
 @InputType()
 export class SyncDetailsOrderByWithRelationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  lastSyncedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  actionName?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    lastSyncedAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  metadata?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    actionName?: keyof typeof SortOrder;
+
+    @Field(() => SortOrderInput, {nullable:true})
+    metadata?: SortOrderInput;
 }

@@ -6,11 +6,12 @@ import { KYCDetailWhereUniqueInput } from '../kyc-detail/kyc-detail-where-unique
 
 @ArgsType()
 export class UpdateOneKycDetailArgs {
-  @Field(() => KYCDetailUpdateInput, { nullable: false })
-  @Type(() => KYCDetailUpdateInput)
-  data!: KYCDetailUpdateInput;
 
-  @Field(() => KYCDetailWhereUniqueInput, { nullable: false })
-  @Type(() => KYCDetailWhereUniqueInput)
-  where!: KYCDetailWhereUniqueInput;
+    @Field(() => KYCDetailUpdateInput, {nullable:false})
+    @Type(() => KYCDetailUpdateInput)
+    data!: KYCDetailUpdateInput;
+
+    @Field(() => KYCDetailWhereUniqueInput, {nullable:false})
+    @Type(() => KYCDetailWhereUniqueInput)
+    where!: KYCDetailWhereUniqueInput;
 }

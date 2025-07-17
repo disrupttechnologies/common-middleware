@@ -7,39 +7,40 @@ import { UserBTCAddress } from '../user-btc-address/user-btc-address.model';
 
 @ObjectType()
 export class BTCIncomingTransaction {
-  @Field(() => ID, { nullable: false })
-  id!: string;
 
-  @Field(() => Date, { nullable: false })
-  createdAt!: Date;
+    @Field(() => ID, {nullable:false})
+    id!: string;
 
-  @Field(() => Date, { nullable: false })
-  updatedAt!: Date;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
 
-  @Field(() => String, { nullable: false })
-  txnHash!: string;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
 
-  @Field(() => String, { nullable: false })
-  binanceTxnId!: string;
+    @Field(() => String, {nullable:false})
+    txnHash!: string;
 
-  @Field(() => Date, { nullable: false })
-  txnTime!: Date;
+    @Field(() => String, {nullable:false})
+    binanceTxnId!: string;
 
-  @Field(() => String, { nullable: false })
-  amount!: string;
+    @Field(() => Date, {nullable:false})
+    txnTime!: Date;
 
-  @Field(() => String, { nullable: false })
-  senderAddress!: string;
+    @Field(() => String, {nullable:false})
+    amount!: string;
 
-  @Field(() => TxnStatus, { nullable: false })
-  txnStatus!: keyof typeof TxnStatus;
+    @Field(() => String, {nullable:false})
+    senderAddress!: string;
 
-  @Field(() => String, { nullable: true })
-  failedRemarks!: string | null;
+    @Field(() => TxnStatus, {nullable:false})
+    txnStatus!: keyof typeof TxnStatus;
 
-  @Field(() => BTCSettlementTransaction, { nullable: true })
-  settlementTxn?: BTCSettlementTransaction | null;
+    @Field(() => String, {nullable:true})
+    failedRemarks!: string | null;
 
-  @Field(() => UserBTCAddress, { nullable: false })
-  user?: UserBTCAddress;
+    @Field(() => BTCSettlementTransaction, {nullable:true})
+    settlementTxn?: BTCSettlementTransaction | null;
+
+    @Field(() => UserBTCAddress, {nullable:false})
+    user?: UserBTCAddress;
 }

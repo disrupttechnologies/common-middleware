@@ -7,19 +7,16 @@ import { BTCIncomingTransactionWhereInput } from './btc-incoming-transaction-whe
 
 @InputType()
 export class BTCIncomingTransactionUpsertWithoutSettlementTxnInput {
-  @Field(() => BTCIncomingTransactionUpdateWithoutSettlementTxnInput, {
-    nullable: false,
-  })
-  @Type(() => BTCIncomingTransactionUpdateWithoutSettlementTxnInput)
-  update!: BTCIncomingTransactionUpdateWithoutSettlementTxnInput;
 
-  @Field(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput, {
-    nullable: false,
-  })
-  @Type(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput)
-  create!: BTCIncomingTransactionCreateWithoutSettlementTxnInput;
+    @Field(() => BTCIncomingTransactionUpdateWithoutSettlementTxnInput, {nullable:false})
+    @Type(() => BTCIncomingTransactionUpdateWithoutSettlementTxnInput)
+    update!: BTCIncomingTransactionUpdateWithoutSettlementTxnInput;
 
-  @Field(() => BTCIncomingTransactionWhereInput, { nullable: true })
-  @Type(() => BTCIncomingTransactionWhereInput)
-  where?: BTCIncomingTransactionWhereInput;
+    @Field(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput, {nullable:false})
+    @Type(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput)
+    create!: BTCIncomingTransactionCreateWithoutSettlementTxnInput;
+
+    @Field(() => BTCIncomingTransactionWhereInput, {nullable:true})
+    @Type(() => BTCIncomingTransactionWhereInput)
+    where?: BTCIncomingTransactionWhereInput;
 }

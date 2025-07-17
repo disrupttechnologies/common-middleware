@@ -8,42 +8,43 @@ import { EnumKYCStageFilter } from '../prisma/enum-kyc-stage-filter.input';
 
 @InputType()
 export class KYCDetailWhereInput {
-  @Field(() => [KYCDetailWhereInput], { nullable: true })
-  AND?: Array<KYCDetailWhereInput>;
 
-  @Field(() => [KYCDetailWhereInput], { nullable: true })
-  OR?: Array<KYCDetailWhereInput>;
+    @Field(() => [KYCDetailWhereInput], {nullable:true})
+    AND?: Array<KYCDetailWhereInput>;
 
-  @Field(() => [KYCDetailWhereInput], { nullable: true })
-  NOT?: Array<KYCDetailWhereInput>;
+    @Field(() => [KYCDetailWhereInput], {nullable:true})
+    OR?: Array<KYCDetailWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  id?: StringFilter;
+    @Field(() => [KYCDetailWhereInput], {nullable:true})
+    NOT?: Array<KYCDetailWhereInput>;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  createdAt?: DateTimeFilter;
+    @Field(() => StringFilter, {nullable:true})
+    id?: StringFilter;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  updatedAt?: DateTimeFilter;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: DateTimeFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  userId?: StringFilter;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: DateTimeFilter;
 
-  @Field(() => EnumKycStatusFilter, { nullable: true })
-  kycStatus?: EnumKycStatusFilter;
+    @Field(() => StringFilter, {nullable:true})
+    userId?: StringFilter;
 
-  @Field(() => StringNullableFilter, { nullable: true })
-  failedRemarks?: StringNullableFilter;
+    @Field(() => EnumKycStatusFilter, {nullable:true})
+    kycStatus?: EnumKycStatusFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  userMetadata?: StringFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    failedRemarks?: StringNullableFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  whitelabelId?: StringFilter;
+    @Field(() => StringFilter, {nullable:true})
+    userMetadata?: StringFilter;
 
-  @Field(() => StringNullableFilter, { nullable: true })
-  kycApplicantId?: StringNullableFilter;
+    @Field(() => StringFilter, {nullable:true})
+    whitelabelId?: StringFilter;
 
-  @Field(() => EnumKYCStageFilter, { nullable: true })
-  kycStage?: EnumKYCStageFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    kycApplicantId?: StringNullableFilter;
+
+    @Field(() => EnumKYCStageFilter, {nullable:true})
+    kycStage?: EnumKYCStageFilter;
 }

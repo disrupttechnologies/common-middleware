@@ -12,43 +12,32 @@ import { WhitelabelIncomingTransactionMaxAggregateInput } from './whitelabel-inc
 
 @ArgsType()
 export class WhitelabelIncomingTransactionGroupByArgs {
-  @Field(() => WhitelabelIncomingTransactionWhereInput, { nullable: true })
-  @Type(() => WhitelabelIncomingTransactionWhereInput)
-  where?: WhitelabelIncomingTransactionWhereInput;
 
-  @Field(() => [WhitelabelIncomingTransactionOrderByWithAggregationInput], {
-    nullable: true,
-  })
-  orderBy?: Array<WhitelabelIncomingTransactionOrderByWithAggregationInput>;
+    @Field(() => WhitelabelIncomingTransactionWhereInput, {nullable:true})
+    @Type(() => WhitelabelIncomingTransactionWhereInput)
+    where?: WhitelabelIncomingTransactionWhereInput;
 
-  @Field(() => [WhitelabelIncomingTransactionScalarFieldEnum], {
-    nullable: false,
-  })
-  by!: Array<keyof typeof WhitelabelIncomingTransactionScalarFieldEnum>;
+    @Field(() => [WhitelabelIncomingTransactionOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<WhitelabelIncomingTransactionOrderByWithAggregationInput>;
 
-  @Field(() => WhitelabelIncomingTransactionScalarWhereWithAggregatesInput, {
-    nullable: true,
-  })
-  having?: WhitelabelIncomingTransactionScalarWhereWithAggregatesInput;
+    @Field(() => [WhitelabelIncomingTransactionScalarFieldEnum], {nullable:false})
+    by!: Array<keyof typeof WhitelabelIncomingTransactionScalarFieldEnum>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number;
+    @Field(() => WhitelabelIncomingTransactionScalarWhereWithAggregatesInput, {nullable:true})
+    having?: WhitelabelIncomingTransactionScalarWhereWithAggregatesInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number;
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => WhitelabelIncomingTransactionCountAggregateInput, {
-    nullable: true,
-  })
-  _count?: WhitelabelIncomingTransactionCountAggregateInput;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => WhitelabelIncomingTransactionMinAggregateInput, {
-    nullable: true,
-  })
-  _min?: WhitelabelIncomingTransactionMinAggregateInput;
+    @Field(() => WhitelabelIncomingTransactionCountAggregateInput, {nullable:true})
+    _count?: WhitelabelIncomingTransactionCountAggregateInput;
 
-  @Field(() => WhitelabelIncomingTransactionMaxAggregateInput, {
-    nullable: true,
-  })
-  _max?: WhitelabelIncomingTransactionMaxAggregateInput;
+    @Field(() => WhitelabelIncomingTransactionMinAggregateInput, {nullable:true})
+    _min?: WhitelabelIncomingTransactionMinAggregateInput;
+
+    @Field(() => WhitelabelIncomingTransactionMaxAggregateInput, {nullable:true})
+    _max?: WhitelabelIncomingTransactionMaxAggregateInput;
 }

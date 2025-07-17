@@ -5,7 +5,8 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class DeleteManySyncDetailsArgs {
-  @Field(() => SyncDetailsWhereInput, { nullable: true })
-  @Type(() => SyncDetailsWhereInput)
-  where?: SyncDetailsWhereInput;
+
+    @Field(() => SyncDetailsWhereInput, {nullable:true})
+    @Type(() => SyncDetailsWhereInput)
+    where?: SyncDetailsWhereInput;
 }

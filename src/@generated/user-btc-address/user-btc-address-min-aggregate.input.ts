@@ -3,21 +3,22 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class UserBTCAddressMinAggregateInput {
-  @Field(() => Boolean, { nullable: true })
-  id?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  createdAt?: true;
+    @Field(() => Boolean, {nullable:true})
+    id?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  updatedAt?: true;
+    @Field(() => Boolean, {nullable:true})
+    createdAt?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  address?: true;
+    @Field(() => Boolean, {nullable:true})
+    updatedAt?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  userId?: true;
+    @Field(() => Boolean, {nullable:true})
+    address?: true;
 
-  @Field(() => Boolean, { nullable: true })
-  whitelabelId?: true;
+    @Field(() => Boolean, {nullable:true})
+    userId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    whitelabelId?: true;
 }

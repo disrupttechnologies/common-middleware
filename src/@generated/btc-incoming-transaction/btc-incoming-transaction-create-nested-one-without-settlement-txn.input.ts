@@ -8,22 +8,16 @@ import { BTCIncomingTransactionWhereUniqueInput } from './btc-incoming-transacti
 
 @InputType()
 export class BTCIncomingTransactionCreateNestedOneWithoutSettlementTxnInput {
-  @Field(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput, {
-    nullable: true,
-  })
-  @Type(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput)
-  create?: BTCIncomingTransactionCreateWithoutSettlementTxnInput;
 
-  @Field(() => BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput, {
-    nullable: true,
-  })
-  @Type(() => BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput)
-  connectOrCreate?: BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput;
+    @Field(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput, {nullable:true})
+    @Type(() => BTCIncomingTransactionCreateWithoutSettlementTxnInput)
+    create?: BTCIncomingTransactionCreateWithoutSettlementTxnInput;
 
-  @Field(() => BTCIncomingTransactionWhereUniqueInput, { nullable: true })
-  @Type(() => BTCIncomingTransactionWhereUniqueInput)
-  connect?: Prisma.AtLeast<
-    BTCIncomingTransactionWhereUniqueInput,
-    'id' | 'txnHash' | 'binanceTxnId'
-  >;
+    @Field(() => BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput, {nullable:true})
+    @Type(() => BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput)
+    connectOrCreate?: BTCIncomingTransactionCreateOrConnectWithoutSettlementTxnInput;
+
+    @Field(() => BTCIncomingTransactionWhereUniqueInput, {nullable:true})
+    @Type(() => BTCIncomingTransactionWhereUniqueInput)
+    connect?: Prisma.AtLeast<BTCIncomingTransactionWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId'>;
 }

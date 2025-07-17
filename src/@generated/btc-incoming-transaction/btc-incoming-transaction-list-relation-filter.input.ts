@@ -4,12 +4,13 @@ import { BTCIncomingTransactionWhereInput } from './btc-incoming-transaction-whe
 
 @InputType()
 export class BTCIncomingTransactionListRelationFilter {
-  @Field(() => BTCIncomingTransactionWhereInput, { nullable: true })
-  every?: BTCIncomingTransactionWhereInput;
 
-  @Field(() => BTCIncomingTransactionWhereInput, { nullable: true })
-  some?: BTCIncomingTransactionWhereInput;
+    @Field(() => BTCIncomingTransactionWhereInput, {nullable:true})
+    every?: BTCIncomingTransactionWhereInput;
 
-  @Field(() => BTCIncomingTransactionWhereInput, { nullable: true })
-  none?: BTCIncomingTransactionWhereInput;
+    @Field(() => BTCIncomingTransactionWhereInput, {nullable:true})
+    some?: BTCIncomingTransactionWhereInput;
+
+    @Field(() => BTCIncomingTransactionWhereInput, {nullable:true})
+    none?: BTCIncomingTransactionWhereInput;
 }

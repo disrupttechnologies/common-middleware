@@ -8,45 +8,40 @@ import { BTCSettlementTransactionMinOrderByAggregateInput } from './btc-settleme
 
 @InputType()
 export class BTCSettlementTransactionOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  updatedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  incomingTxnId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  orderId?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    incomingTxnId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  orderplaceTime?: SortOrderInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    orderId?: SortOrderInput;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  amountReceivedInUSD?: SortOrderInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    orderplaceTime?: SortOrderInput;
 
-  @Field(() => SortOrder, { nullable: true })
-  status?: keyof typeof SortOrder;
+    @Field(() => SortOrderInput, {nullable:true})
+    amountReceivedInUSD?: SortOrderInput;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  failedRemarks?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    status?: keyof typeof SortOrder;
 
-  @Field(() => BTCSettlementTransactionCountOrderByAggregateInput, {
-    nullable: true,
-  })
-  _count?: BTCSettlementTransactionCountOrderByAggregateInput;
+    @Field(() => SortOrderInput, {nullable:true})
+    failedRemarks?: SortOrderInput;
 
-  @Field(() => BTCSettlementTransactionMaxOrderByAggregateInput, {
-    nullable: true,
-  })
-  _max?: BTCSettlementTransactionMaxOrderByAggregateInput;
+    @Field(() => BTCSettlementTransactionCountOrderByAggregateInput, {nullable:true})
+    _count?: BTCSettlementTransactionCountOrderByAggregateInput;
 
-  @Field(() => BTCSettlementTransactionMinOrderByAggregateInput, {
-    nullable: true,
-  })
-  _min?: BTCSettlementTransactionMinOrderByAggregateInput;
+    @Field(() => BTCSettlementTransactionMaxOrderByAggregateInput, {nullable:true})
+    _max?: BTCSettlementTransactionMaxOrderByAggregateInput;
+
+    @Field(() => BTCSettlementTransactionMinOrderByAggregateInput, {nullable:true})
+    _min?: BTCSettlementTransactionMinOrderByAggregateInput;
 }

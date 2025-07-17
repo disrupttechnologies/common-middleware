@@ -8,42 +8,43 @@ import { KYCDetailMinOrderByAggregateInput } from './kyc-detail-min-order-by-agg
 
 @InputType()
 export class KYCDetailOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  createdAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  updatedAt?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  userId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  kycStatus?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  failedRemarks?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    kycStatus?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  userMetadata?: keyof typeof SortOrder;
+    @Field(() => SortOrderInput, {nullable:true})
+    failedRemarks?: SortOrderInput;
 
-  @Field(() => SortOrder, { nullable: true })
-  whitelabelId?: keyof typeof SortOrder;
+    @Field(() => SortOrder, {nullable:true})
+    userMetadata?: keyof typeof SortOrder;
 
-  @Field(() => SortOrderInput, { nullable: true })
-  kycApplicantId?: SortOrderInput;
+    @Field(() => SortOrder, {nullable:true})
+    whitelabelId?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  kycStage?: keyof typeof SortOrder;
+    @Field(() => SortOrderInput, {nullable:true})
+    kycApplicantId?: SortOrderInput;
 
-  @Field(() => KYCDetailCountOrderByAggregateInput, { nullable: true })
-  _count?: KYCDetailCountOrderByAggregateInput;
+    @Field(() => SortOrder, {nullable:true})
+    kycStage?: keyof typeof SortOrder;
 
-  @Field(() => KYCDetailMaxOrderByAggregateInput, { nullable: true })
-  _max?: KYCDetailMaxOrderByAggregateInput;
+    @Field(() => KYCDetailCountOrderByAggregateInput, {nullable:true})
+    _count?: KYCDetailCountOrderByAggregateInput;
 
-  @Field(() => KYCDetailMinOrderByAggregateInput, { nullable: true })
-  _min?: KYCDetailMinOrderByAggregateInput;
+    @Field(() => KYCDetailMaxOrderByAggregateInput, {nullable:true})
+    _max?: KYCDetailMaxOrderByAggregateInput;
+
+    @Field(() => KYCDetailMinOrderByAggregateInput, {nullable:true})
+    _min?: KYCDetailMinOrderByAggregateInput;
 }

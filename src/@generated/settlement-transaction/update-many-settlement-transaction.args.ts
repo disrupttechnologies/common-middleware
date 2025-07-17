@@ -6,13 +6,12 @@ import { SettlementTransactionWhereInput } from './settlement-transaction-where.
 
 @ArgsType()
 export class UpdateManySettlementTransactionArgs {
-  @Field(() => SettlementTransactionUpdateManyMutationInput, {
-    nullable: false,
-  })
-  @Type(() => SettlementTransactionUpdateManyMutationInput)
-  data!: SettlementTransactionUpdateManyMutationInput;
 
-  @Field(() => SettlementTransactionWhereInput, { nullable: true })
-  @Type(() => SettlementTransactionWhereInput)
-  where?: SettlementTransactionWhereInput;
+    @Field(() => SettlementTransactionUpdateManyMutationInput, {nullable:false})
+    @Type(() => SettlementTransactionUpdateManyMutationInput)
+    data!: SettlementTransactionUpdateManyMutationInput;
+
+    @Field(() => SettlementTransactionWhereInput, {nullable:true})
+    @Type(() => SettlementTransactionWhereInput)
+    where?: SettlementTransactionWhereInput;
 }

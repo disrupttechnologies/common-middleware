@@ -6,10 +6,8 @@ import { Type } from 'class-transformer';
 
 @ArgsType()
 export class FindUniqueBinanceIncomingTxnOrThrowArgs {
-  @Field(() => BinanceIncomingTxnWhereUniqueInput, { nullable: false })
-  @Type(() => BinanceIncomingTxnWhereUniqueInput)
-  where!: Prisma.AtLeast<
-    BinanceIncomingTxnWhereUniqueInput,
-    'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'
-  >;
+
+    @Field(() => BinanceIncomingTxnWhereUniqueInput, {nullable:false})
+    @Type(() => BinanceIncomingTxnWhereUniqueInput)
+    where!: Prisma.AtLeast<BinanceIncomingTxnWhereUniqueInput, 'id' | 'txnHash' | 'binanceTxnId' | 'settlementTransactionId'>;
 }
