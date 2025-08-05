@@ -85,6 +85,19 @@ export class KycwebhookService {
     const kycApplicantId = data['applicantId'];
     const inspectionId = data['inspectionId'];
 
+    const isKycSuccess = await this.prisma.kYCUser.findFirst({
+      where: {
+        kycApplicantId,
+      },
+      select: {
+        kycStatus: true,
+      },
+    });
+
+    if (isKycSuccess?.kycStatus === 'SUCCESS') {
+      return;
+    }
+
     const record = await this.prisma.kYCUser.update({
       where: {
         kycApplicantId,
@@ -118,10 +131,9 @@ export class KycwebhookService {
         case 'applicantCreated':
           await this.handleApplicantCreated(data);
           break;
-        // case 'applicantPending':
-        //   await this.handleApplicantPending(data);
-
-        //   break;
+        case 'applicantPending':
+          await this.handleApplicantPending(data);
+          break;
       }
     } catch (err) {}
 
